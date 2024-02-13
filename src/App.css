@@ -1,0 +1,112 @@
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif !important;
+}
+
+.swiper {
+  width : 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size : 18px;
+  background: #fff;
+
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+}
+
+.swiper-slide img {
+  display   : block;
+  width     : 100%;
+  height    : 100%;
+  object-fit: cover;
+}
+
+a {
+  text-decoration: none;
+}
+
+.text__color {
+  color: #00b98b !important;
+
+}
+
+.main_Color {
+  background-color: #00b98b !important;
+}
+
+img,
+svg {
+  vertical-align: baseline !important;
+}
+
+a {
+  text-decoration: none !important;
+  color          : #a0a0a0 !important;
+}
+
+.card_img {
+  position         : absolute; 
+  bottom           : 29%;
+  width            : 97.5%;
+  left             : 50%;
+  transform        : translate(-50%, -15%);
+  -webkit-transform: translate(-50%, -15%);
+  -moz-transform   : translate(-50%, -15%);
+  -ms-transform    : translate(-50%, -15%);
+  -o-transform     : translate(-50%, -15%);
+  padding          : 0.4rem 0;
+}
+
+.done__icon {
+  width           : 40px;
+  height          : 40px;
+  background-color: #00b98b;
+  display         : flex;
+  justify-content : center;
+  font-size       : 18px;
+}
+
+.bg-beige {
+  border            : 3PX solid #ECE3CE !important;
+  background-color  : #ECE3CE !important;
+  text-transform    : capitalize !important;
+  transition        : all 1s ease;
+  -webkit-transition: all 1s ease;
+  -moz-transition   : all 1s ease;
+  -ms-transition    : all 1s ease;
+  -o-transition     : all 1s ease;
+}
+
+.bg-beige:hover {
+  background-color: #ECE3CE !important;
+  text-transform  : capitalize !important;
+
+}
+
+.navbar-light .navbar-toggler-icon {
+  background-image: 0 !important;
+
+}
+
+.text-beige {
+  color: #c7af8f !important;
+}.tabs .text-center.active a {
+  border-bottom: 4px solid #00b98b; 
+
+}
+a{
+  cursor: pointer;
+}.tabs {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0; 
+  z-index: 1000;
+  background-color: #fff;
+}
+
+.cost__excluded{
+  color: rgb(164, 12, 12);
+  }

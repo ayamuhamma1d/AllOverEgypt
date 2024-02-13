@@ -1,0 +1,40 @@
+.navbar__bg {
+    background-color: #ffffff !important;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+    color: #fff;
+}
+
+.nav-link:focus,
+.nav-link:hover {
+    color: #fff;
+}
+
+.nav-link {
+    color: #ffffff;
+}
+
+.logo {
+    width: 160px !important;
+}
+
+.main_Color .page__link {
+    color  : #fff !important;
+    padding: 10px 0;
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-image: 1 !important
+}
+
+.navbar-dark .navbar-toggler-icon {
+    background-image: 1 !important
+}
+
+@media screen and (max-width: 600px) {
+    .hidden{
+        display:none !important;
+    }
+}

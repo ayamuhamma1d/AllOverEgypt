@@ -1,0 +1,11 @@
+.feedback img {
+
+    width: auto !important;
+  
+  }.swiper-button-prev, .swiper-rtl .swiper-button-next {
+    left: 100px;
+
+  }
+  .swiper-button-next, .swiper-rtl .swiper-button-prev {
+    right: 100px;
+  }

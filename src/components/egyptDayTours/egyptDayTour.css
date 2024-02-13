@@ -1,0 +1,19 @@
+.egypt_tour_text{
+    font-size: 1.1rem;
+}
+.card_imgLayer{
+    position: absolute;
+    top:34%;
+    width: 100%;
+    left:50%;
+    transform:translateX(-50%) ;
+    -webkit-transform:translateX(-50%) ;
+    -moz-transform:translateX(-50%) ;
+    -ms-transform:translateX(-50%) ;
+    -o-transform:translateX(-50%) ;
+    padding: 0.2rem 0;
+    text-align: center;
+}
+.bg__form{
+    background-color: rgba(220, 246, 237, 0.5);
+}

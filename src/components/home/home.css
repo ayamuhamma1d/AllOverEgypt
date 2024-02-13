@@ -1,0 +1,70 @@
+h1 {
+    font-size: 3.5rem;
+    color    : #000000;
+}
+
+.hero__description {
+    font-size  : 1rem;
+    line-height: 2rem;
+}
+
+.text_read {
+    text-decoration: none;
+    color          : #565656;
+}
+
+.layer {
+    background-image   : url(./../../assets/img/layer.png);
+    width              : 100%;
+    background-repeat  : no-repeat;
+    background-position: 0% 0%;
+}
+
+.icon__color {
+    color    : #00b98b;
+    font-size: 1.1rem;
+}
+
+.main_Color {
+    background-color: #00b98b;
+}
+
+.accordion-button:not(.collapsed) {
+    color           : var(--bs-accordion-active-color);
+    background-color: rgba(220, 246, 237, 0.5) !important;
+    box-shadow      : inset 0 calc(-1 * var(--bs-accordion-border-width)) 0 var(--bs-accordion-border-color);
+}
+
+.whatsapp {
+    position: fixed;
+    left    : 0%;
+    bottom  : 0%;
+    width   : 60px;
+    cursor  : pointer;
+    z-index : 9999;
+    margin:  10px;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.whatsapp-text {
+    position         : absolute;
+    top              : 0%;
+    left             : -2%;
+    transform        : translate(-0%, 0%);
+    opacity          : 0;
+    transition       : opacity 0.3s ease-in-out;
+    background-color : #454646;
+    padding          : 0.3rem;
+    -webkit-transform: translate(-0%, 0%);
+    -moz-transform   : translate(-0%, 0%);
+    -ms-transform    : translate(-0%, 0%);
+    -o-transform     : translate(-0%, 0%);
+    color            : white;
+}
+
+.whatsapp:hover+.whatsapp-text {
+    opacity: 1;
+}

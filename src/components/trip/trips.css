@@ -1,0 +1,49 @@
+.links a{
+font-size :0.9rem; 
+}
+.number__day{
+    font-size: 1.667em;
+  line-height: 1;
+  font-weight: 600;
+  color: #232323;
+  display: block;
+  background: rgba(254,205,16,.6);
+  -webkit-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
+  padding: 4px 0 10px;
+}
+.day{
+    font-size: .778em;
+  font-weight: 400;
+  font-style: italic;
+}
+.period{
+    font-size: 0.9rem;
+    color: rgba(35,35,35,.8);
+    font-weight: 500;
+}
+.text-fees{
+  font-size: 0.9rem;
+}
+.check__btn{
+  font-size: 18px;
+  background:#00b98b;
+  color: #fff;
+  font-weight: 600;
+  border: 1px solid #00b98b;
+}
+.check__btn:hover{
+  font-size: 18px;
+  background:#fff;
+ color: #00b98b;
+  font-weight: 600;
+  border: 1px solid #00b98b;
+}
+.border__green{
+
+  border-left:3px solid #00b98b;
+}
+.table-striped > tbody > tr:nth-of-type(2n+1) > * {
+  --bs-table-color-type: var(--bs-table-striped-color);
+  --bs-table-bg-type: rgba(193, 234, 219, 0.5) !important;
+}
