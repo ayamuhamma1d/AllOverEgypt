@@ -51,7 +51,7 @@ const Trip = () => {
             </div>
             <div className="col-md-4">
               <h5 className="text-slate-900 text-start fw-bold">
-                <span className="text-lg  ">$ 1000   </span>
+                <span className="text-lg  clock">$ </span>
              
               </h5>
             </div>

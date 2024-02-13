@@ -6,9 +6,11 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Home from './components/home/Home';
 import NotFoundPage from './shared/notFoundPage/NotFoundPage';
 import EgyptDayTours from './components/egyptDayTours/EgyptDayTours';
+import EgyptTourPackage from './components/egyptTourPackage/EgyptTourPackage';
 import NileCruise from './components/nileCruise/NileCruise';
 import Trip from './components/trip/Trips';
 import Footer from './shared/footer/Footer';
+import Whatsapp from './shared/whatsapp/Whatsapp';
 function App() {
   return (
     <>
@@ -18,12 +20,14 @@ function App() {
           <Route path="/" element={<Navigate to="/home" />}></Route>
           <Route path="/home" element={<Home />}></Route>
           <Route path="/egyptDayTours" element={<EgyptDayTours />} />
+          <Route path="/egyptTourPackage" element={<EgyptTourPackage />} />
           <Route path="/nileCruise" element={<NileCruise />} />
           <Route path="/trips" element={<Trip />} />
           <Route path="*" element={<NotFoundPage />}></Route>
         </Routes>
         <Footer/>
         <Whatsapp/>
+
       </BrowserRouter>
    
     </>

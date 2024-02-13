@@ -8,19 +8,15 @@ import Card from "react-bootstrap/Card";
 import { FaWhatsapp } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
 import { MdOutlineDone } from "react-icons/md";
-
 import img2 from "../../assets/img/1 (1).jpg";
 import MySwiper from "../slider/MySwiper";
 import DataForm from "../../shared/form/DataForm";
 import Accordions from "../accordion/Accordions";
 
 const EgyptTourPackage = () => {
-  const [showMoreText, setShowMoreText] = useState(false);
   const [showMoreData, setShowMoreData] = useState(false);
 
-  const showMore = () => {
-    setShowMoreText(!showMoreText);
-  };
+
 
   const showMoreTour = () => {
     setShowMoreData(!showMoreData);
