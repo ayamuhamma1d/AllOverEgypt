@@ -47,3 +47,10 @@ font-size :0.9rem;
   --bs-table-color-type: var(--bs-table-striped-color);
   --bs-table-bg-type: rgba(193, 234, 219, 0.5) !important;
 }
+.form__label{
+  font-size: 0.9rem !important;
+}
+.trip__form{
+  width: 85%;
+  border: 2px solid #00b98b;
+}

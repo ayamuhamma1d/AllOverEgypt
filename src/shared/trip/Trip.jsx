@@ -29,9 +29,9 @@ const Trip = () => {
   }, []);
 
   return (
-    <div className="row g-5 flex-wrap justify-center">
+    <div className="row g-4 flex-wrap justify-center">
       {tripData.map((trip) => (
-        <div key={trip.id} className="col-md-3">
+        <div key={trip.id} className="col-md-3 mb-5">
           <Link to="">
             <img src={trip.image} alt={trip.tripTitle} className="w-100" />
           </Link>

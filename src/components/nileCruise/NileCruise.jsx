@@ -77,15 +77,15 @@ function nileCruise() {
         <Container>
           <h2 className="mb-4 text__color text-center fw-bold">
 
-          Egypt Nile Cruise Packages
+            Egypt Nile Cruise Packages
           </h2>
           <p className="text-center mb-5">
-          If you’re worried about $$, Allover Egypt Nile Cruise has tailored a variety of different packages depending on your budget.
+            If you’re worried about $$, Allover Egypt Nile Cruise has tailored a variety of different packages depending on your budget.
           </p>
- 
-      
-            <Trip />
-   
+
+
+          <Trip />
+
         </Container>
       </section>
       <section className="py-4 text-center bg__form ">
@@ -190,7 +190,7 @@ function nileCruise() {
           <Accordions />
         </Container>
       </section>
-   
+
     </>
   )
 }

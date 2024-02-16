@@ -17,9 +17,26 @@ import { db } from './../../components/config/firebase';
 import Table from 'react-bootstrap/Table';
 import { IoIosCheckmarkCircle } from "react-icons/io";
 import { IoCloseCircle } from "react-icons/io5";
+import DataForm from "../../shared/form/DataForm";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Select from 'react-select';
+import SelectCountryList from 'react-select-country-list';
 import "./../trip/trips.css";
 const Trip = () => {
     const [activeTab, setActiveTab] = useState("overview");
+    const countryOptions = [
+        { value: 'us', label: 'United States' },
+    ];
+    const [selectedCountry, setSelectedCountry] = useState(null);
+    const [countryCode, setCountryCode] = useState('');
+    const handleCountryChange = (value) => {
+        setSelectedCountry(value);
+        setCountryCode(value?.value || '');
+    };
+    const handleCountryCodeChange = (event) => {
+        setCountryCode(event.target.value);
+    };
     useEffect(() => {
         const fetchData = async () => {
 
@@ -387,13 +404,43 @@ const Trip = () => {
                         </div>
                         <div className="row" id="cost" >
                             <div className="col-md-5">
-                                <div className="d-flex align-items-center">
-                                    <IoIosCheckmarkCircle className="me-2 fs-5 text__color" />  What's Included
+                                <div className="d-flex align-items-center mb-3">
+                                    <h5 className="fw-bold"><IoIosCheckmarkCircle className="me-2 fs-5 text__color" />  What's Included</h5>
+
                                 </div>
+                                <div className="cost__include">
+                                    <div className="d-flex a mb-3">
+                                                                          <IoIosCheckmarkCircle className="me-2 fs-5 text__color opacity-45 mb-3" />  Accommodation for 3 nights on a 5-star superior cruise on full board
+                                        
+                                    </div>
+                                    <div className="d-flex a mb-3">
+                                     <IoIosCheckmarkCircle className="me-2 fs-5 text__color opacity-45 mb-3" />  All mentioned transfers by a private air-conditioned vehicle
+                                    
+                                    </div>
+                                    <div className="d-flex a mb-3">
+                                                                      <IoIosCheckmarkCircle className="me-2 fs-5 text__color opacity-45 mb-3" />All your tours and excursions
+                                    
+                                    </div>
+                                </div>
+
                             </div>
                             <div className="col-md-5">
-                                <div className="d-flex align-items-center">
-                                    <IoCloseCircle className="me-2 fs-5 cost__excluded" />        What's excluded
+                                <div className="d-flex   mb-4">
+<h5>                                    <IoCloseCircle className="me-2 fs-5 cost__excluded" />        What's excluded
+</h5>                                </div>
+                                <div className="cost__include">
+                                    <div className="d-flex  mb-3">
+                                                                       <IoCloseCircle className="me-2 fs-5 cost__excluded opacity-45 mb-3" /> Entry visa for Egypt.
+                                     
+                                    </div>
+                                    <div className="d-flex  mb-3">
+                                                                             <IoCloseCircle className="me-2 fs-5 cost__excluded opacity-45 mb-3" />International & Domestic Flights
+                                     
+                                    </div>
+                                    <div className="d-flex a mb-3">
+                                                                             <IoCloseCircle className="me-2 fs-5 cost__excluded opacity-45 mb-3" />Any Optional tours.
+                                    
+                                    </div>
                                 </div>
                             </div>
 
@@ -402,6 +449,87 @@ const Trip = () => {
 
                 </div>
 
+            </section>
+            <section >
+                <div className="p-5  bg__form trip__form m-auto  mb-5">
+                    <h4 className="mb-4 text__color mb-5 opacity-100 text-black fw-bold">
+                        You can send your enquiry via the form below.{" "}
+                    </h4>
+                    <div className="row justify-content-center align-items-center">
+                        <Form>
+                            <Form.Label className="mb-5  "> Trip name: <span className="ms-2 text-black"> 5 Days – 4 Nights Nile Cruise From Cairo by flight – Solo Traveler	</span> </Form.Label>
+                            <Form.Group className="mb-4" controlId="formBasicName">
+                                <Form.Label className="form__label"> Your name: *</Form.Label>
+                                <Form.Control type="text" placeholder="Enter your name" className="py-3" />
+
+                            </Form.Group>
+                            <Form.Group className="mb-4" controlId="formBasicEmail">
+                                <Form.Label className="form__label"> Your email: * </Form.Label>
+                                <Form.Control type="email" placeholder="Enter email" className="py-3" />
+
+                            </Form.Group>
+                            <div className="row mb-4">
+                                <div className="col-md-6">  <Form.Group className="mb-3" controlId="formBasicCountry">
+                                    <Form.Label className="form__label ">Country </Form.Label>
+                                    <Select
+
+                                        value={selectedCountry}
+                                        onChange={handleCountryChange}
+                                        options={SelectCountryList().getData().map(({ value, label }) => ({
+                                            value,
+                                            label: `${label} (${value})`,
+                                        }))}
+                                        placeholder="Select Country"
+                                    />
+                                </Form.Group></div>
+                                <div className="col-md-6">  <Form.Group controlId="formBasicNumber">
+                                    <Form.Label className="form__label "> Contact number: *  </Form.Label>
+                                    <Form.Control type="number" placeholder="Enter number" />
+
+                                </Form.Group>
+
+                                </div>
+
+                                <div className="col-md-6 ">
+                                    <Form.Group className="mb-3" controlId="formBasicChildren">
+                                        <Form.Label className="form__label "> No. of Adults *  </Form.Label>
+
+                                        <Form.Control type="number" placeholder="Enter your  Number of Adults * " className='py-3' />
+
+                                    </Form.Group>
+                                </div>
+                                <div className="col-md-6 ">
+                                    <Form.Group className="mb-3" controlId="formBasicChildren">
+                                        <Form.Label className="form__label ">No. of Children  </Form.Label>
+
+                                        <Form.Control type="number" placeholder="Enter your Number of Children" className='py-3' />
+
+                                    </Form.Group>
+                                </div>
+
+
+                            </div>
+                            <Form.Group className="mb-4" controlId="formBasicName">
+                                <Form.Label className="form__label">Enquiry Subject:</Form.Label>
+                                <Form.Control type="text" placeholder="Enquiry Subject" className="py-3" />
+
+                            </Form.Group>
+                            <Form.Group className="mb-4" controlId="exampleForm.ControlTextarea1">
+                                <Form.Label className="form__label "> Your Message   </Form.Label>
+
+                                <Form.Control as="textarea" rows={8} placeholder='Enter your Message ' />
+                            </Form.Group>
+                            <Button variant="primary" type="submit" className=' main_Color border-0 rounded-0 py-3 px-5'>
+                                Submit
+                            </Button>
+                        </Form>
+
+
+
+
+
+                    </div>
+                </div>
             </section>
             <section className=" pb-5 offset-md-1">
                 <h2 className=" ">Related trips you might interested in</h2>
@@ -413,8 +541,8 @@ const Trip = () => {
                 </div>
             </section>
 
-    
-        </Container>
+
+        </Container >
     );
 };
 
