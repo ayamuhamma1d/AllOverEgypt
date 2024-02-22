@@ -1,107 +1,121 @@
-import React, { useEffect } from "react";
-import { Swiper as ReactSwiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper";
+import React, { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Pagination, Autoplay } from "swiper";
 import { Link } from "react-router-dom";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import "./swiper.css";
-import img1 from "./../../assets/img/real estate4 (1).jpg";
+import "swiper/swiper.min.css";
+import 'swiper/css/pagination';
 import { FaRegClock } from "react-icons/fa6";
 import { IoLocationOutline } from "react-icons/io5";
-import { db } from './../../components/config/firebase';
-import { collection, getDocs } from "firebase/firestore"; 
+import { db } from '../config/firebase';
+import { collection, getDocs } from "firebase/firestore";
+// import { Pagination } from 'swiper/modules';
+import"./Myswiper.css"
+SwiperCore.use([Pagination, Autoplay]);
 
 const MySwiper = () => {
+  const [tripData, setTripData] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
-
       try {
         const querySnapshot = await getDocs(collection(db, "trips"));
-        querySnapshot.forEach((doc) => {
-          console.log("Document ID:", doc.id);
-          const docId = doc.id;
-          const data = doc.data();
-          console.log("addd", data.tripTitle);
-          return { docId, ...data };
-        });
+        const trips = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+        setTripData(trips);
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
     };
-
     fetchData();
   }, []);
-  return (
-    <>
-      <div className="w-full slider_slide m-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-5 mx-auto ">
-        <ReactSwiper
-          slidesPerView={1}
-          centeredSlides={true}
-          spaceBetween={50}
-          loop={true}
-          navigation={true}
-          autoplay={{
-            delay: 100000,
-            disableOnInteraction: false,
-          }}
-          modules={[Autoplay, Pagination, Navigation]}
-          className="mySwiper"
-          breakpoints={{
-            768: {
-              slidesPerView: 2,
-            },
-            1024: {
-              slidesPerView: 3,
-            },
-          }}
-        >
-          <SwiperSlide key="">
-            <div className="flex slider_small flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100 mb-10">
-              <div>
-                <Link to="">
-                  <img
-                    src={img1}
 
-                    alt=""
-                    className="h-64 object-cover w-full mb-4 sm:h-64 dark:bg-gray-500"
-                  />
+  return (
+    <div className="swiper-container">
+      <Swiper
+        slidesPerView={3}
+        spaceBetween={45}
+        pagination={{
+          clickable: true,
+        }}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+          },
+          768: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+        }}
+        className="mySwiper pointer-event"
+      >
+        {tripData.map((trip) => (
+          <SwiperSlide key={trip.id}>
+            <div className="bg-white shadow rounded-4 mb-5 slider_slide slider_slides ">
+              <Link to={`/trips/${trip.id}`}>
+                <img
+                  src={trip.image}
+                  alt=""
+                  className="w-full mb-2  slider-img rounded-3 slider-image"
+                />
+              </Link>
+              <div className="p-3">
+                <Link to={`/trips/${trip.id}`}>
+                  <h6 className="text-start fw-bold lh-base fst-italic">
+                    {trip.tripTitle}
+                  </h6>
                 </Link>
-                <h6 className="text-start w-100">
-                  12 Days Cairo, Alexandria & Nile Cruise & Hurghada Package
-                </h6>
-                <p className="text-start">
+                <p className="text-start fst-italic mb-3">
                   Enjoy a 12 days private tour including accommodation and
-                  expert tour guide Egyptologist starting with...{" "}
+                  expert tour guide Egyptologist starting with...
                 </p>
-                <hr />
-                <div className="row">
-                  <div className="col-md-8">
-                    <div className="location text-start text-dark ">
-                      <Link className="text-decoration-none text-black">
-                        {" "}
-                        <IoLocationOutline /> Cairo, Giza, Luxor
+                <hr className="text__color" />
+                <div className="row align-items-center">
+                  <div className="col-md-12">
+                    <div className="location text-start text-dark">
+                      <Link className="text-decoration-none text-black d-flex align-items-center mb-2">
+                        <IoLocationOutline className="me-1 text-beige" />{" "}
+                        <span className="fs-6 fst-italic">{trip.destination.join(', ')}</span>
                       </Link>
                     </div>
-                    <div className="day text-start">
-                      <Link className="text-decoration-none text-black ">
-                        <FaRegClock /> 5 Days
+                   
+                  </div>
+                  <div className="col-md-7">
+                  <div className="day text-start">
+                      <Link className="text-decoration-none text-black d-flex align-items-center mb-2">
+                        <FaRegClock className="me-2 text-beige fs-6" />{" "}
+                        <span>{trip.duration} Days</span>
                       </Link>
                     </div>
                   </div>
-                  <div className="col-md-4">
-                    <h4 className="text-slate-900 text-start fw-bold">
-                      <span className="text-lg text-beige ">$ </span>
-                      4000
-                    </h4>
+                  <div className="col-md-5">
+                    {trip && trip.pricePackages && trip.pricePackages.length > 0 && (
+                      <h5 className="text-slate-900 fw-bold mb-0 text-start">
+                        <span className="text-lg text-beige">$ </span> {
+                          Math.max(
+                            ...trip.pricePackages.flatMap(pricePackage =>
+                              pricePackage.options.map(option => option.price)
+                            )
+                          )
+                        }
+
+                      </h5>
+                    )}
                   </div>
                 </div>
               </div>
             </div>
           </SwiperSlide>
-        </ReactSwiper>
-      </div>
-    </>
+        ))}
+      </Swiper>
+    </div>
   );
 };
 

@@ -1,5 +1,24 @@
+
 body {
   font-family: Georgia, 'Times New Roman', Times, serif !important;
+}
+:root {
+  --primary-color  : #198a6dca;
+  --secondary-color: #bca37fba;
+  --font-family    : Georgia, 'Times New Roman', Times, serif;
+}
+.secondary-color {
+  background-color: #d3b6a06c !important;
+}
+.form-control:focus {
+  color           : var(--bs-body-color);
+  background-color: var(--bs-body-bg);
+  border-color    : #198a6ea2;
+  outline         : 0;
+  box-shadow      : 0 0 0 .25rem rgba(204, 213, 208, 0.25);
+}
+.shared-slider-img{
+  cursor: pointer;
 }
 
 .swiper {
@@ -29,7 +48,7 @@ a {
 }
 
 .text__color {
-  color: #00b98b !important;
+  color: var(--primary-color) !important;
 
 }
 
@@ -48,22 +67,21 @@ a {
 }
 
 .card_img {
-  position         : absolute; 
-  bottom           : 29%;
-  width            : 97.5%;
-  left             : 50%;
-  transform        : translate(-50%, -15%);
-  -webkit-transform: translate(-50%, -15%);
-  -moz-transform   : translate(-50%, -15%);
-  -ms-transform    : translate(-50%, -15%);
-  -o-transform     : translate(-50%, -15%);
+  width            : 100%;
+  transform        : translateY(-250%);
+  -webkit-transform: translateY(-250%);
+  -moz-transform   : translateY(-250%);
+  -ms-transform    : translateY(-250%);
+  -o-transform     : translateY(-250%);
+  display          : block;
   padding          : 0.4rem 0;
+  background-color : #158166de !important;
 }
 
 .done__icon {
   width           : 40px;
   height          : 40px;
-  background-color: #00b98b;
+  background-color: #d3b6a0b0 ;
   display         : flex;
   justify-content : center;
   font-size       : 18px;
@@ -79,7 +97,12 @@ a {
   -ms-transition    : all 1s ease;
   -o-transition     : all 1s ease;
 }
+.useful-links a:hover{ transition:all 0.5s ease-in-out ; -webkit-transition:all 0.5s ease-in-out ; -moz-transition:all 0.5s ease-in-out ; -ms-transition:all 0.5s ease-in-out ; -o-transition:all 0.5s ease-in-out ;
+}
+.useful-links a:hover{
+ color: #00b98b !important;
 
+}
 .bg-beige:hover {
   background-color: #ECE3CE !important;
   text-transform  : capitalize !important;
@@ -93,20 +116,30 @@ a {
 
 .text-beige {
   color: #c7af8f !important;
-}.tabs .text-center.active a {
-  border-bottom: 4px solid #00b98b; 
+}
+
+.tabs .text-center.active a {
+  border-bottom: 4px solid #00b98b;
 
 }
-a{
+
+a {
   cursor: pointer;
-}.tabs {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0; 
-  z-index: 1000;
+}
+
+.tabs {
+  position        : -webkit-sticky;
+  position        : sticky;
+  top             : 0;
+  z-index         : 1000;
   background-color: #fff;
 }
 
-.cost__excluded{
+.cost__excluded {
   color: rgb(164, 12, 12);
-  }
+}
+.link-position span:hover ,.icon-style:hover{
+color: #00b98b !important;
+}
+.link-position span ,.icon-style{ transition:all 0.5s ease-in-out ; -webkit-transition:all 0.5s ease-in-out ; -moz-transition:all 0.5s ease-in-out ; -ms-transition:all 0.5s ease-in-out ; -o-transition:all 0.5s ease-in-out ;
+}

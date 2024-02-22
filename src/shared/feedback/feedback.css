@@ -1,11 +1,13 @@
-.feedback img {
 
-    width: auto !important;
-  
-  }.swiper-button-prev, .swiper-rtl .swiper-button-next {
-    left: 100px;
+  .feedback img {
+    width: 60% !important;
+    cursor: pointer;
+    margin: auto;
+}
+@media only screen and (max-width: 768px) {
+  .feedback img {
 
-  }
-  .swiper-button-next, .swiper-rtl .swiper-button-prev {
-    right: 100px;
-  }
+    width: 100% !important;
+}
+
+}

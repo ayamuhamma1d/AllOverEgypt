@@ -3,17 +3,26 @@
 }
 .card_imgLayer{
     position: absolute;
-    top:34%;
+    top:0%;
     width: 100%;
-    left:50%;
-    transform:translateX(-50%) ;
-    -webkit-transform:translateX(-50%) ;
-    -moz-transform:translateX(-50%) ;
-    -ms-transform:translateX(-50%) ;
-    -o-transform:translateX(-50%) ;
+    height: 100%;
+    left:0%;
+    bottom: 0%;
+    background-color: #8e774c75 !important;
+    opacity: 0;
     padding: 0.2rem 0;
-    text-align: center;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+}
+.card_imgLayer:hover{
+
+    opacity: 1;
+
 }
 .bg__form{
     background-color: rgba(220, 246, 237, 0.5);
 }
+.header-color{    color                  : #45a18ab7 !important;}

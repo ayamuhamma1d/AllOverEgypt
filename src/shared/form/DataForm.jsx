@@ -89,7 +89,7 @@ const DataForm = () => {
 
                 <Form.Control as="textarea" rows={3} placeholder='Your Notes (optional)' />
               </Form.Group>
-              <Button variant="primary" type="submit" className='w-100 main_Color border-0 rounded-0 py-2'>
+              <Button variant="primary" type="submit" className='w-100 main_Color border-0 rounded-0 py-2 mb-4'>
                 Submit
               </Button>
             </Form>

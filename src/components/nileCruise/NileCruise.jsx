@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
-import Slider from "../swiper/Slider";
+import Slider from '../sliderReview/Slider';
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
@@ -10,10 +10,16 @@ import { MdOutlineDone } from "react-icons/md";
 import DataForm from "../../shared/form/DataForm";
 import Accordions from "../accordion/Accordions";
 import Trip from "../../shared/trip/Trip";
-
+import { IoMdArrowDropright } from "react-icons/io";
+import img1 from "./../../assets/img/b (5).jpg";
+import img2 from "./../../assets/img/b (2).jpg";
+import img3 from "./../../assets/img/b (1).jpg";
+import img4 from "./../../assets/img/b (4).jpg";
+import img5 from "./../../assets/img/b (3).jpg";
 function nileCruise() {
   const [showMoreText, setShowMoreText] = useState(false);
   const [showMoreData, setShowMoreData] = useState(false);
+  const images = [img1, img2, img3, img4, img5];
 
   const showMore = () => {
     setShowMoreText(!showMoreText);
@@ -24,39 +30,32 @@ function nileCruise() {
   };
   return (
     <>
-      <section id="banner" className="py-5">
-        <Container>
-          <Breadcrumb>
-            <Breadcrumb.Item className="text-black text-decoration-none page__link">
-              Home
-            </Breadcrumb.Item>
-            <Breadcrumb.Item active>Egypt Nile Cruise</Breadcrumb.Item>
-          </Breadcrumb>
-          <div className="header ">
-            <div className="row align-items-center ">
-              <div className="col-md-6">
-                <h1 className="mb-4">Egypt Nile Cruise </h1>
-                <p className="text-muted egypt_tour_text mb-5">
-                  If you are a big fan of river cruises, then Egypt is your destination. Allover Egypt will arrange a Nile Cruise to you and your beloved ones through Luxor to Aswan.                </p>
-              </div>
-              <div className="col-md-6">
-                <Slider />
-              </div>
+      <Container className="py-5">
+        <div className="links d-flex align-content-center align-items-center  mb-4">
+          <Link to="/" className="text-decoration-none">Home</Link>
+          <IoMdArrowDropright className="mx-2" />
+          <span>Nile Cruise</span>
+        </div>
+        <section className="header">
+          <div className="row">
+            <div className="col-md-6 mb-5">
+              <h1 className="mb-4">Egypt Nile Cruise</h1>
+              <p className="text-muted egypt_tour_text mb-5">
+                Explore the wonders of Egypt with a Nile Cruise. Allover Egypt offers unforgettable journeys from Luxor to Aswan, providing you and your loved ones with an extraordinary experience.
+              </p>
+              <h6 className="text-muted mb-5 ext__color">
+                Request a customized itinerary from our experts at Allover Egypt Tour Packages.
+              </h6>
+              <Link to="/contact" className=" shadow-lg px-4 py-3 my-3 secondary-color text-black rounded-pill ">Request Itinerary</Link>
             </div>
-
-            <h6 className="text__color">
-
-              Request your customized itinerary from Allover Egypt tour Packages experts.
-
-            </h6>
-            <Link className="btn shadow-lg btn-warning  px-3 py-2 my-3 text-black">
-              Try it free
-            </Link>
+            <div className="col-md-6 ">
+              <Slider images={images}/>
+            </div>
           </div>
-        </Container>
-      </section>
-      <section id="info">
-        <Container>
+        </section>
+
+        <section id="info" className="py-5">
+
           <h2 className="mb-4  text__color text-center fw-bold">
             The Best Allover Egypt Nile Cruise          </h2>
           <p className="text-muted  mb-5">
@@ -71,10 +70,10 @@ function nileCruise() {
 
             Passing through Edfu and Kom Ombo, you’ll get to explore the Temple of Kom Ombo, and the Temple of Horus, the god of kingship and the sky.          </p>
 
-        </Container>
-      </section>
+  
+    </section >
       <section className="py-5">
-        <Container>
+     
           <h2 className="mb-4 text__color text-center fw-bold">
 
             Egypt Nile Cruise Packages
@@ -86,7 +85,7 @@ function nileCruise() {
 
           <Trip />
 
-        </Container>
+      
       </section>
       <section className="py-4 text-center bg__form ">
         <Container>
@@ -115,7 +114,7 @@ function nileCruise() {
         </Container>
       </section>
       <section className="py-5">
-        <Container>
+
           <h2 className="mb-4 text__color fw-bold text-center">Why Book With Us</h2>
           <p>
             Booking with Allover Egypt Tours is the perfect way to ensure that
@@ -182,15 +181,15 @@ function nileCruise() {
               </div>
             </div>
           </div>
-        </Container>
+
       </section>
       <section id="Accordion" className="py-5">
-        <Container>
+ 
           <h2 className="mb-4 text__color fw-bold text-center">Allover Egypt Tours FAQs</h2>
           <Accordions />
-        </Container>
+      
       </section>
-
+      </Container >
     </>
   )
 }
