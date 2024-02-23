@@ -93,19 +93,19 @@ const DataForm = () => {
         </div>
         <div className="col-md-4 text-center">
           <Form.Group className="mb-3" controlId="formBasicChildren">
-            <Form.Control type="number" placeholder="No. of Children" className='rounded-0' />
+            <Form.Control type="date" placeholder="No. of Children" className='rounded-0' />
 
           </Form.Group>
         </div>
         <div className="col-md-6">
           <Form.Group className="mb-3" controlId="formBasicDate">
-            <Form.Control type="date" placeholder="Arrival Date" className='rounded-0' />
+            <Form.Control type="date" placeholder="ArrivalDate" className='rounded-0' />
 
           </Form.Group>
         </div>
         <div className="col-md-6">
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Control type="date" placeholder="Departure Date" className='rounded-0' />
+            <Form.Control type="date" placeholder="DepartureDate" className='rounded-0' />
 
           </Form.Group>
         </div>
