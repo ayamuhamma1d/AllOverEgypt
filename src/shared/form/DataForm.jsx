@@ -22,7 +22,7 @@ const DataForm = () => {
   console.log('====================================');
 
     emailjs
-      .sendForm('service_emo6idn', 'template_1tt393g', form.current, {
+      .sendForm('service_emo6idn', 'template_wcelipj', form.current, {
         publicKey: 'W5cNBtIj8PwMe8xv7',
       })
       .then(
@@ -68,6 +68,7 @@ const DataForm = () => {
               placeholder="Select Country"
               className={errors.country ? "is-invalid" : ""}
               onChange={(value) => handleCountryChange(value)}
+              name='country'
             />
             {errors.country && <span className="text-danger">Please select a country</span>}
           </Form.Group>
@@ -81,31 +82,32 @@ const DataForm = () => {
               defaultCountry="RU"
               {...register("phoneNumber", { required: true })}
               className='form-control'
+              name='phoneNumber'
             />
             {errors.phoneNumber && <span className="text-danger">Please enter a phone number</span>}
           </Form.Group>
         </div>
         <div className="col-md-4 text-center">
           <Form.Group className="mb-3" controlId="formBasicAdults">
-            <Form.Control type="number" placeholder="No. of Adults" className='rounded-0' />
+            <Form.Control type="number" placeholder="No. of Adults" className='rounded-0' name='numberAdult'/>
 
           </Form.Group>
         </div>
         <div className="col-md-4 text-center">
           <Form.Group className="mb-3" controlId="formBasicChildren">
-            <Form.Control type="date" placeholder="No. of Children" className='rounded-0' />
+            <Form.Control type="number" placeholder="No. of Children" className='rounded-0' name='numberChild'/>
 
           </Form.Group>
         </div>
         <div className="col-md-6">
           <Form.Group className="mb-3" controlId="formBasicDate">
-            <Form.Control type="date" placeholder="ArrivalDate" className='rounded-0' />
+            <Form.Control type="date" placeholder="Arrival Date" className='rounded-0' name='ADate' />
 
           </Form.Group>
         </div>
         <div className="col-md-6">
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Control type="date" placeholder="DepartureDate" className='rounded-0' />
+            <Form.Control type="date" placeholder="Departure Date" className='rounded-0' name='DDate' />
 
           </Form.Group>
         </div>
@@ -113,7 +115,7 @@ const DataForm = () => {
 
 
       <Form.Group className="mb-3">
-        <Form.Control as="textarea" rows={3} placeholder='Your Notes (optional)' {...register("notes")} />
+        <Form.Control as="textarea" rows={3} placeholder='Your Notes (optional)' {...register("notes")} name='note'/>
       </Form.Group>
       <Button variant="primary" type="submit" className='w-100 secondary-color shadow text-black border-0 rounded-0 py-2 mb-4'>
         Submit
