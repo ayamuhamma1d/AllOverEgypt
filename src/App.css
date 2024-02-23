@@ -108,7 +108,11 @@ a {
   text-transform  : capitalize !important;
 
 }
+.PhoneInputInput {
 
+  border: none;
+
+}
 .navbar-light .navbar-toggler-icon {
   background-image: 0 !important;
 
