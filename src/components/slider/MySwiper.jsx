@@ -8,12 +8,15 @@ import { FaRegClock } from "react-icons/fa6";
 import { IoLocationOutline } from "react-icons/io5";
 import { db } from '../config/firebase';
 import { collection, getDocs } from "firebase/firestore";
-// import { Pagination } from 'swiper/modules';
 import"./Myswiper.css"
 SwiperCore.use([Pagination, Autoplay]);
 
 const MySwiper = () => {
   const [tripData, setTripData] = useState([]);
+
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -59,16 +62,17 @@ const MySwiper = () => {
         {tripData.map((trip) => (
           <SwiperSlide key={trip.id}>
             <div className="bg-white shadow rounded-4 mb-5 slider_slide slider_slides ">
-              <Link to={`/trips/${trip.id}`}>
+              <Link to={`/trips/${trip.id}`} onClick={scrollToTop}>
                 <img
                   src={trip.image}
                   alt=""
                   className="w-full mb-2  slider-img rounded-3 slider-image"
+                  onClick={scrollToTop}
                 />
               </Link>
               <div className="p-3">
-                <Link to={`/trips/${trip.id}`}>
-                  <h6 className="text-start fw-bold lh-base fst-italic">
+                <Link to={`/trips/${trip.id}`} onClick={scrollToTop}>
+                  <h6 className="text-start fw-bold lh-base fst-italic" onClick={scrollToTop}>
                     {trip.tripTitle}
                   </h6>
                 </Link>
@@ -85,10 +89,9 @@ const MySwiper = () => {
                         <span className="fs-6 fst-italic">{trip.destination.join(', ')}</span>
                       </Link>
                     </div>
-                   
                   </div>
                   <div className="col-md-7">
-                  <div className="day text-start">
+                    <div className="day text-start">
                       <Link className="text-decoration-none text-black d-flex align-items-center mb-2">
                         <FaRegClock className="me-2 text-beige fs-6" />{" "}
                         <span>{trip.duration} Days</span>
@@ -105,7 +108,6 @@ const MySwiper = () => {
                             )
                           )
                         }
-
                       </h5>
                     )}
                   </div>

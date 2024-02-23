@@ -30,6 +30,7 @@ const Trip = () => {
     const [countryCode, setCountryCode] = useState('');
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         const fetchData = async () => {
             try {
                 const tripDocRef = doc(db, "trips", id);

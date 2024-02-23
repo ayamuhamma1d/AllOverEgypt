@@ -10,8 +10,12 @@ import "./trip.css";
 const Trip = () => {
   const [tripData, setTripData] = useState([]);
   const [lowestPrice, setLowestPrice] = useState(null);
+  const scrollToTop=()=>{
+    window.scrollTo(0, 0);
 
+  }
   useEffect(() => {
+    window.scrollTo(0, 0);
     const fetchData = async () => {
       try {
         const querySnapshot = await getDocs(collection(db, "trips"));
@@ -34,10 +38,10 @@ const Trip = () => {
     <div className="row g-4 flex-wrap justify-center">
       {tripData.map((trip) => (
         <div key={trip.id} className="col-md-3 mb-5">
-          <Link to={`/trips/${trip.id}`}>
+          <Link to={`/trips/${trip.id}`} onClick={scrollToTop}>
             <img src={trip.image} alt={trip.tripTitle} className="w-100 trip__img" />
           </Link>
-          <Link to={`/trips/${trip.id}`}>             
+          <Link to={`/trips/${trip.id}`} onClick={scrollToTop}>             
             <h6 className="text-start fw-bold lh-base fst-italic text__color">
                   {trip.tripTitle}
                 </h6></Link>
