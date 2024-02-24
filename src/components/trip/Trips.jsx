@@ -135,7 +135,6 @@ const Trip = () => {
                                         <div className="d-flex  align-items-center text-fees">
                                             <MdOutlineDone className="secondary-color-text  me-2" />
                                             <p className="mb-0 me-2"> Best Price Guaranteed</p>{" "}
-                                            <FaCircleQuestion className="text__color  me-2" />
                                         </div>
                                     </div>
                                     <div className="col-md-12 mt-3 ">
@@ -145,7 +144,6 @@ const Trip = () => {
                                                 {" "}
                                                 Professional Local Guide
                                             </p>{" "}
-                                            <FaCircleQuestion className="text__color  me-2" />
                                         </div>
                                     </div>
                                     <div className="col-md-12 mt-3 ">
@@ -158,7 +156,6 @@ const Trip = () => {
                                         <div className="d-flex  align-items-center text-fees">
                                             <MdOutlineDone className="secondary-color-text  me-2" />
                                             <p className="mb-0 me-2"> No Over Price</p>{" "}
-                                            <FaCircleQuestion className="text__color  me-2" />
                                         </div>
                                     </div>
                                     <button className="check__btn py-3">inquire now</button>
