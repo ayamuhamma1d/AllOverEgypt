@@ -8,7 +8,8 @@ import { FaRegClock } from "react-icons/fa6";
 import { IoLocationOutline } from "react-icons/io5";
 import { db } from '../config/firebase';
 import { collection, getDocs } from "firebase/firestore";
-import"./Myswiper.css"
+import"./Myswiper.css";
+
 SwiperCore.use([Pagination, Autoplay]);
 
 const MySwiper = () => {
@@ -77,8 +78,7 @@ const MySwiper = () => {
                   </h6>
                 </Link>
                 <p className="text-start fst-italic mb-3">
-                  Enjoy a 12 days private tour including accommodation and
-                  expert tour guide Egyptologist starting with...
+              {trip.overview}
                 </p>
                 <hr className="text__color" />
                 <div className="row align-items-center">

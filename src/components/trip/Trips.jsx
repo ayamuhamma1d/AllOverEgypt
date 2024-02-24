@@ -90,7 +90,7 @@ const Trip = () => {
                                 </figure>
                                 <div className="row align-items-center lh-1">
                                     <div className="col-md-10">
-                                        <h5 className=" fw-bold">{tripData.tripTitle} </h5>
+                                        <h1 className=" fw-bold fs-5">{tripData.tripTitle} </h1>
                                     </div>
                                     <div className="col-md-2 ">
                                         <div className="days mt-2  justify-content-center  ">
