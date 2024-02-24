@@ -117,7 +117,7 @@ const Trip = () => {
                                         <>
                                             <h4 className="fw-bold">
                                                 <span className="text-lg text-beige ">$ </span>  {
-                                                    Math.max(
+                                                    Math.min(
                                                         ...tripData.pricePackages.flatMap(pricePackage =>
                                                             pricePackage.options.map(option => option.price)
                                                         )
