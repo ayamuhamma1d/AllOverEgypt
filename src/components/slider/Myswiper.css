@@ -5,7 +5,9 @@
 
   color: #eae0da !important;
 }
-
+.slider_slides{
+  height: 450px;
+}
 .swiper-button-prev,
 .swiper-rtl .swiper-button-next {
   left: 0px !important;

@@ -68,7 +68,6 @@ const EgyptDayTours = () => {
                   ?! Then, don’t miss out our spectacular Egypt day tours...
                 </p>
               </div>
-
               <div className="col-md-12"> <p>
                 Allover Egypt day tours offer a unique and unforgettable way to
                 explore the many wonders of this fascinating country. From the

@@ -2,22 +2,19 @@ import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination, Autoplay } from "swiper";
 import { Link } from "react-router-dom";
-import "swiper/swiper.min.css";
-import 'swiper/css/pagination';
 import { FaRegClock } from "react-icons/fa6";
 import { IoLocationOutline } from "react-icons/io5";
 import { db } from '../config/firebase';
 import { collection, getDocs } from "firebase/firestore";
 import"./Myswiper.css";
 
+import "swiper/swiper.min.css";
+import 'swiper/css/pagination';
+
 SwiperCore.use([Pagination, Autoplay]);
 
 const MySwiper = () => {
   const [tripData, setTripData] = useState([]);
-
-  const scrollToTop = () => {
-    window.scrollTo(0, 0);
-  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -58,58 +55,59 @@ const MySwiper = () => {
             slidesPerView: 3,
           },
         }}
-        className="mySwiper pointer-event"
+        className="mySwiper"
       >
         {tripData.map((trip) => (
           <SwiperSlide key={trip.id}>
-            <div className="bg-white shadow rounded-4 mb-5 slider_slide slider_slides ">
-              <Link to={`/trips/${trip.id}`} onClick={scrollToTop}>
-                <img
-                  src={trip.image}
-                  alt=""
-                  className="w-full mb-2  slider-img rounded-3 slider-image"
-                  onClick={scrollToTop}
-                />
-              </Link>
-              <div className="p-3">
-                <Link to={`/trips/${trip.id}`} onClick={scrollToTop}>
-                  <h6 className="text-start fw-bold lh-base fst-italic" onClick={scrollToTop}>
-                    {trip.tripTitle}
-                  </h6>
+            <div className="swiper-slide-container">
+              <div className="bg-white shadow rounded-4 mb-5 slider_slide slider_slides ">
+                <Link to={`/trips/${trip.id}`} className="flex-grow-1">
+                  <img
+                    src={trip.image}
+                    alt={trip.tripTitle}
+                    className="w-full mb-2 slider-img rounded-3 slider-image"
+                  />
                 </Link>
-                <p className="text-start fst-italic mb-3">
-              {trip.overview}
-                </p>
-                <hr className="text__color" />
-                <div className="row align-items-center">
-                  <div className="col-md-12">
-                    <div className="location text-start text-dark">
-                      <Link className="text-decoration-none text-black d-flex align-items-center mb-2">
-                        <IoLocationOutline className="me-1 text-beige" />{" "}
-                        <span className="fs-6 fst-italic">{trip.destination.join(', ')}</span>
-                      </Link>
+                <div className="p-3">
+                  <Link to={`/trips/${trip.id}`}>
+                    <h6 className="text-start fw-bold lh-base fst-italic">
+                      {trip.tripTitle}
+                    </h6>
+                  </Link>
+                  <p className="text-start fst-italic mb-3">
+                    {trip.overview.split(" ").slice(0, 16).join(" ")}
+                  </p>
+                  <hr className="text__color" />
+                  <div className="row align-items-center">
+                    <div className="col-md-12">
+                      <div className="location text-start text-dark">
+                        <Link className="text-decoration-none text-black d-flex align-items-center mb-2">
+                          <IoLocationOutline className="me-1 text-beige" />{" "}
+                          <span className="fs-6 fst-italic">{trip.destination.join(', ')}</span>
+                        </Link>
+                      </div>
                     </div>
-                  </div>
-                  <div className="col-md-7">
-                    <div className="day text-start">
-                      <Link className="text-decoration-none text-black d-flex align-items-center mb-2">
-                        <FaRegClock className="me-2 text-beige fs-6" />{" "}
-                        <span>{trip.duration} Days</span>
-                      </Link>
+                    <div className="col-md-7">
+                      <div className="day text-start">
+                        <Link className="text-decoration-none text-black d-flex align-items-center mb-2">
+                          <FaRegClock className="me-2 text-beige fs-6" />{" "}
+                          <span>{trip.duration} Days</span>
+                        </Link>
+                      </div>
                     </div>
-                  </div>
-                  <div className="col-md-5">
-                    {trip && trip.pricePackages && trip.pricePackages.length > 0 && (
-                      <h5 className="text-slate-900 fw-bold mb-0 text-start">
-                        <span className="text-lg text-beige">$ </span> {
-                          Math.max(
-                            ...trip.pricePackages.flatMap(pricePackage =>
-                              pricePackage.options.map(option => option.price)
+                    <div className="col-md-5">
+                      {trip && trip.pricePackages && trip.pricePackages.length > 0 && (
+                        <h5 className="text-slate-900 fw-bold mb-0 text-start">
+                          <span className="text-lg text-beige">$ </span> {
+                            Math.max(
+                              ...trip.pricePackages.flatMap(pricePackage =>
+                                pricePackage.options.map(option => option.price)
+                              )
                             )
-                          )
-                        }
-                      </h5>
-                    )}
+                          }
+                        </h5>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>

@@ -9,12 +9,10 @@ import PhoneInput from 'react-phone-number-input';
 import emailjs from '@emailjs/browser';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 const DataForm = () => {
   const { register, handleSubmit, formState: { errors }, setValue, watch } = useForm();
   const selectedCountry = watch("country");
   const form = useRef();
-
   const sendEmail = (data) => {
     emailjs
     .sendForm('service_emo6idn', 'template_wcelipj', form.current, {
@@ -29,7 +27,6 @@ const DataForm = () => {
         toast.error("Error sending data!");
       });
   };
-
   const handleCountryChange = (value) => {
     setValue("country", value);
   };
