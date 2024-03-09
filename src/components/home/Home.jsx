@@ -63,7 +63,7 @@ const Home = () => {
           <div className="hero-img  ">
             <div className="layer w-100 h-100 py-5 ">
               <div className="hero-content p-5 d-flex h-100 my-5 justify-content-center align-items-center flex-column">
-                <h1 className="mb-4 text-white">Travel to Egypt</h1>
+                <h1 className="mb-4 text-white text-center">Travel to Egypt</h1>
                 <p className=" hero__description mb-5 text-white text-center px-5">
                   If you’re willing to enjoy your holiday, Egypt has something for everyone. Egypt is a fascinating country, full of incredible ancient sights and equally interesting modern ones!
                 </p>
