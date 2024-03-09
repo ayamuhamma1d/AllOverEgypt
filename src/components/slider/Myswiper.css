@@ -3,20 +3,14 @@
 #reviewSwiper .swiper-button-prev,
 .swiper-button-next {
 
-  color: #eae0da !important;
+  color: #318fab !important;
 }
 .slider_slides{
-  height: 450px;
-}
-.swiper-button-prev,
-.swiper-rtl .swiper-button-next {
-  left: 0px !important;
-
-
+  height: 435px;
 }
 
 .swiper-button-prev {
-  color: #eae0da !important;
+  color: #318fab !important;
 }
 
 .swiper-button-prev {
@@ -69,18 +63,18 @@
   -moz-transition: all 0.5s ease-in-out;
   -ms-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
-  color: #158166de !important;
+  color: #318fab !important;
 }
 
 .slider_slide p{
 font-size: 0.8rem;
 }
 .slider_slide h6:hover {
-  color: #00b98b !important;
+  color: #4abee1 !important;
 }
 .swiper-pagination-bullet-active {
   opacity: var(--swiper-pagination-bullet-opacity, 1);
-  background:#00b98b !important;
+  background:#318fab !important;
 }
 .swiper-slide {
   display: flex;
@@ -95,7 +89,7 @@ font-size: 0.8rem;
 
 .slider-image {
 
-  height: 230px !important;
+  height: 190px !important;
  
   object-fit: cover;
 }

@@ -6,16 +6,19 @@ import { FaRegClock } from "react-icons/fa6";
 import { IoLocationOutline } from "react-icons/io5";
 import { db } from '../config/firebase';
 import { collection, getDocs } from "firebase/firestore";
-import"./Myswiper.css";
+import "./Myswiper.css";
 
 import "swiper/swiper.min.css";
 import 'swiper/css/pagination';
 
 SwiperCore.use([Pagination, Autoplay]);
 
-const MySwiper = () => {
+const MySwiper = (props) => {
   const [tripData, setTripData] = useState([]);
 
+  console.log('====================================');
+  console.log(props.tripType);
+  console.log('====================================');
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -24,13 +27,25 @@ const MySwiper = () => {
           id: doc.id,
           ...doc.data()
         }));
-        setTripData(trips);
+        let filteredTrips = trips;
+
+        if (props.tripType != undefined && props.tripType) {
+          filteredTrips = filteredTrips.filter((trip) => trip.type.includes(props.tripType));
+          setTripData(filteredTrips);
+        }
+        else {
+          setTripData(filteredTrips);
+
+        }
+
+
+
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
     };
     fetchData();
-  }, []);
+  }, [props.tripType]);
 
   return (
     <div className="swiper-container">
@@ -79,23 +94,18 @@ const MySwiper = () => {
                   </p>
                   <hr className="text__color" />
                   <div className="row align-items-center">
-                    <div className="col-md-12">
+                    <div className="col-md-8">
                       <div className="location text-start text-dark">
-                        <Link className="text-decoration-none text-black d-flex align-items-center mb-2">
+                        <Link className="text-decoration-none text-black d-flex align-items-center mb-2" to={{
+                          pathname: '/filter',
+                          search: `?destination=${trip.destination[0]}`
+                        }}>
                           <IoLocationOutline className="me-1 text-beige" />{" "}
-                          <span className="fs-6 fst-italic">{trip.destination.join(', ')}</span>
+                          <span className="fs-6 fst-italic">{trip.destination[0]}</span>
                         </Link>
                       </div>
                     </div>
-                    <div className="col-md-7">
-                      <div className="day text-start">
-                        <Link className="text-decoration-none text-black d-flex align-items-center mb-2">
-                          <FaRegClock className="me-2 text-beige fs-6" />{" "}
-                          <span>{trip.duration} Days</span>
-                        </Link>
-                      </div>
-                    </div>
-                    <div className="col-md-5">
+                    <div className="col-md-4">
                       {trip && trip.pricePackages && trip.pricePackages.length > 0 && (
                         <h5 className="text-slate-900 fw-bold mb-0 text-start">
                           <span className="text-lg text-beige">$ </span> {
@@ -108,6 +118,15 @@ const MySwiper = () => {
                         </h5>
                       )}
                     </div>
+                    <div className="col-md-7">
+                      <div className="day text-start">
+                        <Link className="text-decoration-none text-black d-flex align-items-center mb-2">
+                          <FaRegClock className="me-2 text-beige fs-6" />{" "}
+                          <span>{trip.duration} Days</span>
+                        </Link>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
               </div>

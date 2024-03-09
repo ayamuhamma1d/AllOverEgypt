@@ -12,9 +12,9 @@ const Feedback = () => {
   return (
     <>
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper feedback" >
-        <SwiperSlide><img src={feed1} alt=""  /></SwiperSlide>
-        <SwiperSlide><img src={feed2} alt=""  /></SwiperSlide>
-        <SwiperSlide><img src={feed3} alt=""  /></SwiperSlide>
+        <SwiperSlide><img src={feed1} alt="review1" className='rounded-4'  /></SwiperSlide>
+        <SwiperSlide><img src={feed2} alt="review1" className='rounded-4' /></SwiperSlide>
+        <SwiperSlide><img src={feed3} alt="review3" className='rounded-4' /></SwiperSlide>
 
       </Swiper>
     </>

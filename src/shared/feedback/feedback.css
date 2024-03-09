@@ -1,13 +1,36 @@
-
-  .feedback img {
-    width: 60% !important;
-    cursor: pointer;
-    margin: auto;
+.feedback img {
+  width : 60% !important;
+  cursor: pointer;
+  margin: auto;
 }
+
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+  right: 200px;
+  left : auto;
+}
+
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+  left : 200px;
+  right: auto;
+}
+
 @media only screen and (max-width: 768px) {
   .feedback img {
 
     width: 100% !important;
-}
+  }
 
+  .swiper-button-next,
+  .swiper-rtl .swiper-button-prev {
+    right: 10px;
+    left : auto;
+  }
+
+  .swiper-button-prev,
+  .swiper-rtl .swiper-button-next {
+    left : 10px;
+    right: auto;
+  }
 }

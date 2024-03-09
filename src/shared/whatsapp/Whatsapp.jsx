@@ -12,7 +12,6 @@ const Whatsapp = () => {
       >
         <div className="position-relative">
           <img className="whatsapp" src={whatsapp} alt="WhatsApp" />
-          <div className="whatsapp-text">WhatsApp Us</div>
         </div>
       </a>
     </div>

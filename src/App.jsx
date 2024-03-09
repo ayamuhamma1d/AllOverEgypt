@@ -13,25 +13,27 @@ import Trip from './components/trip/Trips';
 import Footer from './shared/footer/Footer';
 import Whatsapp from './shared/whatsapp/Whatsapp';
 import './App.css'
+import Filter from './shared/filter/Filter';
 function App() {
   return (
     <>
       <BrowserRouter>
-      <CustomNavbar />
-      <Routes>
+        <CustomNavbar />
+        <Routes>
           <Route path="/" element={<Navigate to="/home" />}></Route>
           <Route path="/home" element={<Home />}></Route>
           <Route path="/egyptDayTours" element={<EgyptDayTours />} />
           <Route path="/egyptTourPackage" element={<EgyptTourPackage />} />
           <Route path="/nileCruise" element={<NileCruise />} />
           <Route path="/trips/:id" element={<Trip />} />
+          <Route path="/filter" element={<Filter />} />
           <Route path="*" element={<NotFoundPage />}></Route>
         </Routes>
-        <Footer/>
-        <Whatsapp/>
+        <Footer />
+        <Whatsapp />
 
       </BrowserRouter>
-   
+
     </>
   )
 }

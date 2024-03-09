@@ -8,6 +8,7 @@ import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
 import emailjs from '@emailjs/browser';
 import { ToastContainer, toast } from 'react-toastify';
+import { FaStarOfLife } from "react-icons/fa6";
 import 'react-toastify/dist/ReactToastify.css';
 const DataForm = () => {
   const { register, handleSubmit, formState: { errors }, setValue, watch } = useForm();
@@ -32,38 +33,19 @@ const DataForm = () => {
   };
 
   return (
-    <Form ref={form} onSubmit={handleSubmit(sendEmail)}>
-      <div className="row justify-content-between">
-        <div className="col-md-4 text-center">
+    <Form ref={form} onSubmit={handleSubmit(sendEmail)} className='bg-white p-5 shadow rounded-3 w-75 m-auto'>
+      <div className="row">
+        <div className="col-md-6 ">
           <Form.Group className="mb-3">
-            <Form.Control type="text" placeholder="Name" className='rounded-0' {...register("name", { required: true })} />
+            <label htmlFor="name" className='mb-2 '>Name <FaStarOfLife className='form-icon-star text-danger me-1' /></label>
+            <Form.Control type="text" placeholder="Name" className='  rounded-2'{...register("name", { required: true })} />
             {errors.name && <span className="text-danger ">Name is required</span>}
           </Form.Group>
         </div>
-        <div className="col-md-4 text-center">
+        <div className="col-md-6 ">
           <Form.Group className="mb-3">
-            <Form.Control type="email" placeholder="Email" className='rounded-0' {...register("email", { required: true, pattern: /^\S+@\S+$/i })} />
-            {errors.email && <span className="text-danger">Please enter a valid email</span>}
-          </Form.Group>
-        </div>
-        <div className="col-md-4 text-center">
-          <Form.Group className="mb-3" controlId="formBasicCountry">
-            <Select
-              {...register("country")}
-              options={SelectCountryList().getData().map(({ value, label }) => ({
-                value,
-                label: `${label} (${value})`,
-              }))}
-              placeholder="Select Country"
-              className={errors.country ? "is-invalid" : ""}
-              onChange={(value) => handleCountryChange(value)}
-              name='country'
-            />
-            {errors.country && <span className="text-danger">Please select a country</span>}
-          </Form.Group>
-        </div>
-        <div className="col-md-4 text-center">
-          <Form.Group className="mb-3">
+          <label htmlFor="PhoneNumber" className='mb-2 '>PhoneNumber <FaStarOfLife className='form-icon-star text-danger me-1' /></label>
+
             <PhoneInput
               international
               countryCallingCodeEditable={false}
@@ -72,34 +54,25 @@ const DataForm = () => {
               className='form-control'
               name='phoneNumber'
             />
-            {errors.phoneNumber && <span className="text-danger">Please enter a phone number</span>}
+            {errors.phoneNumber && <span className="text-danger"> phone number</span>}
           </Form.Group>
         </div>
-        <div className="col-md-4 text-center">
-          <Form.Group className="mb-3" controlId="formBasicAdults">
-            <Form.Control type="number" placeholder="No. of Adults" className='rounded-0' name='numberAdult' />
+        <div className="col-md-12 ">
+          <Form.Group className="mb-3">
+          <label htmlFor="email" className='mb-2  w-100'>Email <FaStarOfLife className='form-icon-star text-danger me-1' /></label>
+
+            <Form.Control type="email" placeholder="Email" className=' form-control  rounded-2' {...register("email", { required: true, pattern: /^\S+@\S+$/i })} />
+            {errors.email && <span className="text-danger ">Please enter a valid email</span>}
           </Form.Group>
         </div>
-        <div className="col-md-4 text-center">
-          <Form.Group className="mb-3" controlId="formBasicChildren">
-            <Form.Control type="number" placeholder="No. of Children" className='rounded-0' name='numberChild' />
-          </Form.Group>
-        </div>
-        <div className="col-md-6">
-          <Form.Group className="mb-3" controlId="formBasicDate">
-            <Form.Control type="date" placeholder="Arrival Date" className='rounded-0' name='ADate' />
-          </Form.Group>
-        </div>
-        <div className="col-md-6">
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Control type="date" placeholder="Departure Date" className='rounded-0' name='DDate' />
-          </Form.Group>
-        </div>
+       
+   
+      
       </div>
       <Form.Group className="mb-3">
-        <Form.Control as="textarea" rows={3} placeholder='Your Notes (optional)' {...register("notes")} name='note' />
+        <Form.Control as="textarea" rows={5} placeholder='Your Notes (optional)' {...register("notes")} name='note' />
       </Form.Group>
-      <Button variant="primary" type="submit" className='w-100 secondary-color shadow text-black border-0 rounded-0 py-2 mb-4'>
+      <Button variant="primary" type="submit" className='w-100 main_Color text-white shadow text-black border-0  py-2 mb-4'>
         Submit
       </Button>
       <ToastContainer position="bottom-right" />

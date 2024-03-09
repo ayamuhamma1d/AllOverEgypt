@@ -1,5 +1,5 @@
 h1 {
-    font-size: 2.5rem;
+    font-size: 4rem;
     font-family            : 'Gambetta', serif;
     letter-spacing         : -3px;
     transition             : 700ms ease;
@@ -14,6 +14,7 @@ h1:hover {
     
 }
 h2 {
+    
     color                  : var(--primary-color);
 }
 
@@ -25,24 +26,18 @@ h2 {
 
 .text_read {
     text-decoration: none;
-   color: #158166de !important;
+   color: #318fab !important;
 }
 
 .secondary-color-text{
-    color                  : #BCA37F;
+    color                  : #318fab !important;
 }
 .icon-style{
     font-size: 1.2rem;
 }
-.layer {
-    background-image   : url(./../../assets/img/layer.png);
-    width              : 100%;
-    background-repeat  : no-repeat;
-    background-position: 0% 0%;
-}
 
 .icon__color {
-    color    : var( --primary-color);
+ 
     font-size: 1.5rem;
 }
 
@@ -88,4 +83,34 @@ h2 {
 
 .whatsapp:hover+.whatsapp-text {
     opacity: 1;
+}
+.hero-img{
+    background-image: url("./../../../src/assets/img/AdobeStock_268469589_Preview1.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+   background-size: cover;
+}
+.layer{
+    background-color:rgba(0, 0, 0, 0.6);
+}
+
+.tour-package-img{
+    background-image: url("./../../../src//assets/img/wepik-export-20240226104819ittN.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+   background-size: cover;
+}
+.tour-package-border {
+border:2px solid #318fab !important;
+}
+.tour-package-border p{
+font-size: 12px;
+color: #318fab;
+}
+
+.tour-package-border p:hover{
+    color: #7bc3d7;
+}
+.nav-text{
+    font-size: 0.9rem !important;
 }

@@ -1,5 +1,5 @@
 .clock{
-    color: rgba(59, 134, 108, 0.5);
+    color: #318fab;
 }
 .trip__img:hover{
     transition: all 0.7s ease-in-out;
@@ -14,4 +14,10 @@
     -moz-transform: scale(1.02);
     -ms-transform: scale(1.02);
     -o-transform: scale(1.02);
+}
+.trip-overview{
+    font-size: 0.8rem;
+}
+.trip-overview-title{
+    font-size: 0.8rem;
 }

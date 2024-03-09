@@ -8,7 +8,7 @@
     height: 100%;
     left:0%;
     bottom: 0%;
-    background-color: #8e774c75 !important;
+    background-color: rgba(64, 135, 179, 0.457) !important;
     opacity: 0;
     padding: 0.2rem 0;
     transition: all 0.5s;
@@ -23,6 +23,5 @@
 
 }
 .bg__form{
-    background-color: rgba(220, 246, 237, 0.5);
+    background-color: rgba(142, 191, 222, 0.938);
 }
-.header-color{    color                  : #45a18ab7 !important;}

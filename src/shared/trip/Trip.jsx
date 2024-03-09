@@ -3,16 +3,13 @@ import { Link } from "react-router-dom";
 import { FaRegClock } from "react-icons/fa6";
 import { db } from "./../../components/config/firebase";
 import { collection, getDocs } from "firebase/firestore"
-import { IoLocationOutline } from "react-icons/io5";
-;
 import "./trip.css";
 
-const Trip = () => {
+const Trip = (props) => {
   const [tripData, setTripData] = useState([]);
   const [lowestPrice, setLowestPrice] = useState(null);
   const scrollToTop=()=>{
     window.scrollTo(0, 0);
-
   }
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -23,7 +20,15 @@ const Trip = () => {
           id: doc.id,
           ...doc.data()
         }));
-        setTripData(trips);
+        let filteredTrips = trips;
+
+        if (props.tripType!=undefined && props.tripType) {
+            filteredTrips = filteredTrips.filter((trip) => trip.type.includes(props.tripType));
+            setTripData(filteredTrips);
+        }
+       else{
+        setTripData(filteredTrips);
+       }
         const prices = trips.map((trip) => parseFloat(trip.price));
         const minPrice = Math.min(...prices);
         setLowestPrice(minPrice);
@@ -35,7 +40,7 @@ const Trip = () => {
   }, []);
 
   return (
-    <div className="row g-4 flex-wrap justify-center">
+    <div className="row g-4 flex-wrap justify-center ">
       {tripData.map((trip) => (
         <div key={trip.id} className="col-md-3 mb-5">
           <Link to={`/trips/${trip.id}`} onClick={scrollToTop}>

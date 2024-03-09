@@ -21,6 +21,7 @@ import Form from 'react-bootstrap/Form';
 import Select from 'react-select';
 import SelectCountryList from 'react-select-country-list';
 import "./../trip/trips.css";
+
 const Trip = () => {
     const { id } = useParams();
     const [tripData, setTripData] = useState({});
@@ -64,33 +65,32 @@ const Trip = () => {
         console.log(tab);
     };
     return (
-        <Container className="pt-4">
-            <div className="links d-flex align-content-center align-items-center offset-md-1 mb-4 flex-wrap">
-                <Link to="/">Home</Link>
-                <IoMdArrowDropright className="mx-2" />
-                <Link to="/about">Destination</Link>
-                {tripData && tripData.destination && Array.isArray(tripData.destination) && (
-                    tripData.destination.map((des, index) => (
-                        <div key={index}>
-                            <IoMdArrowDropright className="mx-2" />
-                            <Link to="/about">{des}</Link>
-                        </div>
-                    ))
-                )}
-                <IoMdArrowDropright className="mx-2" />
-                <Link to="/about">{tripData && tripData.tripTitle}</Link>
-            </div>
+        <Container className="pt-4 my-5">
+         <div className="links pt-4 d-flex align-content-center align-items-center  mb-4 flex-wrap">
+    <Link to="/">Home</Link>
+    <IoMdArrowDropright className="mx-2" />
+    <Link to="/filter">Destination</Link>
+    <IoMdArrowDropright className="mx-2" />
+    {tripData && tripData.destination && (
+        <Link    to={{
+            pathname: '/filter',
+            search: `?destination=${tripData.destination[0]}`
+          }}>
+            {tripData.destination[0]}
+        </Link>
+    )}
+</div>
             <div >
                 <div className="row  ">
-                    <div className="offset-md-1 col-md-7">
+                    <div className=" col-md-8">
                         <div className="header">
                             <div className="row align-content-center  justify-content-center mb-5">
                                 <figure>
                                     <img className="w-100 " src={tripData.image} alt="" />
                                 </figure>
-                                <div className="row align-items-center lh-1">
+                                <div className="row  lh-1">
                                     <div className="col-md-10">
-                                        <h1 className=" fw-bold trip-title ">{tripData.tripTitle} </h1>
+                                        <h1 className=" fw-bold  fs-2  ">{tripData.tripTitle} </h1>
                                     </div>
                                     <div className="col-md-2 ">
                                         <div className="days mt-2  justify-content-center  ">
@@ -109,7 +109,7 @@ const Trip = () => {
                         </div>
                     </div>
                     <div className="col-md-4">
-                        <div className="bg-white shadow-lg p-5 ">
+                        <div className=" shadow-lg p-5 ">
                             <div className="row">
                                 <div className="col-md-12">
                                     <p className="period mb-1">From</p>

@@ -2,9 +2,11 @@ import Accordion from 'react-bootstrap/Accordion';
 
 function Accordions() {
   return (
+
+
     <Accordion defaultActiveKey="0" flush>
-      <Accordion.Item eventKey="0">
-        <Accordion.Header> Are international flights included in your packages?</Accordion.Header>
+      <Accordion.Item eventKey="0" >
+        <Accordion.Header > Are international flights included in your packages?</Accordion.Header>
         <Accordion.Body>
           No, only domestic flights are included in our packages.
         </Accordion.Body>
@@ -42,6 +44,7 @@ function Accordions() {
         </Accordion.Body>
       </Accordion.Item>
     </Accordion>
+
   );
 }
 
