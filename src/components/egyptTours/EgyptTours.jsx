@@ -23,15 +23,19 @@ const EgyptTours = () => {
                 className="mySwiper"
                 breakpoints={{
                     0: {
-                      slidesPerView: 1.1,
+                      slidesPerView: 1.3,
                       spaceBetween:10,
 
                     },
                     768: {
                       slidesPerView: 1.5,
                     },
+                    975:{
+                        slidesPerView: 2.5,
+
+                    },
                     1024: {
-                      slidesPerView: 3,
+                      slidesPerView: 2.3,
                     },
                   }}
             >

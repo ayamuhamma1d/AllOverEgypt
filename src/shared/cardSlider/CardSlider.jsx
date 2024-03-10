@@ -26,7 +26,7 @@ const CardSlider = () => {
         }}
         breakpoints={{
           0: {
-            slidesPerView: 3,
+            slidesPerView: 2.5,
           },
           768: {
             slidesPerView: 5,
@@ -38,7 +38,7 @@ const CardSlider = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-          <div className="card-slider position-relative">
+          <div className="card-slider position-relative container">
           <Link to={{
                 pathname: '/filter',
                 search: `?destination=cairo`
