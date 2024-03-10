@@ -37,6 +37,9 @@ const EgyptTours = () => {
                     1024: {
                       slidesPerView: 2.3,
                     },
+                    1025: {
+                      slidesPerView: 3,
+                    },
                   }}
             >
                 {[
