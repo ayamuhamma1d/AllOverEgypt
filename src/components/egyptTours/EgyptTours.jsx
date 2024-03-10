@@ -34,12 +34,11 @@ const EgyptTours = () => {
                         slidesPerView: 2.5,
 
                     },
+                 
                     1024: {
-                      slidesPerView: 2.3,
+                      slidesPerView:3,
                     },
-                    1025: {
-                      slidesPerView: 3,
-                    },
+                  
                   }}
             >
                 {[
