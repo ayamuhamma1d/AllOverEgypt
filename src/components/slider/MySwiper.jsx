@@ -67,16 +67,16 @@ const MySwiper = (props) => {
             slidesPerView: 1.5,
             spaceBetween:20
           },
-          480:{
-            slidesPerView: 2.5,
-            spaceBetween:20
+          500:{
+            slidesPerView: 2.1,
+            spaceBetween:10
           },
           768: {
             slidesPerView: 2.8,
             spaceBetween:10
           },
           1024: {
-            slidesPerView: 3.2,
+            slidesPerView: 3.5,
           },
           1300: {
             slidesPerView: 4,

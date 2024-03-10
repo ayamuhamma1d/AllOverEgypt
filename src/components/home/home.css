@@ -159,13 +159,14 @@ color: #318fab;
     .hero{
         display: none;
     }
-    .shadow-sec-none{
+    /* .shadow-sec-none{
         box-shadow: none !important;
-    }
+    } */
     .tour-packages-section{
         margin-bottom: 0 !important;
         padding-bottom: 0  !important;
-    }    .card-slider{
+    }  
+      .card-slider{
      
         padding: 0  !important;
     }.container-width{
@@ -193,4 +194,10 @@ color: #318fab;
       .container-width{
         width: 95% !important;
      }
+     .tour-package-img{
+        background-image: url("./../../../src//assets/img/wepik-export-20240226104819ittN.jpeg");
+        background-repeat: no-repeat;
+        background-position: 100%;
+       background-size: cover;
+    }
 }

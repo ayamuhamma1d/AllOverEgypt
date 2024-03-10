@@ -98,11 +98,11 @@ const Home = () => {
             </div>
           </section>
           <section className='card-slider my-5 tour-package-img px-5 py-3 shadow-inner shadow-sec-none rounded-3 ' id='cardSliderSec'>
-            <h2 className='mb-4 fw-bold  text-center '>Egypt Top Destinations</h2>
+            <h2 className='mb-4 fw-bold  text-center  pt-4 '>Egypt Top Destinations</h2>
             <CardSlider />
           </section>
           <section id='Best-Selling' className=" Best-Selling tour-package-img shadow-inner shadow-sec-none rounded-3 p-5 my-5">
-            <h2 className="mb-3 text-center fw-bold text__color">Best-Selling Egypt Tour Packages</h2>
+            <h2 className=" text-center fw-bold text__color pt-5">Best-Selling Egypt Tour Packages</h2>
             <MySwiper />
             <div className="text-center mt-3">
               <Link to={{
@@ -116,7 +116,7 @@ const Home = () => {
           <section id='Best-Selling' className=" Best-Selling  tour-package-img shadow-inner shadow-sec-none rounded-3 p-5 my-5">
             <div className="row align-items-center">
               <div className="col-md-3">
-                <h2 className='secondary-color-text text-center fw-bold fs-4'>Allover Egypt Offers</h2>
+                <h2 className='secondary-color-text text-center fw-bold fs-4 py-4' >Allover Egypt Offers</h2>
               </div>
               <div className="col-md-9">
                 <Nav fill variant="tabs" defaultActiveKey="EgyptTour" onSelect={handleClick} >

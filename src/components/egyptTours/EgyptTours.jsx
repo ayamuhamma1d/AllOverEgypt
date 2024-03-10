@@ -48,8 +48,8 @@ const EgyptTours = () => {
                     { img: img8, route: "LuxorDayTours", title: "Day Tours", description: "Explore Egypt with our Private Day Tours, whether you're staying for one day or a few.", card: "card3", text: "Choose to stay in the Capital or explore other cities with our guided tours.", packages: ['cairo', 'giza', 'alexandria', 'luxor'] },
                     { img: img11, route: "nileCruise", title: "Nile Cruise", description: "Embark on an unforgettable journey down the Nile with our Egypt tour packages.", card: "card4", text: "Experience domestic airfare, hotels, transfers, sightseeing tours, meals, and expertly guided excursions all in one bundle.", packages: ['4', '5', '7', '8'] }
                 ].map((item, index) => (
-                    <SwiperSlide key={index}>
-                        <Card className="border-0 h-100 bg-white shadow   rounded-top-5">
+                    <SwiperSlide key={index} >
+                        <Card className="border-0 h-100 bg-white shadow-sm rounded-3 mb-3   rounded-top-5 ">
                         <Link className="fw-bold text-muted tour-packages-title" to={{
                                     pathname: '/filter',
                                     search: `?type=${item.route}`
