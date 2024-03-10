@@ -102,9 +102,10 @@ h2 {
 }
 .tour-package-border {
 border:2px solid #318fab !important;
+padding: 8px;
 }
 .tour-package-border p{
-font-size: 12px;
+font-size: 0.8rem;
 color: #318fab;
 }
 
@@ -113,4 +114,19 @@ color: #318fab;
 }
 .nav-text{
     font-size: 0.9rem !important;
+}
+.egypt-tour-sec{
+    width: 50%;
+    margin: auto;
+    gap: 10px;
+}
+@media screen and (max-width: 768px) {
+    .hero{
+        display: none;
+    }
+    .shadow-sec-none{
+        box-shadow: none !important;
+    }
+    .container-width{
+    }
 }

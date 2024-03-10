@@ -22,6 +22,7 @@ import CardSlider from '../../shared/cardSlider/CardSlider.jsx';
 import Nav from 'react-bootstrap/Nav';
 import './home.css';
 import WhyBook from '../whyBook/WhyBook.jsx';
+import EgyptTours from '../egyptTours/EgyptTours.jsx';
 
 const Home = () => {
   const [content, setContent] = useState(<MySwiper tripType='StandardFourPackages' />);
@@ -75,12 +76,9 @@ const Home = () => {
         </section>
 
 
-        <Container>
-          <section className='card-slider my-5  tour-package-img px-5 py-3 shadow-inner rounded-3 ' id='cardSliderSec'>
-            <h2 className='mb-4 fw-bold  text-center '>Egypt Top Destinations</h2>
-            <CardSlider />
-          </section>
-          <section className="tour-packages-section my-5   rounded-3  tour-package-img shadow-inner">
+        <Container className="container-width">
+        
+          <section className="tour-packages-section my-5   rounded-3  tour-package-img shadow-inner shadow-sec-none">
 
             <div className="row justify-content-between align-items-center p-5">
               <div className="col-md-4">
@@ -93,53 +91,17 @@ const Home = () => {
                   meet your needs                </p>
 
               </div>
+       
               <div className="col-md-8"><div className=" position-relative d-flex flex-wrap row gy-4 gx-3">
-                {[
-                  { img: img10, route: "StandardFourPackages", title: "Tour Packages", description: "Allover Egypt offers mesmerizing Private Egypt Tour Packages to fill your stay with joy.", card: "card1", text: "Discover the magical essence of Egypt's great history and explore our selection based on your interests.", packages: ['HoneyMoonT.P', 'DiamondT.P', 'FamilyT.P', 'SoloTourPackages', 'Budget'] },
-                  { img: img8, route: "LuxorDayTours", title: "Day Tours", description: "Explore Egypt with our Private Day Tours, whether you're staying for one day or a few.", card: "card3", text: "Choose to stay in the Capital or explore other cities with our guided tours.", packages: ['cairo', 'giza', 'alexandria', 'luxor', 'aswan'] },
-                  { img: img11, route: "nileCruise", title: "Nile Cruise", description: "Embark on an unforgettable journey down the Nile with our Egypt tour packages.", card: "card4", text: "Experience domestic airfare, hotels, transfers, sightseeing tours, meals, and expertly guided excursions all in one bundle.", packages: ['4', '5', '7', '8', '10'] }
-                ].map((item, index) => (
-                  <div key={index} className="col-md-4   ">
-                    <Card className=" border-0  h-100  shadow-inner ">
-                      <Card.Img variant="top" src={item.img} alt={item.title} className=" position-relative" />
-                      <Card.Body className='text-center'>
-                        <Link className=" fw-bold text-muted tour-packages-title  " to={{
-                          pathname: '/filter',
-                          search: `?type=${item.route}`
-                        }}><h5 className='mb-3 fw-bold  '>{item.title}</h5></Link>
-                        <div className="row g-2 mb-2 justify-content-center align-items-center">
-                          {
-                            item.packages.map((type, index2) => (
-                              <div className="col-md-6 ">
-                                <div className="  tour-package-border ">
-                                  <Link
-                                    className=""
-                                    to={{
-                                      pathname: '/filter',
-                                      search: `?type=${type}`
-                                    }}
-                                  > <p className='mb-0 text-capitalize'> {index === 2 ? `${type}D-${parseInt(type) - 1}N` : type.split(" ").slice(0, 1).join(" ")}</p> </Link>
-                                </div>
-                              </div>
-                            ))
-                          }
-                        </div>
-                        <Link
-                          className="fw-bold "
-                          to={{
-                            pathname: '/filter',
-                            search: `?packages=${item.route}`
-                          }}
-                        >
-                          View More
-                        </Link>                      </Card.Body>
-                    </Card>
-                  </div>
-                ))}
+              <EgyptTours/>
               </div></div>
             </div>
           </section>
-          <section id='Best-Selling' className=" Best-Selling tour-package-img shadow-inner rounded-3 p-5 my-5">
+          <section className='card-slider my-5  tour-package-img px-5 py-3 shadow-inner shadow-sec-none rounded-3 ' id='cardSliderSec'>
+            <h2 className='mb-4 fw-bold  text-center '>Egypt Top Destinations</h2>
+            <CardSlider />
+          </section>
+          <section id='Best-Selling' className=" Best-Selling tour-package-img shadow-inner shadow-sec-none rounded-3 p-5 my-5">
             <h2 className="mb-3 text-center fw-bold text__color">Best-Selling Egypt Tour Packages</h2>
             <MySwiper />
             <div className="text-center mt-3">
@@ -151,7 +113,7 @@ const Home = () => {
               </Link>
             </div>
           </section>
-          <section id='Best-Selling' className=" Best-Selling tour-package-img shadow-inner rounded-3 p-5 my-5">
+          <section id='Best-Selling' className=" Best-Selling tour-package-img shadow-inner shadow-sec-none rounded-3 p-5 my-5">
             <div className="row align-items-center">
               <div className="col-md-3">
                 <h2 className='secondary-color-text text-center fw-bold fs-4'>Allover Egypt Offers</h2>
@@ -174,7 +136,7 @@ const Home = () => {
               {content}
             </div>
           </section>
-          <section className="py-5 tour-package-img  rounded-3 shadow-inner">
+          <section className="py-5 tour-package-img  rounded-3 shadow-inner shadow-sec-none">
             <WhyBook />
           </section>
           <section id="faq-section" className='py-5'>
