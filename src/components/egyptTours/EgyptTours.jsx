@@ -34,8 +34,10 @@ const EgyptTours = () => {
                         slidesPerView: 2.5,
 
                     },
-                 
                     1024: {
+                        slidesPerView: 2.5,
+                      },
+                      1200: {
                       slidesPerView:3,
                     },
                   
