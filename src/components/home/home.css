@@ -104,10 +104,14 @@ h2 {
    background-size: cover;
 }
 .tour-package-border {
-border:2px solid #318fab !important;
-padding: 8px;
-
-}
+    border:2px solid #318fab !important;
+    
+    height: 30px;
+    text-align:center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
 .tour-package-border p{
 font-size: 0.7rem;
 color: #318fab;
