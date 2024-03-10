@@ -29,7 +29,7 @@ const CardSlider = () => {
             slidesPerView: 2.5,
           },
           768: {
-            slidesPerView: 5,
+            slidesPerView: 4.5,
           },
           1024: {
             slidesPerView: 7,
@@ -38,7 +38,7 @@ const CardSlider = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-          <div className="card-slider position-relative container">
+          <div className="card-slider position-relative">
           <Link to={{
                 pathname: '/filter',
                 search: `?destination=cairo`
