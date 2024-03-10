@@ -150,7 +150,12 @@ color: #318fab;
         margin: 0rem !important;
         padding: 0rem  !important;
       }
-
+      .tour-package-img{
+        background-image: url("./../../../src//assets/img/wepik-export-20240226104819ittN.jpeg");
+        background-repeat: no-repeat;
+        background-position: 100%;
+       background-size: cover;
+    }
 }
 @media screen and (max-width: 768px) {
     root{
