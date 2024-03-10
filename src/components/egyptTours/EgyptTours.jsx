@@ -23,7 +23,7 @@ const EgyptTours = () => {
                 className="mySwiper"
                 breakpoints={{
                     0: {
-                      slidesPerView: 1.3,
+                      slidesPerView: 1.5,
                       spaceBetween:8,
 
                     },
@@ -50,7 +50,12 @@ const EgyptTours = () => {
                 ].map((item, index) => (
                     <SwiperSlide key={index}>
                         <Card className="border-0 h-100 bg-white shadow   rounded-top-5">
-                            <Card.Img variant="top" src={item.img} alt={item.title} className="position-relative rounded-top-5" />
+                        <Link className="fw-bold text-muted tour-packages-title" to={{
+                                    pathname: '/filter',
+                                    search: `?type=${item.route}`
+                                }}>
+                                    
+                            <Card.Img variant="top" src={item.img} alt={item.title} className="position-relative rounded-top-5" /> </Link>
                             <Card.Body className='text-center'>
                                 <Link className="fw-bold text-muted tour-packages-title" to={{
                                     pathname: '/filter',
