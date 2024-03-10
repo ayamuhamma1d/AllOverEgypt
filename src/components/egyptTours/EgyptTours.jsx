@@ -24,14 +24,14 @@ const EgyptTours = () => {
                 breakpoints={{
                     0: {
                       slidesPerView: 1.3,
-                      spaceBetween:10,
+                      spaceBetween:8,
 
                     },
                     768: {
                       slidesPerView: 1.5,
                     },
                     975:{
-                        slidesPerView: 2.5,
+                        slidesPerView: 2.2,
 
                     },
                     1024: {

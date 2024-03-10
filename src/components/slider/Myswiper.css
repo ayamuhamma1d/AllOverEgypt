@@ -6,7 +6,7 @@
   color: #318fab !important;
 }
 .slider_slides{
-  height: 435px;
+  height: 405px;
 }
 
 .swiper-button-prev {
@@ -93,7 +93,16 @@ font-size: 0.8rem;
  
   object-fit: cover;
 }
+.card-width-1{
+  width: 60%;
 
+}
+.card-width-2{
+  width: 40%;  
+}
+.card-width-3{
+  width: 100%;  
+}
 @media only screen and (max-width: 768px) {
 
   .slider_small {
@@ -112,4 +121,8 @@ font-size: 0.8rem;
   .link-position{
     justify-content: center;
   }
+  .slider_slides{
+    height: 400px;
+  }
+  
 }

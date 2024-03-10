@@ -31,10 +31,13 @@ const MySwiper = (props) => {
 
         if (props.tripType != undefined && props.tripType) {
           filteredTrips = filteredTrips.filter((trip) => trip.type.includes(props.tripType));
+          filteredTrips = filteredTrips.sort((a, b) => parseInt(a.duration) - parseInt(b.duration));
           setTripData(filteredTrips);
         }
         else {
+          filteredTrips = filteredTrips.sort((a, b) => parseInt(a.duration) - parseInt(b.duration));
           setTripData(filteredTrips);
+ 
 
         }
 
@@ -50,8 +53,8 @@ const MySwiper = (props) => {
   return (
     <div className="swiper-container">
       <Swiper
-        slidesPerView={3}
-        spaceBetween={45}
+        slidesPerView={4}
+        spaceBetween={15}
         pagination={{
           clickable: true,
         }}
@@ -61,13 +64,17 @@ const MySwiper = (props) => {
         }}
         breakpoints={{
           0: {
-            slidesPerView: 1,
+            slidesPerView: 1.5,
+            spaceBetween:20
           },
           768: {
-            slidesPerView: 2,
+            slidesPerView: 2.8,
           },
           1024: {
-            slidesPerView: 3,
+            slidesPerView: 3.2,
+          },
+          1300: {
+            slidesPerView: 4,
           },
         }}
         className="mySwiper"
@@ -75,26 +82,26 @@ const MySwiper = (props) => {
         {tripData.map((trip) => (
           <SwiperSlide key={trip.id}>
             <div className="swiper-slide-container">
-              <div className="bg-white shadow rounded-4 mb-5 slider_slide slider_slides ">
+              <div className="bg-white shadow rounded-top-5 rounded-bottom mb-5 slider_slide slider_slides ">
                 <Link to={`/trips/${trip.id}`} className="flex-grow-1">
                   <img
                     src={trip.image}
                     alt={trip.tripTitle}
-                    className="w-full mb-2 slider-img rounded-3 slider-image"
+                    className="w-full  slider-img rounded-top-5 slider-image"
                   />
                 </Link>
                 <div className="p-3">
                   <Link to={`/trips/${trip.id}`}>
                     <h6 className="text-start fw-bold lh-base fst-italic">
-                      {trip.tripTitle}
+                      {trip.tripTitle.split(" ").slice(0, 8).join(" ") +"..."}
                     </h6>
                   </Link>
                   <p className="text-start fst-italic mb-3">
-                    {trip.overview.split(" ").slice(0, 16).join(" ")}
+                    {trip.overview.split(" ").slice(0, 10).join(" ")+"..."}
                   </p>
                   <hr className="text__color" />
-                  <div className="row align-items-center">
-                    <div className="col-md-8">
+                  <div className="d-flex align-items-center flex-wrap justify-content-between ">
+                    <div className="card-width-1">
                       <div className="location text-start text-dark">
                         <Link className="text-decoration-none text-black d-flex align-items-center mb-2" to={{
                           pathname: '/filter',
@@ -105,7 +112,7 @@ const MySwiper = (props) => {
                         </Link>
                       </div>
                     </div>
-                    <div className="col-md-4">
+                    <div className="card-width-2">
                       {trip && trip.pricePackages && trip.pricePackages.length > 0 && (
                         <h5 className="text-slate-900 fw-bold mb-0 text-start">
                           <span className="text-lg text-beige">$ </span> {
@@ -118,7 +125,7 @@ const MySwiper = (props) => {
                         </h5>
                       )}
                     </div>
-                    <div className="col-md-7">
+                    <div className="card-width-3">
                       <div className="day text-start">
                         <Link className="text-decoration-none text-black d-flex align-items-center mb-2">
                           <FaRegClock className="me-2 text-beige fs-6" />{" "}

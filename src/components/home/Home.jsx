@@ -76,7 +76,7 @@ const Home = () => {
         </section>
 
 
-        <Container className="container-width">
+        <div className="container-width">
         
           <section className="tour-packages-section my-5   rounded-3  tour-package-img shadow-inner shadow-sec-none">
 
@@ -92,12 +92,12 @@ const Home = () => {
 
               </div>
        
-              <div className="col-md-8"><div className=" position-relative d-flex flex-wrap row gy-4 gx-3">
+              <div className="col-md-8"><div className=" position-relative d-flex flex-wrap row">
               <EgyptTours/>
               </div></div>
             </div>
           </section>
-          <section className='card-slider my-5  tour-package-img px-5 py-3 shadow-inner shadow-sec-none rounded-3 ' id='cardSliderSec'>
+          <section className='card-slider my-5 tour-package-img px-5 py-3 shadow-inner shadow-sec-none rounded-3 ' id='cardSliderSec'>
             <h2 className='mb-4 fw-bold  text-center '>Egypt Top Destinations</h2>
             <CardSlider />
           </section>
@@ -113,7 +113,7 @@ const Home = () => {
               </Link>
             </div>
           </section>
-          <section id='Best-Selling' className=" Best-Selling tour-package-img shadow-inner shadow-sec-none rounded-3 p-5 my-5">
+          <section id='Best-Selling' className=" Best-Selling  tour-package-img shadow-inner shadow-sec-none rounded-3 p-5 my-5">
             <div className="row align-items-center">
               <div className="col-md-3">
                 <h2 className='secondary-color-text text-center fw-bold fs-4'>Allover Egypt Offers</h2>
@@ -144,7 +144,7 @@ const Home = () => {
             <Accordions />
           </section>
 
-        </Container>
+        </div>
       </main>
     </>
   );

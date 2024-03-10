@@ -122,6 +122,30 @@ color: #318fab;
     width: 50%;
     margin: auto;
     gap: 10px;
+}  .container-width{
+    width: 90% ;
+
+    margin: auto;
+ }
+@media screen and (max-width: 1024px) {
+
+
+    .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+       display: none;
+      }
+     .container-width{
+        width: 95% !important;
+     }
+   
+      .tour-package-border p{
+        font-size: 0.8rem;
+        color: #318fab;
+        }
+      .Best-Selling{
+        margin: 0rem !important;
+        padding: 0rem  !important;
+      }
+
 }
 @media screen and (max-width: 768px) {
     root{
@@ -147,11 +171,7 @@ color: #318fab;
     .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
        display: none;
       }
-      .Best-Selling{
-        margin: 1rem !important;
-        padding: 1rem  !important;
-      }
-
+   
       .p-5 {
         padding: 0rem !important;
         padding-top: 3rem !important;
@@ -160,4 +180,12 @@ color: #318fab;
         font-size: 0.8rem;
         color: #318fab;
         }
+      .Best-Selling{
+        margin: 0rem !important;
+        padding: 0rem  !important;
+        margin-bottom: 3rem !important;
+      }
+      .container-width{
+        width: 95% !important;
+     }
 }
