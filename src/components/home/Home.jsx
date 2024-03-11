@@ -23,7 +23,7 @@ import Nav from 'react-bootstrap/Nav';
 import './home.css';
 import WhyBook from '../whyBook/WhyBook.jsx';
 import EgyptTours from '../egyptTours/EgyptTours.jsx';
-
+import { HiArrowCircleRight } from "react-icons/hi";
 const Home = () => {
   const [content, setContent] = useState(<MySwiper tripType='StandardFourPackages' />);
 
@@ -77,7 +77,7 @@ const Home = () => {
 
 
         <div className="container-width">
-        
+
           <section className="tour-packages-section my-5   rounded-3  tour-package-img shadow-inner shadow-sec-none">
 
             <div className="row justify-content-between align-items-center p-5">
@@ -91,9 +91,9 @@ const Home = () => {
                   meet your needs.                </p>
 
               </div>
-       
+
               <div className="col-md-8"><div className=" position-relative d-flex flex-wrap row">
-              <EgyptTours/>
+                <EgyptTours />
               </div></div>
             </div>
           </section>
@@ -101,29 +101,30 @@ const Home = () => {
             <h2 className='mb-4 fw-bold  text-center  pt-4 '>Egypt Top Destinations</h2>
             <CardSlider />
           </section>
-              <section id='Best-Selling' className=" Best-Selling  tour-package-img shadow-inner shadow-sec-none rounded-3 p-5 my-5">
-                <div className="row align-items-center">
-                  <div className="col-md-3">
-                    <h2 className='secondary-color-text text-center fw-bold fs-4 py-4' >Allover Egypt Offers</h2>
-                  </div>
-                  <div className="col-md-9">
-                    <Nav fill variant="tabs" defaultActiveKey="EgyptTour" onSelect={handleClick} >
-                      <Nav.Item>
-                        <Nav.Link eventKey="EgyptTour" className='text-black nav-text ' selectedType="StandardFourPackages"  >Egypt Tour Package</Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item>
-                        <Nav.Link eventKey="DayTour" className='text-black nav-text' selectedType="DayTour">EgyptDay Tours</Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item>
-                        <Nav.Link eventKey="NileCruise" className='text-black nav-text' selectedType="nileCruise" >Egypt Nile Cruise</Nav.Link>
-                      </Nav.Item>
-                    </Nav>
-                  </div>
-                </div>
-                <div className="">
-                  {content}
-                </div>
-              </section>
+          <section id='Best-Selling' className=" Best-Selling  tour-package-img shadow-inner shadow-sec-none rounded-3 p-5 my-5">
+          
+              <div className="d-flex justify-content-between p-3">
+                <h2 className='secondary-color-text text-center fw-bold fs-4 py-4' > Allover Egypt Offers</h2>
+                <Link className="d-flex justify-content-center align-items-center secondary-color-text fw-bold " >View All<HiArrowCircleRight className='ms-1' /></Link>
+              </div>
+            
+                <Nav fill variant="tabs" defaultActiveKey="EgyptTour" onSelect={handleClick} >
+                  <Nav.Item>
+                    <Nav.Link eventKey="EgyptTour" className='text-black nav-text ' selectedType="StandardFourPackages"  >Egypt Tour Package</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link eventKey="DayTour" className='text-black nav-text' selectedType="DayTour">EgyptDay Tours</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link eventKey="NileCruise" className='text-black nav-text' selectedType="nileCruise" >Egypt Nile Cruise</Nav.Link>
+                  </Nav.Item>
+                </Nav>
+           
+          
+            <div className="">
+              {content}
+            </div>
+          </section>
           <section id='Best-Selling' className=" Best-Selling tour-package-img shadow-inner shadow-sec-none rounded-3 p-5 my-5">
             <h2 className=" text-center fw-bold text__color pt-5">Best-Selling Egypt Tour Packages</h2>
             <MySwiper />
