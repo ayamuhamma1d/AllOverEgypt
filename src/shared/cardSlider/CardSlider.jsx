@@ -105,11 +105,11 @@ const CardSlider = () => {
         <SwiperSlide>    <Link to={{
           pathname: '/filter',
           search: `?destination=sharm El Sheikh`
-        }}><img src={img6} alt="Sharm El Sheikh " className="rounded-circle  " /></Link>
+        }}><img src={img6} alt="Sharm El Sheikh" className="rounded-circle  " /></Link>
           <div className="card-slider-layer ">
             <Link to={{
               pathname: '/filter',
-              search: `?destination=sharm El Sheikh`
+              search: `?destination=sharmEL-SheiKh`
             }}><h6 className="mt-2 fw-bold text-black mb-0">Sharm El Sheikh</h6>  </Link>
           </div>
 

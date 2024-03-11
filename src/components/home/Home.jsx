@@ -101,6 +101,29 @@ const Home = () => {
             <h2 className='mb-4 fw-bold  text-center  pt-4 '>Egypt Top Destinations</h2>
             <CardSlider />
           </section>
+              <section id='Best-Selling' className=" Best-Selling  tour-package-img shadow-inner shadow-sec-none rounded-3 p-5 my-5">
+                <div className="row align-items-center">
+                  <div className="col-md-3">
+                    <h2 className='secondary-color-text text-center fw-bold fs-4 py-4' >Allover Egypt Offers</h2>
+                  </div>
+                  <div className="col-md-9">
+                    <Nav fill variant="tabs" defaultActiveKey="EgyptTour" onSelect={handleClick} >
+                      <Nav.Item>
+                        <Nav.Link eventKey="EgyptTour" className='text-black nav-text ' selectedType="StandardFourPackages"  >Egypt Tour Package</Nav.Link>
+                      </Nav.Item>
+                      <Nav.Item>
+                        <Nav.Link eventKey="DayTour" className='text-black nav-text' selectedType="DayTour">EgyptDay Tours</Nav.Link>
+                      </Nav.Item>
+                      <Nav.Item>
+                        <Nav.Link eventKey="NileCruise" className='text-black nav-text' selectedType="nileCruise" >Egypt Nile Cruise</Nav.Link>
+                      </Nav.Item>
+                    </Nav>
+                  </div>
+                </div>
+                <div className="">
+                  {content}
+                </div>
+              </section>
           <section id='Best-Selling' className=" Best-Selling tour-package-img shadow-inner shadow-sec-none rounded-3 p-5 my-5">
             <h2 className=" text-center fw-bold text__color pt-5">Best-Selling Egypt Tour Packages</h2>
             <MySwiper />
@@ -111,29 +134,6 @@ const Home = () => {
               }} className='p-3  rounded-1 secondary-color text-white'>
                 See all tour packages
               </Link>
-            </div>
-          </section>
-          <section id='Best-Selling' className=" Best-Selling  tour-package-img shadow-inner shadow-sec-none rounded-3 p-5 my-5">
-            <div className="row align-items-center">
-              <div className="col-md-3">
-                <h2 className='secondary-color-text text-center fw-bold fs-4 py-4' >Allover Egypt Offers</h2>
-              </div>
-              <div className="col-md-9">
-                <Nav fill variant="tabs" defaultActiveKey="EgyptTour" onSelect={handleClick} >
-                  <Nav.Item>
-                    <Nav.Link eventKey="EgyptTour" className='text-black nav-text ' selectedType="StandardFourPackages"  >Egypt Tour Package</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link eventKey="DayTour" className='text-black nav-text' selectedType="DayTour">EgyptDay Tours</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link eventKey="NileCruise" className='text-black nav-text' selectedType="nileCruise" >Egypt Nile Cruise</Nav.Link>
-                  </Nav.Item>
-                </Nav>
-              </div>
-            </div>
-            <div className="">
-              {content}
             </div>
           </section>
           <section className="py-5 tour-package-img  rounded-3 shadow-inner shadow-sec-none">
