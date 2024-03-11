@@ -88,7 +88,7 @@ const Home = () => {
                 <p>
                   We offer a wide range of
                   Tours that are tailored to
-                  meet your needs                </p>
+                  meet your needs.                </p>
 
               </div>
        
