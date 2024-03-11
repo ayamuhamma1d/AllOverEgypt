@@ -89,9 +89,9 @@ font-size: 0.8rem;
 
 .slider-image {
 
-  height: 190px !important;
+  height: 160px !important;
  
-  object-fit: cover;
+
 }
 .card-width-1{
   width: 60%;
@@ -123,6 +123,31 @@ font-size: 0.8rem;
   }
   .slider_slides{
     height: 435px;
+  }
+  
+}
+@media only screen and (max-width: 768px) {
+  :root{
+   font-size: 15px !important;
+  }
+  .slider_small {
+    margin: auto !important;
+  }
+
+  .swiper-button-prev,
+  .swiper-rtl .swiper-button-next {
+    display: none;
+  }
+
+  .swiper-button-next,
+  .swiper-rtl .swiper-button-prev {
+    display: none;
+  }
+  .link-position{
+    justify-content: center;
+  }
+  .slider_slides{
+    height: 350px;
   }
   
 }

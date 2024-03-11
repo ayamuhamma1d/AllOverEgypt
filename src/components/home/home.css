@@ -203,6 +203,7 @@ color: #318fab;
         background-image: url("./../../../src//assets/img/wepik-export-20240226104819ittN.jpeg");
         background-repeat: no-repeat;
         background-position: 100%;
-       background-size: cover;
+       
+       background-size:cover;
     }
 }

@@ -64,7 +64,7 @@ const MySwiper = (props) => {
         }}
         breakpoints={{
           0: {
-            slidesPerView: 1.5,
+            slidesPerView: 1.7,
             spaceBetween:20
           },
           500:{
@@ -87,12 +87,12 @@ const MySwiper = (props) => {
         {tripData.map((trip) => (
           <SwiperSlide key={trip.id}>
             <div className="swiper-slide-container">
-              <div className="bg-white shadow rounded-top-5 rounded-bottom mb-5 slider_slide slider_slides ">
+              <div className="bg-white shadow rounded-top-3 rounded-bottom mb-5 slider_slide slider_slides ">
                 <Link to={`/trips/${trip.id}`} className="flex-grow-1">
                   <img
                     src={trip.image}
                     alt={trip.tripTitle}
-                    className="w-full  slider-img rounded-top-5 slider-image"
+                    className="w-full  slider-img rounded-top-3 slider-image"
                   />
                 </Link>
                 <div className="p-3">

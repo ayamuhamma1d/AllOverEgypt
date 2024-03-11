@@ -190,7 +190,8 @@ const Filter = () => {
                                                         onChange={handleDurationChange}
                                                         className="progress-bar mb-2"
                                                     />
-                                                    <ProgressBar now={(selectedDuration) * 100} label={`${selectedDuration} Days`} />
+                                                    {/* <p>{selectedDuration<=0 ?"0 Day" :`${selectedDuration } Days`} </p> */}
+                                                    <ProgressBar now={(selectedDuration) * selectedDuration} label={`${selectedDuration<=0 ?"0" :selectedDuration} Days`} />
                                                 </div>
 
                                             </div>

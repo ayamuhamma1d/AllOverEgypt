@@ -26,7 +26,7 @@ const CardSlider = () => {
         }}
         breakpoints={{
           0: {
-            slidesPerView: 2.5,
+            slidesPerView: 3.6,
           },
           768: {
             slidesPerView: 4.5,
