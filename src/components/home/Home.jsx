@@ -24,6 +24,7 @@ import './home.css';
 import WhyBook from '../whyBook/WhyBook.jsx';
 import EgyptTours from '../egyptTours/EgyptTours.jsx';
 import { HiArrowCircleRight } from "react-icons/hi";
+import Offers from '../offers/Offers.jsx';
 const Home = () => {
   const [content, setContent] = useState(<MySwiper tripType='StandardFourPackages' />);
 
@@ -107,7 +108,7 @@ const Home = () => {
                 <h2 className='secondary-color-text text-center fw-bold fs-4 py-4' > Allover Egypt Offers</h2>
                 <Link className="d-flex justify-content-center align-items-center secondary-color-text fw-bold " >View All<HiArrowCircleRight className='ms-1' /></Link>
               </div>
-            
+              <Offers/>
                 <Nav fill variant="tabs" defaultActiveKey="EgyptTour" onSelect={handleClick} >
                   <Nav.Item>
                     <Nav.Link eventKey="EgyptTour" className='text-black nav-text ' selectedType="StandardFourPackages"  >Egypt Tour Package</Nav.Link>
@@ -124,6 +125,7 @@ const Home = () => {
             <div className="">
               {content}
             </div>
+           
           </section>
           <section id='Best-Selling' className=" Best-Selling tour-package-img shadow-inner shadow-sec-none rounded-3 p-5 my-5">
             <h2 className=" text-center fw-bold text__color pt-5">Best-Selling Egypt Tour Packages</h2>
