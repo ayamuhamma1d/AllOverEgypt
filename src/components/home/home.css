@@ -98,11 +98,10 @@ h2 {
 }
 
 .tour-package-img{
-    /* background-image: url("./../../../src//assets/img/wepik-export-20240226104819ittN.jpeg");
+    background-image: url("./../../../src//assets/img/wepik-export-20240226104819ittN.jpeg");
     background-repeat: no-repeat;
     background-position: center;
-   background-size: cover; */
-   background-color: #f1f1f1;
+   background-size: cover;
 }
 .tour-package-border {
     border:2px solid #318fab !important;
@@ -122,7 +121,7 @@ color: #318fab;
     color: #7bc3d7;
 }
 .nav-text{
-    font-size: 0.9rem !important;
+    font-size: 0.8rem !important;
 }
 .egypt-tour-sec{
     width: 50%;
@@ -132,6 +131,14 @@ color: #318fab;
     width: 90% ;
 
     margin: auto;
+ }
+ .offers{
+    font-size: 1rem !important;
+ }
+ .offers-active{
+    font-size: 1rem !important;
+
+    background-color: rgba(245, 247, 249, 0.913);
  }
 @media screen and (max-width: 1024px) {
 
@@ -152,11 +159,10 @@ color: #318fab;
         padding: 0rem  !important;
       }
       .tour-package-img{
-        /* background-image: url("./../../../src//assets/img/wepik-export-20240226104819ittN.jpeg");
+        background-image: url("./../../../src//assets/img/wepik-export-20240226104819ittN.jpeg");
         background-repeat: no-repeat;
         background-position: 100%;
-       background-size: cover; */
-
+       background-size: cover;
     }
 }
 @media screen and (max-width: 768px) {
@@ -202,11 +208,10 @@ color: #318fab;
         width: 95% !important;
      }
      .tour-package-img{
-        /* background-image: url("./../../../src//assets/img/wepik-export-20240226104819ittN.jpeg");
+        background-image: url("./../../../src//assets/img/wepik-export-20240226104819ittN.jpeg");
         background-repeat: no-repeat;
         background-position: 100%;
-       back
-       background-size:cover; */
-   
+       
+       background-size:cover;
     }
 }

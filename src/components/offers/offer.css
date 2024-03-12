@@ -1,0 +1,17 @@
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: var(--bs-nav-tabs-link-active-color);
+    background-color: var(--bs-nav-tabs-link-active-bg);
+    border:1px solid #318fab !important;
+  }
+  .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #318fab !important;
+    border:2px solid #318fab !important;
+    background-color: rgba(245, 247, 249, 0.913);
+    
+
+  }
+  .swiper-slide {
+    text-align: center;
+    font-size: 16px !important;
+
+  }

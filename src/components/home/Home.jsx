@@ -104,28 +104,20 @@ const Home = () => {
           </section>
           <section id='Best-Selling' className=" Best-Selling  tour-package-img shadow-inner shadow-sec-none rounded-3 p-5 my-5">
           
-              <div className="d-flex justify-content-between p-3">
-                <h2 className='secondary-color-text text-center fw-bold fs-4 py-4' > Allover Egypt Offers</h2>
-                <Link className="d-flex justify-content-center align-items-center secondary-color-text fw-bold " >View All<HiArrowCircleRight className='ms-1' /></Link>
+              <div className="d-flex justify-content-between p-3 align-items-center">
+                <h2 className='secondary-color-text text-center fw-bold  py-4' > Allover Egypt Offers</h2>
+            
+                <Link className="d-flex justify-content-center align-items-center secondary-color-text fw-bold fs-6 " >View All<HiArrowCircleRight className='ms-1' /></Link>
               </div>
-              <Offers/>
-                <Nav fill variant="tabs" defaultActiveKey="EgyptTour" onSelect={handleClick} >
-                  <Nav.Item>
-                    <Nav.Link eventKey="EgyptTour" className='text-black nav-text ' selectedType="StandardFourPackages"  >Egypt Tour Package</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link eventKey="DayTour" className='text-black nav-text' selectedType="DayTour">EgyptDay Tours</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link eventKey="NileCruise" className='text-black nav-text' selectedType="nileCruise" >Egypt Nile Cruise</Nav.Link>
-                  </Nav.Item>
-                </Nav>
+              <div className="row justify-content-center align-content-center ">
+                <div className="col-md-12">
+                <Offers/>
+                </div>
+              </div>
+            
            
           
-            <div className="">
-              {content}
-            </div>
-           
+            
           </section>
           <section id='Best-Selling' className=" Best-Selling tour-package-img shadow-inner shadow-sec-none rounded-3 p-5 my-5">
             <h2 className=" text-center fw-bold text__color pt-5">Best-Selling Egypt Tour Packages</h2>

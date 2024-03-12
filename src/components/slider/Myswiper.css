@@ -6,11 +6,12 @@
   color: #318fab !important;
 }
 .slider_slides{
-  height: 405px;
+  height: 220px;
+  background-color: rgb(43, 43, 43) !important;
 }
 
 .swiper-button-prev {
-  color: #318fab !important;
+  color: #020202 !important;
 }
 
 .swiper-button-prev {
@@ -122,7 +123,8 @@ font-size: 0.8rem;
     justify-content: center;
   }
   .slider_slides{
-    height: 435px;
+    height:100px;
+  
   }
   
 }
@@ -147,7 +149,8 @@ font-size: 0.8rem;
     justify-content: center;
   }
   .slider_slides{
-    height: 350px;
+    height:220px;
+
   }
   
 }
