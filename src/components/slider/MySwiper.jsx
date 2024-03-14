@@ -104,7 +104,7 @@ const MySwiper = (props) => {
 </p>
                   <div className="">
                       {trip && trip.pricePackages && trip.pricePackages.length > 0 && (
-                        <h6 className="  mb-0 text-start d-flex align-items-center  text-muted ">
+                        <p className="  mb-0 text-start d-flex align-items-center  text-muted ">
                            from {" "} 
                           <span className="text-decoration-line-through price-package d-flex align-items-center mx-1">
                      $
@@ -126,7 +126,7 @@ const MySwiper = (props) => {
                           ) * 0.9 } 
                         </span>
                       
-                        </h6>
+                        </p>
                       )}
          
                     </div>
