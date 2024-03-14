@@ -45,6 +45,13 @@ const Offers = () => {
             }}
           >
             <SwiperSlide>
+              <Nav.Item>
+                <Nav.Link eventKey="DayTour" className="text-black nav-text text-muted rounded-3 py-3" onClick={() => handleClick('LuxorDayTours')}>
+                   Day Tours
+                </Nav.Link>
+              </Nav.Item>
+            </SwiperSlide>
+            <SwiperSlide>
               <Nav.Item className="p-0 m-0 bg-white">
                 <Nav.Link eventKey="EgyptTour" className="text-black nav-text text-muted rounded-3 py-3" onClick={() => handleClick('StandardFourPackages')}>
                    Tour Package
