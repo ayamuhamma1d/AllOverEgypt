@@ -6,8 +6,8 @@
   color: #318fab !important;
 }
 .slider_slides{
-  height: 228px;
-  /* background-color: rgb(255, 255, 255) !important; */
+  height: 235px;
+  background-color:#ffff !important;
 }
 
 .swiper-button-prev {
@@ -109,7 +109,7 @@ font-size: 0.8rem;
 .price-package {
   font-size: 0.97rem;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 970px) {
 
   .slider_small {
     margin: auto !important;
@@ -128,7 +128,7 @@ font-size: 0.8rem;
     justify-content: center;
   }
   .slider_slides{
-    height:100px;
+    height:250px;
   
   }
   
@@ -154,7 +154,7 @@ font-size: 0.8rem;
     justify-content: center;
   }
   .slider_slides{
-    height:220px;
+    height:230px;
 
   }
   

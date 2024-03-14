@@ -30,7 +30,7 @@ const Offers = () => {
             className="bg-transparent p-0 rounded-3 m-0 w-75 m-auto"
             breakpoints={{
               0: {
-                slidesPerView: 2,
+                slidesPerView: 3,
                 spaceBetween: 2,
               },
               768: {
@@ -47,21 +47,21 @@ const Offers = () => {
             <SwiperSlide>
               <Nav.Item className="p-0 m-0 bg-white">
                 <Nav.Link eventKey="EgyptTour" className="text-black nav-text text-muted rounded-3 py-3" onClick={() => handleClick('StandardFourPackages')}>
-                  Egypt Tour Package
+                   Tour Package
                 </Nav.Link>
               </Nav.Item>
             </SwiperSlide>
             <SwiperSlide>
               <Nav.Item>
                 <Nav.Link eventKey="DayTour" className="text-black nav-text text-muted rounded-3 py-3" onClick={() => handleClick('LuxorDayTours')}>
-                  Egypt Day Tours
+                   Day Tours
                 </Nav.Link>
               </Nav.Item>
             </SwiperSlide>
             <SwiperSlide>
               <Nav.Item>
                 <Nav.Link eventKey="NileCruise" className="text-black nav-text text-muted rounded-3 py-3" onClick={() => handleClick('nileCruise')}>
-                  Egypt Nile Cruise
+                   Nile Cruise
                 </Nav.Link>
               </Nav.Item>
             </SwiperSlide>

@@ -74,10 +74,10 @@ const MySwiper = (props) => {
             spaceBetween:5
           },
           1024: {
-            slidesPerView: 6.2,
+            slidesPerView: 5.2,
           },
           1300: {
-            slidesPerView: 4.5,
+            slidesPerView: 6,
           },
         }}
         className="mySwiper"
@@ -85,7 +85,7 @@ const MySwiper = (props) => {
         {tripData.map((trip) => (
           <SwiperSlide key={trip.id}>
             <div className="swiper-slide-container">
-              <div className="  rounded-top-3 rounded-bottom mb-5 slider_slide slider_slides ">
+              <div className="  rounded-top-3 rounded-bottom mb-5 slider_slide slider_slides shadow ">
                 <Link to={`/trips/${trip.id}`} duration={trip.duration} className="flex-grow-1">
                   <img
                     src={trip.image}
