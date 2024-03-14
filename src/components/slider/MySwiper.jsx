@@ -85,7 +85,7 @@ const MySwiper = (props) => {
         {tripData.map((trip) => (
           <SwiperSlide key={trip.id}>
             <div className="swiper-slide-container">
-              <div className="  rounded-top-3 rounded-bottom mb-5 slider_slide slider_slides shadow ">
+              <div className="  rounded-top-3 rounded-bottom mb-5 slider_slide slider_slides  ">
                 <Link to={`/trips/${trip.id}`} duration={trip.duration} className="flex-grow-1">
                   <img
                     src={trip.image}
