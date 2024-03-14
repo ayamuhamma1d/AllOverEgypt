@@ -104,11 +104,10 @@ const Home = () => {
           </section>
           <section id='Best-Selling' className=" Best-Selling  tour-package-img shadow-inner shadow-sec-none rounded-3 p-5 my-5">
           
-              <div className="d-flex justify-content-between p-3 align-items-center">
-                <h2 className='secondary-color-text text-center fw-bold  py-4' > Allover Egypt Offers</h2>
+      
+                <h2 className='secondary-color-text  fw-bold  py-4' > Allover Egypt Offers</h2>
             
-                <Link className="d-flex justify-content-center align-items-center secondary-color-text fw-bold fs-6 " >View All<HiArrowCircleRight className='ms-1' /></Link>
-              </div>
+       
               <div className="row justify-content-center align-content-center  rounded-3 ">
                 <div className="col-md-12">
                 <Offers/>
