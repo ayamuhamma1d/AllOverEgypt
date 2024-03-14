@@ -60,7 +60,6 @@
 
 .slider_slide h6 {
   font-size: 0.885rem !important;
-  font-family: 'Times New Roman', Times, serif;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
   -webkit-transition: all 0.5s ease-in-out;
@@ -70,11 +69,11 @@
 }
 
 .slider_slide p{
-font-size: 0.8rem;
+font-size: 0.9rem;
 }
-.slider_slide h6:hover {
+/* .slider_slide h6:hover {
   color: #4abee1 !important;
-}
+} */
 .swiper-pagination-bullet-active {
   opacity: var(--swiper-pagination-bullet-opacity, 1);
   background:#318fab !important;
@@ -135,7 +134,7 @@ font-size: 0.8rem;
 }
 @media only screen and (max-width: 768px) {
   :root{
-   font-size: 15px !important;
+   font-size: 14px !important;
   }
   .slider_small {
     margin: auto !important;
@@ -154,7 +153,7 @@ font-size: 0.8rem;
     justify-content: center;
   }
   .slider_slides{
-    height:270px;
+    height:235px;
 
   }
   

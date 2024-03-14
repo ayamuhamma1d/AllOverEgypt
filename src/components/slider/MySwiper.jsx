@@ -95,9 +95,9 @@ const MySwiper = (props) => {
                 </Link>
                 <div className="p-1">
                   <Link to={`/trips/${trip.id}`} duration={trip.duration}>
-                    <h6 className="text-start text-black  lh-base mb-0 fw-bold">
+                    <p className="text-start text-black  lh-base mb-0 fw-bold">
                       {trip.tripTitle}
-                    </h6>
+                    </p>
                   </Link>
                   <p className="text-start text-muted lh-base mb-1 ">          
                   {trip.type.includes("dayTours")?`${trip.duration} hours`:`${trip.duration} Days`}
