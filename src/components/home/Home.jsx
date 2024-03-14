@@ -102,7 +102,7 @@ const Home = () => {
             <h2 className='mb-4 fw-bold  text-center  pt-4 '>Egypt Top Destinations</h2>
             <CardSlider />
           </section>
-          <section id='Best-Selling' className=" Best-Selling  tour-package-img shadow-inner shadow-sec-none rounded-3 p-5 my-5">
+          <section id='Best-Selling' className=" Best-Selling   shadow-inner shadow-sec-none rounded-3 p-5 my-5">
           
       
                 <h2 className='secondary-color-text  fw-bold  py-4' > Allover Egypt Offers</h2>
