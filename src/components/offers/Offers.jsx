@@ -22,7 +22,7 @@ const Offers = () => {
   return (
     <>
       <div>
-        <Nav variant="tabs" defaultActiveKey="EgyptTour" className="rounded-3 shadow-5 w-100 m-0 border-0 bg-white">
+        <Nav variant="tabs" defaultActiveKey="DayTour" className="rounded-3 shadow-5 w-100 m-0 border-0 bg-white">
           <Swiper
             slidesPerView={3}
             spaceBetween={0}
@@ -58,13 +58,7 @@ const Offers = () => {
                 </Nav.Link>
               </Nav.Item>
             </SwiperSlide>
-            <SwiperSlide>
-              <Nav.Item>
-                <Nav.Link eventKey="DayTour" className="text-black nav-text text-muted rounded-3 py-3" onClick={() => handleClick('LuxorDayTours')}>
-                   Day Tours
-                </Nav.Link>
-              </Nav.Item>
-            </SwiperSlide>
+   
             <SwiperSlide>
               <Nav.Item>
                 <Nav.Link eventKey="NileCruise" className="text-black nav-text text-muted rounded-3 py-3" onClick={() => handleClick('nileCruise')}>
