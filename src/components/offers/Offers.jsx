@@ -27,7 +27,7 @@ const Offers = () => {
             slidesPerView={3}
             spaceBetween={0}
             variant="tabs"
-            className="bg-transparent p-0 rounded-3 m-0 w-75 m-auto"
+            className="bg-transparent p-0 rounded-3 m-0 w-m-75 m-m-auto"
             breakpoints={{
               0: {
                 slidesPerView: 3,
