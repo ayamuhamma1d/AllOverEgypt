@@ -13,7 +13,7 @@ import 'swiper/css/pagination';
 SwiperCore.use([Pagination]);
 
 const Offers = () => {
-  const [content, setContent] = useState(<MySwiper tripType='StandardFourPackages' />);
+  const [content, setContent] = useState(<MySwiper tripType='LuxorDayTours' />);
 
   const handleClick = (tripType) => {
     setContent(<MySwiper tripType={tripType} />);
@@ -22,7 +22,7 @@ const Offers = () => {
   return (
     <>
       <div>
-        <Nav variant="tabs" defaultActiveKey="DayTour" className="rounded-3 shadow-5 w-100 m-0 border-0 bg-white">
+        <Nav variant="tabs" defaultActiveKey="DayTour" className="rounded shadow-5 w-100 m-0 border-0 bg-white">
           <Swiper
             slidesPerView={3}
             spaceBetween={0}
@@ -45,7 +45,7 @@ const Offers = () => {
             }}
           >
             <SwiperSlide>
-              <Nav.Item>
+              <Nav.Item className="p-0 m-0 bg-white">
                 <Nav.Link eventKey="DayTour" className="text-black nav-text text-muted rounded-3 py-3" onClick={() => handleClick('LuxorDayTours')}>
                    Day Tours
                 </Nav.Link>
@@ -60,7 +60,7 @@ const Offers = () => {
             </SwiperSlide>
    
             <SwiperSlide>
-              <Nav.Item>
+              <Nav.Item className="p-0 m-0 bg-white">
                 <Nav.Link eventKey="NileCruise" className="text-black nav-text text-muted rounded-3 py-3" onClick={() => handleClick('nileCruise')}>
                    Nile Cruise
                 </Nav.Link>
