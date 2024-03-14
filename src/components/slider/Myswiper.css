@@ -6,8 +6,8 @@
   color: #318fab !important;
 }
 .slider_slides{
-  height: 220px;
-  background-color: rgb(43, 43, 43) !important;
+  height: 228px;
+  /* background-color: rgb(255, 255, 255) !important; */
 }
 
 .swiper-button-prev {
@@ -53,18 +53,20 @@
 }
 
 .slider_slide p {
-  font-size: 0.9rem;
+    font-family: 'Times New Roman', Times, serif;
+
+  font-size: 1.2rem;
 }
 
 .slider_slide h6 {
   font-size: 0.885rem !important;
+  font-family: 'Times New Roman', Times, serif;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   -ms-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
-  color: #318fab !important;
 }
 
 .slider_slide p{
@@ -90,7 +92,7 @@ font-size: 0.8rem;
 
 .slider-image {
 
-  height: 160px !important;
+  height: 140px !important;
  
 
 }
@@ -103,6 +105,9 @@ font-size: 0.8rem;
 }
 .card-width-3{
   width: 100%;  
+}
+.price-package {
+  font-size: 0.97rem;
 }
 @media only screen and (max-width: 768px) {
 

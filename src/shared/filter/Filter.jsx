@@ -20,10 +20,12 @@ const Filter = () => {
     const [maxDuration, setMaxDuration] = useState(12);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         setSelectedType(selectedItem);
     }, [selectedItem]);
 
     useEffect(() => {
+   
         const fetchData = async () => {
             try {
                 const querySnapshot = await getDocs(collection(db, "trips"));
@@ -190,8 +192,7 @@ const Filter = () => {
                                                         onChange={handleDurationChange}
                                                         className="progress-bar mb-2"
                                                     />
-                                                    {/* <p>{selectedDuration<=0 ?"0 Day" :`${selectedDuration } Days`} </p> */}
-                                                    <ProgressBar now={(selectedDuration) * selectedDuration} label={`${selectedDuration<=0 ?"0" :selectedDuration} Days`} />
+                                                    <ProgressBar now={(selectedDuration) * selectedDuration} label={`${selectedDuration<=0 ?"0 Day" :selectedDuration} Days`} />
                                                 </div>
 
                                             </div>

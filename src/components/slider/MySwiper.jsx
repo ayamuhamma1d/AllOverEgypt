@@ -6,6 +6,7 @@ import { FaRegClock } from "react-icons/fa6";
 import { IoLocationOutline } from "react-icons/io5";
 import { db } from '../config/firebase';
 import { collection, getDocs } from "firebase/firestore";
+import { MdAttachMoney } from "react-icons/md";
 import "./Myswiper.css";
 
 import "swiper/swiper.min.css";
@@ -16,10 +17,9 @@ SwiperCore.use([Pagination, Autoplay]);
 const MySwiper = (props) => {
   const [tripData, setTripData] = useState([]);
 
-  console.log('====================================');
-  console.log(props.tripType);
-  console.log('====================================');
+
   useEffect(() => {
+    window.scrollTo(0, 0);
     const fetchData = async () => {
       try {
         const querySnapshot = await getDocs(collection(db, "trips"));
@@ -54,32 +54,30 @@ const MySwiper = (props) => {
     <div className="swiper-container">
       <Swiper
         slidesPerView={4}
-        spaceBetween={15}
-        pagination={{
-          clickable: true,
-        }}
+        spaceBetween={5}
+     
         autoplay={{
           delay: 3000,
           disableOnInteraction: false,
         }}
         breakpoints={{
           0: {
-            slidesPerView: 1.7,
-            spaceBetween:20
+            slidesPerView: 2.2,
+            spaceBetween:8
           },
           500:{
             slidesPerView: 2.6,
             spaceBetween:10
           },
           768: {
-            slidesPerView: 2.8,
-            spaceBetween:10
+            slidesPerView: 5.2,
+            spaceBetween:5
           },
           1024: {
-            slidesPerView: 3.5,
+            slidesPerView: 6.2,
           },
           1300: {
-            slidesPerView: 5.5,
+            slidesPerView: 4.5,
           },
         }}
         className="mySwiper"
@@ -87,20 +85,51 @@ const MySwiper = (props) => {
         {tripData.map((trip) => (
           <SwiperSlide key={trip.id}>
             <div className="swiper-slide-container">
-              <div className="bg-white shadow rounded-top-3 rounded-bottom mb-5 slider_slide slider_slides ">
-                <Link to={`/trips/${trip.id}`} className="flex-grow-1">
+              <div className="  rounded-top-3 rounded-bottom mb-5 slider_slide slider_slides ">
+                <Link to={`/trips/${trip.id}`} duration={trip.duration} className="flex-grow-1">
                   <img
                     src={trip.image}
                     alt={trip.tripTitle}
                     className="w-full  slider-img rounded-top-3 slider-image"
                   />
                 </Link>
-                <div className="p-3">
-                  <Link to={`/trips/${trip.id}`}>
-                    <p className="text-start text-white fw-bold lh-base fst-italic">
-                      {trip.tripTitle.split(" ").slice(0, 8).join(" ") +"..."}
-                    </p>
+                <div className="p-1">
+                  <Link to={`/trips/${trip.id}`} duration={trip.duration}>
+                    <h6 className="text-start text-black  lh-base mb-0 fw-bold">
+                      {trip.tripTitle}
+                    </h6>
                   </Link>
+                  <p className="text-start text-muted lh-base mb-1 ">          
+                  {trip.type.includes("dayTours")?`${trip.duration} hours`:`${trip.duration} Days`}
+</p>
+                  <div className="">
+                      {trip && trip.pricePackages && trip.pricePackages.length > 0 && (
+                        <h6 className="  mb-0 text-start d-flex align-items-center  text-muted ">
+                           from {" "} 
+                          <span className="text-decoration-line-through price-package d-flex align-items-center mx-1">
+                     $
+                           {
+                            Math.min(
+                              ...trip.pricePackages.flatMap(pricePackage =>
+                                pricePackage.options.map(option => option.price)
+                              )
+                            )
+                          }   
+                          </span>
+                      
+                              <span className="text-slate-900 fw-bolder mb-0 text-start price-package text-danger">
+                          $
+                          {Math.min(
+                            ...trip.pricePackages.flatMap(pricePackage =>
+                              pricePackage.options.map(option => option.price)
+                            )
+                          ) * 0.9 } 
+                        </span>
+                      
+                        </h6>
+                      )}
+         
+                    </div>
                   {/* <p className="text-start fst-italic mb-3">
                     {trip.overview.split(" ").slice(0, 10).join(" ")+"..."}
                   </p>

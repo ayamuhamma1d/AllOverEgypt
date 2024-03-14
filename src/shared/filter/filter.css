@@ -32,3 +32,6 @@
     
 
 }
+.progress, .progress-stacked {
+  
+    --bs-progress-bg: transparent;}

@@ -1,6 +1,8 @@
 .links a {
   font-size: 0.9rem;
 }
+.links a:hover {
+color: #318fab;}
 
 .number__day {
   font-size            : 1.667em;
@@ -8,12 +10,15 @@
   font-weight          : 600;
   color                : #232323;
   display              : block;
-  background           : #ebd1ada4;
+  background           : #efe9e4a4;
   -webkit-border-radius: 3px 3px 0 0;
   border-radius        : 3px 3px 0 0;
   padding              : 4px 0 10px;
 }
+.trip-card-info{
+  background           : #efe9e4a4;
 
+}
 .day {
   font-size  : .778em;
   font-weight: 400;
@@ -25,7 +30,10 @@
   color      : rgba(35, 35, 35, .8);
   font-weight: 500;
 }
-
+.trip-img{
+  height: 330px;
+  object-fit: cover;
+}
 .text-fees {
   font-size: 0.9rem;
 }
@@ -48,21 +56,22 @@
 
 .border__green {
 
-  border-left: 3px solid #318fab;
+  border-left: 4px solid #318fab;
 }
 
 .table-striped>tbody>tr:nth-of-type(2n+1)>* {
   --bs-table-color-type: var(--bs-table-striped-color);
-  --bs-table-bg-type   : rgba(152, 216, 226, 0.742) !important;
+  --bs-table-bg-type   : rgba(195, 221, 224, 0.742) !important;
 }
 
 .form__label {
   font-size: 0.9rem !important;
 }
-
+.trip-nav{
+  width: 85%;
+}
 .trip__form {
   width : 85%;
-  border: 2px solid #318fab;
 }
 .itinerary__content__day{
   text-transform: uppercase;
@@ -86,4 +95,7 @@
   -moz-transform: scale(0.8) !important;
   -ms-transform: scale(0.8) !important;
   -o-transform: scale(0.8) !important;
+}
+.itinerary-description{
+  font-size: 0.9rem;
 }

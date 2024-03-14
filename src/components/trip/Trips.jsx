@@ -66,52 +66,49 @@ const Trip = () => {
     };
     return (
         <Container className="pt-4 my-5">
-         <div className="links pt-4 d-flex align-content-center align-items-center  mb-4 flex-wrap">
-    <Link to="/">Home</Link>
-    <IoMdArrowDropright className="mx-2" />
-    <Link to="/filter">Destination</Link>
-    <IoMdArrowDropright className="mx-2" />
-    {tripData && tripData.destination && (
-        <Link    to={{
-            pathname: '/filter',
-            search: `?destination=${tripData.destination[0]}`
-          }}>
-            {tripData.destination[0]}
-        </Link>
-    )}
-</div>
+            <div className="links offset-md-1 pt-4 d-flex align-content-center align-items-center  mb-4 flex-wrap">
+                <Link to="/">Home</Link>
+                <IoMdArrowDropright className="mx-2" />
+                <Link to="/filter">Destination</Link>
+                <IoMdArrowDropright className="mx-2" />
+                {tripData && tripData.destination && (
+                    <Link to={{
+                        pathname: '/filter',
+                        search: `?destination=${tripData.destination[0]}`
+                    }}>
+                        {tripData.destination[0]}
+                    </Link>
+                )}
+            </div>
             <div >
                 <div className="row  ">
-                    <div className=" col-md-8">
+                    <div className=" col-md-7 offset-md-1">
                         <div className="header">
                             <div className="row align-content-center  justify-content-center mb-5">
                                 <figure>
-                                    <img className="w-100 " src={tripData.image} alt="" />
+                                    <img className="w-100 trip-img" src={tripData.image} alt="" />
                                 </figure>
-                                <div className="row  lh-1">
-                                    <div className="col-md-10">
-                                        <h1 className=" fw-bold  fs-2  ">{tripData.tripTitle} </h1>
-                                    </div>
-                                    <div className="col-md-2 ">
-                                        <div className="days mt-2  justify-content-center  ">
-                                            <div className="number__day shadow-lg    d-flex justify-content-center w-50 py-1">
-                                                <h4 className="fw-bold">{tripData.duration}</h4>
-                                            </div>
-                                            <div className="bg-white shadow-lg d-flex justify-content-center fw-bold w-50 py-1 day rounded-bottom-1">
-                                                {" "}
-                                                Days{" "}
-                                            </div>
+                                <div className="d-flex justify-content-between">
+                                    <h1 className=" fw-bold  fs-2  ">{tripData.tripTitle} </h1>
+                                    <div className="days mt-2 justify-content-center  ">
+                                        <div className="number__day shadow-lg  p-5  d-flex justify-content-center w-50 py-1">
+                                            <h4 className="fw-bold">{tripData.duration}</h4>
+                                        </div>
+                                        <div className="bg-white shadow-lg   p-5  d-flex justify-content-center fw-bold w-50 py-1 day rounded-bottom-1">
+                                            {" "}
+                                            Days{" "}
                                         </div>
                                     </div>
                                 </div>
 
+
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-4">
-                        <div className=" shadow-lg p-5 ">
+                    <div className="col-md-3 ">
+                        <div className=" shadow-lg p-4   trip-card-info">
                             <div className="row">
-                                <div className="col-md-12">
+                                <div className="col-md-12 ">
                                     <p className="period mb-1">From</p>
                                     {tripData && tripData.pricePackages && tripData.pricePackages.length > 0 && (
                                         <>
@@ -158,7 +155,7 @@ const Trip = () => {
                                             <p className="mb-0 me-2"> No Over Price</p>{" "}
                                         </div>
                                     </div>
-                                    <button className="check__btn py-3">inquire now</button>
+                                    <button className="check__btn py-3  w-100 m-auto">inquire now</button>
                                     <p className="text-fees mt-4">
                                         {" "}
                                         Need help with booking?{" "}
@@ -174,10 +171,10 @@ const Trip = () => {
                 </div>
             </div>
 
-            <section className="tabs position-sticky py-3">
+            <section className="tabs position-sticky  tour-package-img shadow rounded-5 trip-nav m-auto">
                 <div className="row">
                     <div className="col-md-12">
-                        <div className="d-flex justify-content-around border-top py-3 border-bottom">
+                        <div className="d-flex justify-content-around py-3 border-bottom">
                             <div
                                 className={`text-center ${activeTab === "overview" ? "active" : ""
                                     }`}
@@ -206,20 +203,7 @@ const Trip = () => {
                                     Itinerary
                                 </a>
                             </div>
-                            <div
-                                className={`text-center ${activeTab === "accommodation" ? "active" : ""
-                                    }`}
-                            >
-                                <p className="mb-0">
-                                    <TiHome className="secondary-color-text" />
-                                </p>
-                                <a href="#accommodation"
-                                    onClick={() => handleTabClick("accommodation")}
-                                    className="text-center pb-3  "
-                                >
-                                    Accommodation
-                                </a>
-                            </div>
+                   
                             <div
                                 className={`text-center ${activeTab === "cost" ? "active" : ""
                                     }`}
@@ -240,38 +224,38 @@ const Trip = () => {
                 </div>
             </section>
             <section>
-                <div className="offset-1 col-md-9 py-3 tabs__tab " >
-                    <h3 className="border__green my-4 fw-bold " id="overview"><span className="ms-3 ">Overview</span></h3>
-                    <p className="lh-lg mb-5 text-muted">{tripData.overview}</p>
-                    <div className="highlights mb-5">
-                        <h5 className="fw-bold secondary-color-text">Highlights</h5>
+                <div className="offset-md-1 col-md-10 py-3 tabs__tab  " >
+                    <h3 className="border__green my-4 fw-bold tour-package-img shadow p-3" id="overview"><span className="ms-3 ">Overview</span></h3>
+                    <p className="lh-lg mb-5 text-muted bg-white shadow p-3 itinerary-description rounded-3">{tripData.overview}</p>
+                    <div className="highlights mb-5  ">
+                        <h5 className="fw-bold secondary-color-text tour-package-img  shadow p-3">Highlights</h5>
                     </div>
                     {tripData && tripData.highlights && tripData.highlights.map((highlight, index) => (
                         <div key={index}>
                             <div className="col-md-12 mt-3">
                                 <div className="d-flex align-items-center text-fees">
-                                    <MdOutlineDone className="text__color me-2" />
-                                    <p className="mb-0 me-2">{highlight}</p>{" "}
+                                    {highlight != "" ? <MdOutlineDone className="text__color me-2  trip-card-info shadow-lg rounded-circle" /> : <MdOutlineDone className=" d-none" />}
+                                    <p className="mb-0 me-2 text-muted">{highlight}</p>{" "}
                                 </div>
                             </div>
                         </div>
                     ))}
                     <div className=" itinerary my-5" id="itinerary">
-                        <h3 className="border__green my-4 fw-bold "><span className="ms-3 ">Itinerary</span></h3>
+                        <h3 className="border__green my-4 fw-bold  tour-package-img shadow p-3"><span className="ms-3 ">Itinerary</span></h3>
                         {tripData && tripData.itinerary && tripData.itinerary.map((itinerary, index) => (
                             <div key={index}>
                                 <div className="itinerary__cards">
-                                    <div className="itinerary__content shadow-2 py-3 px-5  mb-4 rounded-2">
-                                        <h5 className="mb-3">
-                                            <span className="secondary-color-text me-2 itinerary__content__day">  Day {index + 1}:</span>
+                                    <div className="itinerary__content shadow-2  mb-4 rounded-2  bg-white shadow p-3 itinerary-description rounded-3">
+                                        <h5 className="mb-3 fw-bold">
+                                            <span className="secondary-color-text me-2 itinerary__content__day fw-bolder">  Day {index + 1}:</span>
                                             {itinerary.title}
                                         </h5>
-                                        <p className="lh-lg text-muted fs-6">{itinerary.description}.</p>
+                                        <p className="lh-lg text-muted itinerary-description">{itinerary.description}.</p>
                                     </div>
                                 </div>
                             </div>
                         ))}
-                        <div className="Accommodation my-5" id="accommodation">
+                        {/* <div className="Accommodation my-5" id="accommodation">
                             <h3 className="border__green my-4 fw-bold mb-5 "><span className="ms-3 ">Choose your Accommodation plan</span></h3>
                             <Table striped bordered hover className="mb-5">
                                 <thead >
@@ -332,7 +316,7 @@ const Trip = () => {
                                     </>
                                 ))
                             }
-                        </div>
+                        </div> */}
                         <div className="row" id="cost" >
                             <div className="col-md-5 mb-5">
                                 <div className="d-flex align-items-center mb-3">
@@ -357,7 +341,8 @@ const Trip = () => {
                                     {tripData && tripData.costExclude && tripData.costExclude.map((cost) => (
                                         <>
                                             <div className="d-flex  mb-3">
-                                                <IoCloseCircle className="me-2 fs-5 cost__excluded opacity-45 mb-3" /> {cost}
+                                                {cost != "" ? <IoCloseCircle className='me-2 fs-5 cost__excluded opacity-45 mb-3' /> : <IoCloseCircle className='me-2 fs-5 cost__excluded opacity-45 mb-3 d-none' />}
+                                                {cost}
 
                                             </div>
                                         </>
@@ -442,9 +427,9 @@ const Trip = () => {
                 </div>
             </section>
             <section className=" pb-5 offset-md-1">
-                <h2 className="fw-bold ">Related trips you might interested in</h2>
+                <h2 className="fw-bold  text-black fs-3">Related trips you might interested in</h2>
                 <div className="row justify-content-center">
-                    <Trips />
+                    <Trips duration={tripData.duration} />
                 </div>
             </section>
 

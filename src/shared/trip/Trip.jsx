@@ -11,7 +11,10 @@ const Trip = (props) => {
   const scrollToTop=()=>{
     window.scrollTo(0, 0);
   }
+  const[duration,setDuration] = useState(props.duration);
+  
   useEffect(() => {
+    console.log("props",props.duration);
     window.scrollTo(0, 0);
     const fetchData = async () => {
       try {
@@ -26,6 +29,10 @@ const Trip = (props) => {
             filteredTrips = filteredTrips.filter((trip) => trip.type.includes(props.tripType));
             setTripData(filteredTrips);
         }
+        if(props.duration!=undefined && props.duration){
+          filteredTrips = filteredTrips.filter((trip) => trip.duration.includes(props.duration));
+          setTripData(filteredTrips);
+        }
        else{
         setTripData(filteredTrips);
        }
@@ -37,7 +44,7 @@ const Trip = (props) => {
       }
     };
     fetchData();
-  }, []);
+  }, [props.duration,props.tripType]);
 
   return (
     <div className="row g-4 flex-wrap justify-center ">
@@ -47,10 +54,10 @@ const Trip = (props) => {
             <img src={trip.image} alt={trip.tripTitle} className="w-100 trip__img" />
           </Link>
           <Link to={`/trips/${trip.id}`} onClick={scrollToTop}>             
-            <h6 className="text-start fw-bold lh-base fst-italic text__color">
+            <h6 className="text-start fw-bold lh-base fst-italic text__color itinerary-description">
                   {trip.tripTitle}
                 </h6></Link>
-          <p className="text-start text-muted">
+          <p className="text-start text-muted itinerary-description">
             {trip.overview.split(" ").slice(0, 12).join(" ")}
           </p>
           <hr className="text__color" />

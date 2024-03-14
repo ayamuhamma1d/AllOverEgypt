@@ -109,7 +109,7 @@ const Home = () => {
             
                 <Link className="d-flex justify-content-center align-items-center secondary-color-text fw-bold fs-6 " >View All<HiArrowCircleRight className='ms-1' /></Link>
               </div>
-              <div className="row justify-content-center align-content-center ">
+              <div className="row justify-content-center align-content-center  rounded-3 ">
                 <div className="col-md-12">
                 <Offers/>
                 </div>
