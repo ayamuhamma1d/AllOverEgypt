@@ -22,7 +22,7 @@ const Offers = () => {
   return (
     <>
       <div>
-        <Nav variant="tabs" className="rounded-3 shadow-5 w-100 m-0 border-0">
+        <Nav variant="tabs" className="rounded-3 shadow-5 w-100 m-0 border-0 bg-white">
           <Swiper
             slidesPerView={3}
             spaceBetween={0}
