@@ -101,7 +101,7 @@ color: #318fab;}
 }
 
 .sticky{
-  top:18% !important;
+  top:12% !important;
   z-index: 10000 !important;
   background: #fff !important;
   background-image: none;
