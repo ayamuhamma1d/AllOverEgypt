@@ -120,10 +120,10 @@ const Filter = () => {
                                             spaceBetween: 2,
                                         },
                                         768: {
-                                            slidesPerView: 2.5,
+                                            slidesPerView:3,
                                         },
                                         1024: {
-                                            slidesPerView: 2.7,
+                                            slidesPerView: 3,
                                         },
                                         1200: {
                                             slidesPerView: 3,
@@ -162,9 +162,9 @@ const Filter = () => {
 
                             </Nav>
                             <div className="content mt-5 p-3">
-                                <div className="row">
-                                    <div className="col-md-2">
-                                        <div className="d-none d-md-block">
+                                <div className=" d-flex justify-content-between ">
+                                    <div className="">
+                                        <div className=" d-md-block">
                                             <div className="filters">
                                                 <div className="filter-item">
                                                     <h3 className='mb-3 secondary-color-text'>Type</h3>
@@ -179,7 +179,7 @@ const Filter = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="d-none d-md-block">
+                                        <div className=" d-md-block">
                                             <div className="filters">
                                                 <div className="filter-item">
                                                     <h3 className='my-3 secondary-color-text'>Destination</h3>
@@ -219,7 +219,7 @@ const Filter = () => {
 
                                             </div>
                                         </div>
-                                        <div className="d-none d-md-block">
+                                        <div className="d-md-block">
                                             <div className="filters">
 
                                                 <div className="filter-item">
@@ -239,11 +239,11 @@ const Filter = () => {
                                         </div>
 
                                     </div>
-                                    <div className="col-md-10">
+                                    <div className="">
                                         <div className="products">
                                             <div className="row g-4 flex-wrap justify-center">
                                                 {tripData.map((trip) => (
-                                                    <div key={trip.id} className="col-md-3 mb-5">
+                                                    <div key={trip.id} className="col-md-6 col-lg-4 col-xl-3 mb-5">
                                                         <Link to={`/trips/${trip.id}`}>
                                                             <img src={trip.image} alt={trip.tripTitle} className="w-100 trip__img" />
                                                         </Link>
@@ -266,7 +266,7 @@ const Filter = () => {
                                                             <div className="col-md-5">
                                                                 {trip && trip.pricePackages && trip.pricePackages.length > 0 && (
                                                                     <>
-                                                                        <h5 className="text-slate-900 fw-bold mb-0 text-start">
+                                                                        <h5 className="text-slate-900 fw-bold mb-0 text-start price">
                                                                             <span className="text-lg text-beige ">$ </span>
                                                                             {
                                                                                 Math.min(

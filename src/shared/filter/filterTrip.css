@@ -35,3 +35,8 @@
 .progress, .progress-stacked {
   
     --bs-progress-bg: transparent;}
+    @media screen and (max-width: 986px){
+        .price{
+            font-size: 15px;
+        }
+    } 
