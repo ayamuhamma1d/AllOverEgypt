@@ -13,12 +13,12 @@ import 'swiper/css/pagination';
 SwiperCore.use([Pagination]);
 
 const Offers = () => {
-  const [content, setContent] = useState(<MySwiper tripType='LuxorDayTours' />);
+  const [content, setContent] = useState(<MySwiper tripType='dayTours' />);
 
-  const handleClick = (tripType) => {
+  const handleClick = (event, tripType) => {
+    event.preventDefault();
     setContent(<MySwiper tripType={tripType} />);
   };
-
   return (
     <>
       <div>
@@ -34,10 +34,10 @@ const Offers = () => {
                 spaceBetween: 2,
               },
               768: {
-                slidesPerView: 2.5,
+                slidesPerView: 3,
               },
               1024: {
-                slidesPerView: 2.7,
+                slidesPerView: 3,
               },
               1200: {
                 slidesPerView: 3,
@@ -46,14 +46,14 @@ const Offers = () => {
           >
             <SwiperSlide>
               <Nav.Item className="p-0 m-0 bg-white">
-                <Nav.Link eventKey="DayTour" className="text-black nav-text text-muted rounded-3 py-3" onClick={() => handleClick('LuxorDayTours')}>
-                   Day Tours
-                </Nav.Link>
+              <Nav.Link href='#' eventKey="DayTour" className="text-black nav-text text-muted rounded-3 py-3" onClick={(event) => handleClick(event, 'LuxorDayTours')}>
+  Day Tours
+</Nav.Link>
               </Nav.Item>
             </SwiperSlide>
             <SwiperSlide>
               <Nav.Item className="p-0 m-0 bg-white">
-                <Nav.Link eventKey="EgyptTour" className="text-black nav-text text-muted rounded-3 py-3" onClick={() => handleClick('StandardFourPackages')}>
+                <Nav.Link eventKey="EgyptTour" className="text-black nav-text text-muted rounded-3 py-3" onClick={(event) => handleClick(event,'StandardFourPackages')}>
                    Tour Package
                 </Nav.Link>
               </Nav.Item>
@@ -61,7 +61,7 @@ const Offers = () => {
    
             <SwiperSlide>
               <Nav.Item className="p-0 m-0 bg-white">
-                <Nav.Link eventKey="NileCruise" className="text-black nav-text text-muted rounded-3 py-3" onClick={() => handleClick('nileCruise')}>
+                <Nav.Link eventKey="NileCruise" className="text-black nav-text text-muted rounded-3 py-3" onClick={(event) => handleClick(event,'nileCruise')}>
                    Nile Cruise
                 </Nav.Link>
               </Nav.Item>

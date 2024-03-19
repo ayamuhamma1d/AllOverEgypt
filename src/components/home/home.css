@@ -1,7 +1,7 @@
 root{
     font-size: 16px;
 }
-h1 {
+.home-header {
     font-size: 4rem;
     font-family            : 'Gambetta', serif;
     letter-spacing         : -3px;
@@ -11,7 +11,7 @@ h1 {
     color                  : #000;
 
 }
-h1:hover {
+.home-header:hover {
     font-variation-settings: "wght"582;
     letter-spacing         : 1px;
     
@@ -172,9 +172,7 @@ color: #318fab;
     .hero{
         display: none;
     }
-    /* .shadow-sec-none{
-        box-shadow: none !important;
-    } */
+ 
     .tour-packages-section{
         margin-bottom: 0 !important;
         padding-bottom: 0  !important;

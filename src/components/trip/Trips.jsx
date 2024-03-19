@@ -29,7 +29,24 @@ const Trip = () => {
     const countryOptions = [{ value: 'us', label: 'United States' }];
     const [selectedCountry, setSelectedCountry] = useState(null);
     const [countryCode, setCountryCode] = useState('');
+    const [scrolled, setScrolled] = useState(false);
 
+    const [scrollPosition, setScrollPosition] = useState(0);
+    const [isScrollingUp, setIsScrollingUp] = useState(false);
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentPosition = window.pageYOffset;
+            console.log("currentPosition", currentPosition);
+            setIsScrollingUp(currentPosition > 896);
+            setScrollPosition(currentPosition);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [scrollPosition]);
     useEffect(() => {
         window.scrollTo(0, 0);
         const fetchData = async () => {
@@ -94,10 +111,12 @@ const Trip = () => {
                                         <div className="number__day shadow-lg  p-5  d-flex justify-content-center w-50 py-1">
                                             <h4 className="fw-bold">{tripData.duration}</h4>
                                         </div>
-                                        <div className="bg-white shadow-lg   p-5  d-flex justify-content-center fw-bold w-50 py-1 day rounded-bottom-1">
-                                            {" "}
-                                            Days{" "}
-                                        </div>
+                                        {tripData.type && (
+                                            <div className="bg-white shadow-lg p-5 d-flex justify-content-center fw-bold w-50 py-1 day rounded-bottom-1">
+                                                {tripData.type.includes("dayTours")?"Hours":"Days"
+                                                }
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
 
@@ -171,7 +190,7 @@ const Trip = () => {
                 </div>
             </div>
 
-            <section className="tabs position-sticky  tour-package-img shadow rounded-5 trip-nav m-auto">
+            <section className={`tabs position-sticky  tour-package-img shadow rounded-5 trip-nav m-auto ${scrollPosition > 600 && scrollPosition < 2000 ? 'sticky ' : ''}`}>
                 <div className="row">
                     <div className="col-md-12">
                         <div className="d-flex justify-content-around py-3 border-bottom">
@@ -203,7 +222,7 @@ const Trip = () => {
                                     Itinerary
                                 </a>
                             </div>
-                   
+
                             <div
                                 className={`text-center ${activeTab === "cost" ? "active" : ""
                                     }`}
@@ -225,10 +244,10 @@ const Trip = () => {
             </section>
             <section>
                 <div className="offset-md-1 col-md-10 py-3 tabs__tab  " >
-                    <h3 className="border__green my-4 fw-bold tour-package-img shadow p-3" id="overview"><span className="ms-3 ">Overview</span></h3>
-                    <p className="lh-lg mb-5 text-muted bg-white shadow p-3 itinerary-description rounded-3">{tripData.overview}</p>
+                    <h3 className="border__green my-4 fw-bold   " id="overview"><span className="ms-3 ">Overview</span></h3>
+                    <p className="lh-lg mb-5 text-muted bg-white  p-3 itinerary-description rounded-3">{tripData.overview}</p>
                     <div className="highlights mb-5  ">
-                        <h5 className="fw-bold secondary-color-text tour-package-img  shadow p-3">Highlights</h5>
+                        <h5 className="fw-bold secondary-color-text   ">Highlights</h5>
                     </div>
                     {tripData && tripData.highlights && tripData.highlights.map((highlight, index) => (
                         <div key={index}>
@@ -241,11 +260,11 @@ const Trip = () => {
                         </div>
                     ))}
                     <div className=" itinerary my-5" id="itinerary">
-                        <h3 className="border__green my-4 fw-bold  tour-package-img shadow p-3"><span className="ms-3 ">Itinerary</span></h3>
+                        <h3 className="border__green my-4 fw-bold "><span className="ms-3 ">Itinerary</span></h3>
                         {tripData && tripData.itinerary && tripData.itinerary.map((itinerary, index) => (
                             <div key={index}>
                                 <div className="itinerary__cards">
-                                    <div className="itinerary__content shadow-2  mb-4 rounded-2  bg-white shadow p-3 itinerary-description rounded-3">
+                                    <div className="itinerary__content shadow-2  mb-4 rounded-2  bg-white  p-3 itinerary-description rounded-3">
                                         <h5 className="mb-3 fw-bold">
                                             <span className="secondary-color-text me-2 itinerary__content__day fw-bolder">  Day {index + 1}:</span>
                                             {itinerary.title}
@@ -255,68 +274,7 @@ const Trip = () => {
                                 </div>
                             </div>
                         ))}
-                        {/* <div className="Accommodation my-5" id="accommodation">
-                            <h3 className="border__green my-4 fw-bold mb-5 "><span className="ms-3 ">Choose your Accommodation plan</span></h3>
-                            <Table striped bordered hover className="mb-5">
-                                <thead >
-                                    <tr>
 
-                                        <th className="fw-bold ">Package Type</th>
-                                        <th className="fw-bold">Plan Code</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody >
-                                    <tr>
-
-                                        <td>Standard Package</td>
-                                        <td>Plan A</td>
-
-                                    </tr>
-                                    <tr>
-
-                                        <td>Luxury Package</td>
-                                        <td>Plan B</td>
-
-                                    </tr>
-                                    <tr>
-
-                                        <td>Diamond Package </td>
-                                        <td>Plan C</td>
-
-                                    </tr>
-                                    <tr>
-
-                                        <td> Standard Package for Easter or Christmas </td>
-                                        <td>Plan A+</td>
-
-                                    </tr>
-                                    <tr>
-
-                                        <td>Luxury Package for Easter or Christmas </td>
-                                        <td>Plan B+</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Diamond Package on Easter or Christmas</td>
-                                        <td>Plan C+</td>
-                                    </tr>
-                                </tbody>
-                            </Table>
-                            {
-                                tripData && tripData.type && tripData.type.map((type, index) => (
-                                    <>
-                                        <ul>
-                                            <li className="mb-4 fw-bold secondary-color-text">
-                                                Accommodation Plan ({index + 1}) :     <span className="text-black ms-2">  {type}</span>
-                                            </li>
-                                            <p className="mb-5 text-muted">Nile cruises: MS Emilio, MS Radamis, MS Princess, MS Sara</p>
-
-                                        </ul>
-                                    </>
-                                ))
-                            }
-                        </div> */}
                         <div className="row" id="cost" >
                             <div className="col-md-5 mb-5">
                                 <div className="d-flex align-items-center mb-3">

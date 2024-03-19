@@ -99,3 +99,15 @@ color: #318fab;}
 .itinerary-description{
   font-size: 0.9rem;
 }
+
+.sticky{
+  top:18% !important;
+  z-index: 10000 !important;
+  background: #fff !important;
+  background-image: none;
+}
+@media screen and (max-width: 768px) {
+  .trip-nav{
+    width: 100%;
+  }
+}

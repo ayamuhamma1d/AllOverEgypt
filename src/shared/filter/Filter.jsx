@@ -5,8 +5,13 @@ import { db } from "./../../components/config/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import Nav from 'react-bootstrap/Nav';
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Pagination } from 'swiper';
 
-import './filter.css';
+
+import 'swiper/swiper.min.css';
+import 'swiper/css/pagination';
+import './filterTrip.css';
 
 const Filter = () => {
     const [tripData, setTripData] = useState([]);
@@ -16,16 +21,16 @@ const Filter = () => {
     const selectedItem = params.get('packages');
     const packages = params.get('type');
     const destination = params.get('destination');
+    const duration = params.get('duration');
     const [selectedDuration, setSelectedDuration] = useState(0);
     const [maxDuration, setMaxDuration] = useState(12);
-
     useEffect(() => {
         window.scrollTo(0, 0);
         setSelectedType(selectedItem);
     }, [selectedItem]);
 
     useEffect(() => {
-   
+
         const fetchData = async () => {
             try {
                 const querySnapshot = await getDocs(collection(db, "trips"));
@@ -49,6 +54,9 @@ const Filter = () => {
                 if (destination) {
                     filteredTrips = filteredTrips.filter((trip) => trip.destination.includes(destination));
                 }
+                if (duration) {
+                    filteredTrips = filteredTrips.filter((trip) => trip.destination.includes(duration));
+                }
                 if (selectedDestination) {
                     filteredTrips = filteredTrips.filter((trip) => trip.destination.includes(selectedDestination));
                 }
@@ -69,7 +77,7 @@ const Filter = () => {
 
     const handleTypeClick = (type) => {
         setSelectedType(type);
-      
+
     };
 
     const handleDestinationClick = (destination) => {
@@ -80,18 +88,18 @@ const Filter = () => {
 
     };
     const handleTypeClicked = (type) => {
-   
+
         setSelectedType(type === "All" ? null : type);
         if (type === "All") {
             setSelectedDestination(null);
-    
+
             const currentSearchParams = new URLSearchParams(window.location.search);
             currentSearchParams.delete("destination");
             window.history.replaceState({}, '', `${window.location.pathname}?${currentSearchParams}`);
         }
-   
+
     };
-    
+
     return (
         <>
             <main className="page catalog-page bg-dark-subtle" id="filter">
@@ -100,26 +108,58 @@ const Filter = () => {
                         <h1 className="my-4 text-white text-center py-5">Allover Egypt Tours</h1>
                         <div className="container tour-package-img">
                             <Nav fill variant="tabs" defaultActiveKey={`/${selectedType}`} onSelect={handleTypeClick}>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="StandardFourPackages" className='text-black' ><Link to={{
-                                        pathname: '/filter',
-                                        search: `?packages=StandardFourPackages`
-                                    }}>Egypt Packages Tours</Link></Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="DayTour" className='text-black'>
-                                        <Link to={{
-                                            pathname: '/filter',
-                                            search: `?packages=LuxorDayTours`
-                                        }}>Egypt Day Tours</Link>
-                                    </Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="nileCruise" className='text-black'><Link to={{
-                                        pathname: '/filter',
-                                        search: `?packages=nileCruise`
-                                    }}>Nile Cruise</Link></Nav.Link>
-                                </Nav.Item>
+
+                                <Swiper
+                                    slidesPerView={3}
+                                    spaceBetween={0}
+                                    variant="tabs"
+                                    className="bg-transparent p-0 rounded-3 m-0 w-m-75 m-m-auto"
+                                    breakpoints={{
+                                        0: {
+                                            slidesPerView: 3,
+                                            spaceBetween: 2,
+                                        },
+                                        768: {
+                                            slidesPerView: 2.5,
+                                        },
+                                        1024: {
+                                            slidesPerView: 2.7,
+                                        },
+                                        1200: {
+                                            slidesPerView: 3,
+                                        },
+                                    }}
+                                >
+                                    <SwiperSlide>
+                                        <Nav.Item>
+                                            <Nav.Link eventKey="StandardFourPackages" className='text-black' ><Link to={{
+                                                pathname: '/filter',
+                                                search: `?packages=StandardFourPackages`
+                                            }}>Egypt Packages Tours</Link></Nav.Link>
+                                        </Nav.Item>
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <Nav.Item>
+                                            <Nav.Link eventKey="DayTour" className='text-black'>
+                                                <Link to={{
+                                                    pathname: '/filter',
+                                                    search: `?packages=dayTours`
+                                                }}>Egypt Day Tours</Link>
+                                            </Nav.Link>
+                                        </Nav.Item>
+                                    </SwiperSlide>
+
+                                    <SwiperSlide>
+                                        <Nav.Item>
+                                            <Nav.Link eventKey="nileCruise" className='text-black'><Link to={{
+                                                pathname: '/filter',
+                                                search: `?packages=nileCruise`
+                                            }}>Nile Cruise</Link></Nav.Link>
+                                        </Nav.Item>
+                                    </SwiperSlide>
+                                </Swiper>
+
+
                             </Nav>
                             <div className="content mt-5 p-3">
                                 <div className="row">
@@ -192,7 +232,7 @@ const Filter = () => {
                                                         onChange={handleDurationChange}
                                                         className="progress-bar mb-2"
                                                     />
-                                                    <ProgressBar now={(selectedDuration) * selectedDuration} label={`${selectedDuration<=0 ?"0 Day" :selectedDuration} Days`} />
+                                                    <ProgressBar now={(selectedDuration) * selectedDuration} label={`${selectedDuration <= 0 ? "0 Day" : selectedDuration} Days`} />
                                                 </div>
 
                                             </div>
@@ -220,7 +260,7 @@ const Filter = () => {
                                                             <div className="col-md-7">
                                                                 <div className="day text-start d-flex align-items-center mb-3">
                                                                     <FaRegClock className="me-2 text-beige fs-6" />{" "}
-                                                                    <span className="fs-6">{trip.duration} Days</span>
+                                                                    <span className="fs-6">{trip.type.includes("dayTours")?`${trip.duration} Hours`:`${trip.duration} Days`}</span>
                                                                 </div>
                                                             </div>
                                                             <div className="col-md-5">

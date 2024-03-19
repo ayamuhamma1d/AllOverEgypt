@@ -70,7 +70,7 @@ const EgyptTours = () => {
                                                         className=""
                                                         to={{
                                                             pathname: '/filter',
-                                                            search: `?type=${type=="HoneyMoon"?"HoneyMoonT.P":type||type=="Diamond"?"DiamondT.P":type||type=="Family"?"FamilyT.P":type}`
+                                                            search: `?type=${(type=="HoneyMoon"?"HoneyMoonT.P":type)||(type=="Diamond"?"DiamondT.P":type)||(type=="Family"?"FamilyT.P":type)}`
                                                         }}
                                                     > <p className='mb-0 text-capitalize'> {index === 2 ? `${type}D-${parseInt(type) - 1}N` : type.split(" ").slice(0, 1).join(" ")}</p> </Link>
                                                 </div>

@@ -8,7 +8,8 @@ const CustomNavbar = () => {
   const [expanded, setExpanded] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [linkColor, setLinkColor] = useState('text-white');
-
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [isScrollingUp, setIsScrollingUp] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 0;
@@ -27,7 +28,7 @@ const CustomNavbar = () => {
   };
 
   return (
-    <nav className={`navbar navbar-expand-lg shadow-sm fixed-top tour-package-img  ${scrolled ? 'tour-package-img ' : ''}`}>
+    <nav className={`navbar navbar-expand-lg shadow-sm fixed-top tour-package-img   ${scrolled ? 'tour-package-img ' : ''}`}>
       <Container>
         <NavLink to="/" className="navbar-brand">
           <img className='logo' src={logo} alt="Company Logo" />
@@ -43,7 +44,7 @@ const CustomNavbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className={`collapse navbar-collapse ${expanded ? 'show' : ''}`}>
-          <ul className="navbar-nav ms-auto my-2 my-lg-0 py-2 d-flex">
+          <ul className="navbar-nav ms-auto my-2 my-lg-0 py-3 d-flex">
             <li className="nav-item">
               <NavLink className={`nav-link px-4  text-black `} to="/home" active='is-active'>Home</NavLink>
             </li>
