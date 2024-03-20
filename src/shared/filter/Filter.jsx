@@ -136,7 +136,7 @@ const Filter = () => {
                                     </SwiperSlide>
                                     <SwiperSlide>
                                         <Nav.Item>
-                                            <Nav.Link eventKey="DayTour" className='text-black'>
+                                            <Nav.Link eventKey="dayTours" className='text-black'>
                                                 <Link to={{
                                                     pathname: '/filter',
                                                     search: `?packages=dayTours`
