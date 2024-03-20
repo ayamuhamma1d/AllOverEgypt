@@ -35,8 +35,33 @@
 .progress, .progress-stacked {
   
     --bs-progress-bg: transparent;}
+    .item1{
+        width:20%;
+    }.item2{
+        width:80%;
+    }
+    @media screen and (max-width:1200px){
+     .item1{
+            width:25%;
+        }.item2{
+            width:75%;
+        }
+    } 
     @media screen and (max-width: 986px){
         .price{
-            font-size: 15px;
+            font-size: 16px;
+        }    .item1{
+            width:25%;
+        }.item2{
+            width:75%;
+        }
+    } 
+    @media screen and (max-width: 760px){
+        .price{
+            font-size: 16px;
+        }    .item1{
+            width:45%;
+        }.item2{
+            width:55%;
         }
     } 

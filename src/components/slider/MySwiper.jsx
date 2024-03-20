@@ -16,7 +16,7 @@ SwiperCore.use([Pagination, Autoplay]);
 
 const MySwiper = (props) => {
   const [tripData, setTripData] = useState([]);
-
+console.log(props.offer)
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -33,6 +33,10 @@ const MySwiper = (props) => {
           filteredTrips = filteredTrips.filter((trip) => trip.type.includes(props.tripType));
           filteredTrips = filteredTrips.sort((a, b) => parseInt(a.duration) - parseInt(b.duration));
           setTripData(filteredTrips);
+        }
+        if(props.offer != undefined &&props.offer){
+          filteredTrips = filteredTrips.filter((trip) => trip.offer);
+
         }
         else {
           filteredTrips = filteredTrips.sort((a, b) => parseInt(a.duration) - parseInt(b.duration));

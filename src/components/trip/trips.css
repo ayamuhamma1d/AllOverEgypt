@@ -99,15 +99,32 @@ color: #318fab;}
 .itinerary-description{
   font-size: 0.9rem;
 }
-
+.trip-title{
+  width:50%
+}
+.trip-duration{
+  width:50%
+}
 .sticky{
   top:12% !important;
   z-index: 10000 !important;
   background: #fff !important;
   background-image: none;
 }
+
 @media screen and (max-width: 768px) {
   .trip-nav{
     width: 100%;
+  }.trip-card-info{
+    background           : #fff;
+    box-shadow :none !important;
+    margin:0.5rem 0 !important;
+  
+  }.sticky{
+    top:17.5% !important;
+    z-index: 10000 !important;
+    background: #fff !important;
+    background-image: none;
   }
+
 }

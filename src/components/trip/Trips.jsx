@@ -101,18 +101,19 @@ const Trip = () => {
                 <div className="row  ">
                     <div className=" col-md-7 offset-md-1">
                         <div className="header">
-                            <div className="row align-content-center  justify-content-center mb-5">
+                            <div className="row   mb-md-5">
                                 <figure>
                                     <img className="w-100 trip-img" src={tripData.image} alt="" />
                                 </figure>
-                                <div className="d-flex justify-content-between">
-                                    <h1 className=" fw-bold  fs-2  ">{tripData.tripTitle} </h1>
-                                    <div className="days mt-2 justify-content-center  ">
-                                        <div className="number__day shadow-lg  p-5  d-flex justify-content-center w-50 py-1">
+                                <div className="row justify-content-between flex-wrap w-100">
+                                    <div className=" col-md-8">  <h1 className=" fw-bold  fs-2  ">{tripData.tripTitle} </h1></div>
+                                  
+                                    <div className="days mt-2 d-none d-md-inline col-md-4">
+                                        <div className="number__day shadow-lg  p-5  d-flex justify-content-center w-50 py-1 m-auto">
                                             <h4 className="fw-bold">{tripData.duration}</h4>
                                         </div>
                                         {tripData.type && (
-                                            <div className="bg-white shadow-lg p-5 d-flex justify-content-center fw-bold w-50 py-1 day rounded-bottom-1">
+                                            <div className="bg-white shadow-lg p-5 d-flex justify-content-center fw-bold w-50   m-auto py-1 day rounded-bottom-1">
                                                 {tripData.type.includes("dayTours")?"Hours":"Days"
                                                 }
                                             </div>
@@ -266,7 +267,7 @@ const Trip = () => {
                                 <div className="itinerary__cards">
                                     <div className="itinerary__content shadow-2  mb-4 rounded-2  bg-white  p-3 itinerary-description rounded-3">
                                         <h5 className="mb-3 fw-bold">
-                                            <span className="secondary-color-text me-2 itinerary__content__day fw-bolder">  Day {index + 1}:</span>
+                                            <span className="secondary-color-text me-2 itinerary__content__day fw-bolder">  { tripData.type.includes("dayTours")?'' :` Day ${index + 1} :`}</span>
                                             {itinerary.title}
                                         </h5>
                                         <p className="lh-lg text-muted itinerary-description">{itinerary.description}.</p>

@@ -30,7 +30,6 @@ const Filter = () => {
     }, [selectedItem]);
 
     useEffect(() => {
-
         const fetchData = async () => {
             try {
                 const querySnapshot = await getDocs(collection(db, "trips"));
@@ -88,11 +87,9 @@ const Filter = () => {
 
     };
     const handleTypeClicked = (type) => {
-
         setSelectedType(type === "All" ? null : type);
         if (type === "All") {
             setSelectedDestination(null);
-
             const currentSearchParams = new URLSearchParams(window.location.search);
             currentSearchParams.delete("destination");
             window.history.replaceState({}, '', `${window.location.pathname}?${currentSearchParams}`);
@@ -108,7 +105,6 @@ const Filter = () => {
                         <h1 className="my-4 text-white text-center py-5">Allover Egypt Tours</h1>
                         <div className="container tour-package-img">
                             <Nav fill variant="tabs" defaultActiveKey={`/${selectedType}`} onSelect={handleTypeClick}>
-
                                 <Swiper
                                     slidesPerView={3}
                                     spaceBetween={0}
@@ -163,7 +159,7 @@ const Filter = () => {
                             </Nav>
                             <div className="content mt-5 p-3">
                                 <div className=" d-flex justify-content-between ">
-                                    <div className="">
+                                    <div className="item1">
                                         <div className=" d-md-block">
                                             <div className="filters">
                                                 <div className="filter-item">
@@ -230,16 +226,16 @@ const Filter = () => {
                                                         max="12"
                                                         value={selectedDuration}
                                                         onChange={handleDurationChange}
-                                                        className="progress-bar mb-2"
+                                                        className="progress-bar mb-2 w-75 "
                                                     />
-                                                    <ProgressBar now={(selectedDuration) * selectedDuration} label={`${selectedDuration <= 0 ? "0 Day" : selectedDuration} Days`} />
+                                                    <ProgressBar className="w-75 " now={(selectedDuration) * selectedDuration} label={`${selectedDuration <= 0 ? "0 Day" : selectedDuration} Days`} />
                                                 </div>
 
                                             </div>
                                         </div>
 
                                     </div>
-                                    <div className="">
+                                    <div className="item2 m-auto">
                                         <div className="products">
                                             <div className="row g-4 flex-wrap justify-center">
                                                 {tripData.map((trip) => (

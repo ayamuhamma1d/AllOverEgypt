@@ -13,11 +13,11 @@ import 'swiper/css/pagination';
 SwiperCore.use([Pagination]);
 
 const Offers = () => {
-  const [content, setContent] = useState(<MySwiper tripType='dayTours' />);
+  const [content, setContent] = useState(<MySwiper tripType='dayTours' offer="pk" />);
 
   const handleClick = (event, tripType) => {
     event.preventDefault();
-    setContent(<MySwiper tripType={tripType} />);
+    setContent(<MySwiper tripType={tripType} offer="pk" />);
   };
   return (
     <>
