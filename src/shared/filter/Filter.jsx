@@ -32,7 +32,7 @@ const Filter = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
         setSelectedType(selectedItem);
-    }, [selectedItem]);
+    }, [selectedItem,currentPage]);
 console.log(
     "drt",tripData.length
 );
@@ -88,7 +88,7 @@ console.log(
 
     const handleTypeClick = (type) => {
         setSelectedType(type);
-
+        setCurrentPage(1);
     };
 
     const handleDestinationClick = (destination) => {
@@ -101,6 +101,7 @@ console.log(
     };
     const handleTypeClicked = (type) => {
         if (type === "All" || type === "pk"||type === "tb") {
+            setCurrentPage(1);
             setSelectedType(type === "All" ? null : type);
             setSelectedDestination(null);
         }
