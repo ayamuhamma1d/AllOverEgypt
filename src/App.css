@@ -196,3 +196,10 @@ a {
   justify-content: center;
   align-items    : center;
 }
+.page-item:first-child .page-link {
+  border-top-left-radius:50% !important;
+  border-bottom-left-radius: 50% !important;
+}.page-item:last-child .page-link {
+  border-top-right-radius: 50% !important;
+  border-bottom-right-radius: 50% !important;
+}

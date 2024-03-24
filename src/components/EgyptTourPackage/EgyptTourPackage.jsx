@@ -58,13 +58,13 @@ const EgyptTourPackage = () => {
             <Link to="/egyptTourPackage" className="text-black">Egypt Tour Packages </Link>
           </div>
           <div className="row align-items-center ">
-              <div className="col-md-6">
+              <div className="col-lg-6">
                 <h1 className="mb-4 header-color">Egypt Tour Packages </h1>
                 <p className="text-muted egypt_tour_text mb-5">
                   Puzzled about where and when to spend your vacations or even your holidays? With Allover Egypt you can arrange your private Egypt tour Packages all year round...
                 </p>
               </div>
-              <div className="col-md-6 mb-5">
+              <div className="col-lg-6 mb-5">
                 <Slider images={images}/>
               </div>
               <div className="col-md-12">
@@ -76,7 +76,7 @@ const EgyptTourPackage = () => {
               Request your customized itinerary from Allover Egypt tour Packages experts.
 
             </h6>
-            <button className=" px-4 secondary-color shadow btn py-3 rounded-5 border-none mb-4 d-flex align-items-center text-white"><span className='me-2'>Try it free</span> <SiYourtraveldottv className='icon__color' /></button>
+            <button className=" px-4 secondary-color shadow btn py-3 rounded-5 border-none mb-md-4 d-flex align-items-center text-white"><span className='me-2'>Try it free</span> <SiYourtraveldottv className='icon__color' /></button>
 
               </div>
           </div>
@@ -106,7 +106,7 @@ const EgyptTourPackage = () => {
               { name: "christmas Packages  ",route:'christmasT.P', img: christmas, title: "christmas Tours  Packages", description: "Christmas is the perfect time to explore Egypt and immerse yourself in its culture. Our Christmas Private Egypt Tour Packages provide a unique experience that allows you to truly get the most out of your holiday travels. ", card: "card8", text: "Every night, you can rest easy knowing that our experienced guides and staff have prepared an itinerary filled with cultural learning opportunities, five-star accommodation, and delicious authentic Egyptian cuisine. All these amazing components make our Christmas Private Egypt Tour Packages truly one of a kind – so don’t miss out!" },
 
             ].map((item, index) => (
-              <div key={index} className="col-md-3 mb-2 ">
+              <div key={index} className="col-md-6 col-lg-3 mb-2 ">
                 <Card className='shadow h-100  border-0'>
                   <div className="position-relative">   <Card.Img variant="top" src={item.img} className=' p-2 rounded-2' />
                     <div className=" text-white  card_imgLayer  text-center text-center d-flex justify-content-center align-items-center">

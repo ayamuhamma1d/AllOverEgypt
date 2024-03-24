@@ -21,7 +21,7 @@ import Form from 'react-bootstrap/Form';
 import Select from 'react-select';
 import SelectCountryList from 'react-select-country-list';
 import "./../trip/trips.css";
-
+import DataForm from "./../../shared/form/DataForm";
 const Trip = () => {
     const { id } = useParams();
     const [tripData, setTripData] = useState({});
@@ -83,7 +83,7 @@ const Trip = () => {
     };
     return (
         <Container className="pt-4 my-5">
-            <div className="links offset-md-1 pt-4 d-flex align-content-center align-items-center  mb-4 flex-wrap">
+            <div className="links offset-lg-1 pt-4 d-flex align-content-center align-items-center  mb-4 flex-wrap">
                 <Link to="/">Home</Link>
                 <IoMdArrowDropright className="mx-2" />
                 <Link to="/filter">Destination</Link>
@@ -99,22 +99,22 @@ const Trip = () => {
             </div>
             <div >
                 <div className="row  ">
-                    <div className=" col-md-7 offset-md-1">
+                    <div className=" col-lg-7 offset-lg-1">
                         <div className="header">
-                            <div className="row   mb-md-5">
+                            <div className="row   mb-lg-5">
                                 <figure>
                                     <img className="w-100 trip-img" src={tripData.image} alt="" />
                                 </figure>
                                 <div className="row justify-content-between flex-wrap w-100">
-                                    <div className=" col-md-8">  <h1 className=" fw-bold  fs-2  ">{tripData.tripTitle} </h1></div>
-                                  
-                                    <div className="days mt-2 d-none d-md-inline col-md-4">
+                                    <div className=" col-lg-10">  <h1 className=" fw-bold  fs-3  ">{tripData.tripTitle} </h1></div>
+
+                                    <div className="days mt-2 d-none d-lg-inline col-md-2">
                                         <div className="number__day shadow-lg  p-5  d-flex justify-content-center w-50 py-1 m-auto">
                                             <h4 className="fw-bold">{tripData.duration}</h4>
                                         </div>
                                         {tripData.type && (
                                             <div className="bg-white shadow-lg p-5 d-flex justify-content-center fw-bold w-50   m-auto py-1 day rounded-bottom-1">
-                                                {tripData.type.includes("dayTours")?"Hours":"Days"
+                                                {tripData.type.includes("dayTours") ? "Hours" : "Days"
                                                 }
                                             </div>
                                         )}
@@ -125,7 +125,7 @@ const Trip = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-3 ">
+                    <div className="col-lg-3 ">
                         <div className=" shadow-lg p-4   trip-card-info">
                             <div className="row">
                                 <div className="col-md-12 ">
@@ -176,13 +176,13 @@ const Trip = () => {
                                         </div>
                                     </div>
                                     <button className="check__btn py-3  w-100 m-auto">inquire now</button>
-                                    <p className="text-fees mt-4">
+                                    <p className="text-fees mt-4 text-black">
                                         {" "}
                                         Need help with booking?{" "}
-                                        <span className="ms-2 text__color">
+                                        <a className="ms-2 text__color" href="#form">
                                             {" "}
                                             Send Us A Message{" "}
-                                        </span>{" "}
+                                        </a>{" "}
                                     </p>
                                 </div>
                             </div>
@@ -244,8 +244,8 @@ const Trip = () => {
                 </div>
             </section>
             <section>
-                <div className="offset-md-1 col-md-10 py-3 tabs__tab  " >
-                    <h3 className="border__green my-4 fw-bold   " id="overview"><span className="ms-3 ">Overview</span></h3>
+                <div className="offset-lg-1 col-lg-10 py-3 tabs__tab  " id="overview" >
+                    <h3 className="border__green my-4 fw-bold   " ><span className="ms-3 ">Overview</span></h3>
                     <p className="lh-lg mb-5 text-muted bg-white  p-3 itinerary-description rounded-3">{tripData.overview}</p>
                     <div className="highlights mb-5  ">
                         <h5 className="fw-bold secondary-color-text   ">Highlights</h5>
@@ -267,7 +267,7 @@ const Trip = () => {
                                 <div className="itinerary__cards">
                                     <div className="itinerary__content shadow-2  mb-4 rounded-2  bg-white  p-3 itinerary-description rounded-3">
                                         <h5 className="mb-3 fw-bold">
-                                            <span className="secondary-color-text me-2 itinerary__content__day fw-bolder">  { tripData.type.includes("dayTours")?'' :` Day ${index + 1} :`}</span>
+                                            <span className="secondary-color-text me-2 itinerary__content__day fw-bolder">  {tripData.type.includes("dayTours") ? '' : ` Day ${index + 1} :`}</span>
                                             {itinerary.title}
                                         </h5>
                                         <p className="lh-lg text-muted itinerary-description">{itinerary.description}.</p>
@@ -315,80 +315,21 @@ const Trip = () => {
                 </div>
 
             </section>
-            <section >
+            <section id="form"> 
                 <div className="p-5  bg__form trip__form m-auto  mb-5">
                     <h4 className="mb-4 text__color mb-5 opacity-100 text-black fw-bold">
                         You can send your enquiry via the form below.{" "}
                     </h4>
-                    <div className="row justify-content-center align-items-center">
-                        <Form>
-                            <Form.Label className="mb-5  "> Trip name: <span className="ms-2 text-black"> 5 Days – 4 Nights Nile Cruise From Cairo by flight – Solo Traveler	</span> </Form.Label>
-                            <Form.Group className="mb-4" controlId="formBasicName">
-                                <Form.Label className="form__label"> Your name: *</Form.Label>
-                                <Form.Control type="text" placeholder="Enter your name" className="py-3" />
+                    <div className="row justify-content-center align-items-center" >
+                        <DataForm tripTitle={tripData.tripTitle}  />
 
-                            </Form.Group>
-                            <Form.Group className="mb-4" controlId="formBasicEmail">
-                                <Form.Label className="form__label"> Your email: * </Form.Label>
-                                <Form.Control type="email" placeholder="Enter email" className="py-3" />
-
-                            </Form.Group>
-                            <div className="row mb-4">
-                                <div className="col-md-6">  <Form.Group className="mb-3" controlId="formBasicCountry">
-                                    <Form.Label className="form__label ">Country </Form.Label>
-                                    <Select
-
-                                        value={selectedCountry}
-                                        onChange={handleCountryChange}
-                                        options={SelectCountryList().getData().map(({ value, label }) => ({
-                                            value,
-                                            label: `${label} (${value})`,
-                                        }))}
-                                        placeholder="Select Country"
-                                    />
-                                </Form.Group></div>
-                                <div className="col-md-6">  <Form.Group controlId="formBasicNumber">
-                                    <Form.Label className="form__label "> Contact number: *  </Form.Label>
-                                    <Form.Control type="number" placeholder="Enter number" />
-                                </Form.Group>
-                                </div>
-                                <div className="col-md-6 ">
-                                    <Form.Group className="mb-3" controlId="formBasicChildren">
-                                        <Form.Label className="form__label "> No. of Adults *  </Form.Label>
-
-                                        <Form.Control type="number" placeholder="Enter your  Number of Adults * " className='py-3' />
-
-                                    </Form.Group>
-                                </div>
-                                <div className="col-md-6 ">
-                                    <Form.Group className="mb-3" controlId="formBasicChildren">
-                                        <Form.Label className="form__label ">No. of Children  </Form.Label>
-
-                                        <Form.Control type="number" placeholder="Enter your Number of Children" className='py-3' />
-
-                                    </Form.Group>
-                                </div>
-                            </div>
-                            <Form.Group className="mb-4" controlId="formBasicName">
-                                <Form.Label className="form__label">Enquiry Subject:</Form.Label>
-                                <Form.Control type="text" placeholder="Enquiry Subject" className="py-3" />
-
-                            </Form.Group>
-                            <Form.Group className="mb-4" controlId="exampleForm.ControlTextarea1">
-                                <Form.Label className="form__label "> Your Message   </Form.Label>
-                                <Form.Control as="textarea" rows={8} placeholder='Enter your Message ' />
-                            </Form.Group>
-                            <Button variant="primary" type="submit" className=' main_Color border-0 rounded-0 py-3 px-5'>
-                                Submit
-                            </Button>
-                        </Form>
                     </div>
                 </div>
             </section>
-            <section className=" pb-5 offset-md-1">
+            <section className=" pb-5 offset-lg-1">
                 <h2 className="fw-bold  text-black fs-3">Related trips you might interested in</h2>
                 <div className="row justify-content-center">
-                    <Trips duration={tripData.duration} />
+                    <Trips destination={tripData.destination} />
                 </div>
             </section>
 

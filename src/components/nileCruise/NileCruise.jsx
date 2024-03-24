@@ -40,7 +40,7 @@ function nileCruise() {
         </div>
         <section className="header">
           <div className="row">
-            <div className="col-md-6 mb-5">
+            <div className="col-lg-6 mb-5">
               <h1 className="mb-4">Egypt Nile Cruise</h1>
               <p className="text-muted egypt_tour_text mb-5">
                 Explore the wonders of Egypt with a Nile Cruise. Allover Egypt offers unforgettable journeys from Luxor to Aswan, providing you and your loved ones with an extraordinary experience.
@@ -50,7 +50,7 @@ function nileCruise() {
               </h6>
               <Link to="/contact" className=" shadow-lg px-4 py-3 my-3 secondary-color text-white rounded-pill ">Request Itinerary</Link>
             </div>
-            <div className="col-md-6 ">
+            <div className="col-lg-6 ">
               <Slider images={images} />
             </div>
           </div>

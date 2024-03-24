@@ -110,7 +110,7 @@ const Home = () => {
        
               <div className="row justify-content-center align-content-center  rounded-3 ">
                 <div className="col-md-12">
-                <Offers/>
+                <Offers offer="pK" />
                 </div>
               </div>
             
@@ -118,14 +118,14 @@ const Home = () => {
           
             
           </section>
-          <section id='Best-Selling' className=" Best-Selling tour-package-img shadow-inner shadow-sec-none rounded-3 p-5 my-5">
+          <section id='Best-Selling' className=" Best-Selling  tour-package-img shadow-inner shadow-sec-none rounded-3 p-5 my-5">
             <h2 className=" text-center fw-bold text__color pt-5">Best-Selling Egypt Tour Packages</h2>
             <MySwiper />
             <div className="text-center mt-3">
               <Link to={{
                 pathname: '/filter',
                 search: `?packages=StandardFourPackages`
-              }} className='p-3  rounded-1 secondary-color text-white'>
+              }} className='p-3  rounded-1 secondary-color  text-white'>
                 See all tour packages
               </Link>
             </div>

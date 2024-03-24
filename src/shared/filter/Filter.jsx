@@ -8,7 +8,7 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Pagination } from 'swiper';
 
-
+import PaginationFilter from "../../shared/pagination/PaginationFilter";
 import 'swiper/swiper.min.css';
 import 'swiper/css/pagination';
 import './filterTrip.css';
@@ -24,11 +24,18 @@ const Filter = () => {
     const duration = params.get('duration');
     const [selectedDuration, setSelectedDuration] = useState(0);
     const [maxDuration, setMaxDuration] = useState(12);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalTrips, setTotalTrips] = useState(0); 
+
+    const itemsPerPage = 12; 
+
     useEffect(() => {
         window.scrollTo(0, 0);
         setSelectedType(selectedItem);
     }, [selectedItem]);
-
+console.log(
+    "drt",tripData.length
+);
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -64,14 +71,19 @@ const Filter = () => {
                     filteredTrips = filteredTrips.filter(trip => trip.duration == selectedDuration);
                 }
                 filteredTrips = filteredTrips.sort((a, b) => parseInt(a.duration) - parseInt(b.duration));
-                setTripData(filteredTrips);
+                const startIndex = (currentPage - 1) * itemsPerPage;
+                const endIndex = startIndex + itemsPerPage;
+                const paginatedTrips = filteredTrips.slice(startIndex, endIndex);
+                setTripData(paginatedTrips);
+                setTotalTrips(filteredTrips.length);
+               
             } catch (error) {
                 console.error("Error fetching data: ", error);
             }
         };
 
         fetchData();
-    }, [selectedType, selectedDestination, packages, selectedDuration]);
+    }, [selectedType, selectedDestination, packages, selectedDuration,currentPage,totalTrips]);
 
 
     const handleTypeClick = (type) => {
@@ -81,28 +93,32 @@ const Filter = () => {
 
     const handleDestinationClick = (destination) => {
         setSelectedDestination(prevDestination => prevDestination === destination ? null : destination);
+        setCurrentPage(1);
     };
     const handleDurationChange = (e) => {
         setSelectedDuration(parseInt(e.target.value));
-
+        setCurrentPage(1);
     };
     const handleTypeClicked = (type) => {
-        setSelectedType(type === "All" ? null : type);
-        if (type === "All") {
+        if (type === "All" || type === "pk"||type === "tb") {
+            setSelectedType(type === "All" ? null : type);
             setSelectedDestination(null);
-            const currentSearchParams = new URLSearchParams(window.location.search);
-            currentSearchParams.delete("destination");
-            window.history.replaceState({}, '', `${window.location.pathname}?${currentSearchParams}`);
         }
-
+        window.history.replaceState({}, '', '/filter');
+        setCurrentPage(1);
     };
+    const handlePageChange = (page) => {
+        setCurrentPage(page);      
+    
+
+      };
 
     return (
         <>
             <main className="page catalog-page bg-dark-subtle" id="filter">
                 <section className="clean-block clean-catalog banner-img banner ">
                     <div className="layer w-100 h-100 py-5  position-relative">
-                        <h1 className="my-4 text-white text-center py-5">Allover Egypt Tours</h1>
+                        <h1 className="my-4 text-white text-center py-5 not-found-title ">Allover Egypt Tours</h1>
                         <div className="container tour-package-img">
                             <Nav fill variant="tabs" defaultActiveKey={`/${selectedType}`} onSelect={handleTypeClick}>
                                 <Swiper
@@ -116,7 +132,7 @@ const Filter = () => {
                                             spaceBetween: 2,
                                         },
                                         768: {
-                                            slidesPerView:3,
+                                            slidesPerView: 3,
                                         },
                                         1024: {
                                             slidesPerView: 3,
@@ -256,29 +272,52 @@ const Filter = () => {
                                                             <div className="col-md-7">
                                                                 <div className="day text-start d-flex align-items-center mb-3">
                                                                     <FaRegClock className="me-2 text-beige fs-6" />{" "}
-                                                                    <span className="fs-6">{trip.type.includes("dayTours")?`${trip.duration} Hours`:`${trip.duration} Days`}</span>
+                                                                    <span className="fs-6">{trip.type.includes("dayTours") ? `${trip.duration} Hours` : `${trip.duration} Days`}</span>
                                                                 </div>
                                                             </div>
                                                             <div className="col-md-5">
                                                                 {trip && trip.pricePackages && trip.pricePackages.length > 0 && (
                                                                     <>
-                                                                        <h5 className="text-slate-900 fw-bold mb-0 text-start price">
+                                                                        {trip.offer ? (
+                                                                            <h5 className="text-slate-900 fw-bold mb-0 text-start price">
+                                                                                <span className="text-decoration-line-through price-package d-flex align-items-center mx-1">
+                                                                                    ${Math.min(
+                                                                                        ...trip.pricePackages.flatMap(pricePackage =>
+                                                                                            pricePackage.options.map(option => option.price)
+                                                                                        )
+                                                                                    )}
+                                                                                </span>
+                                                                                <span className="text-slate-900 fw-bolder mb-0 text-start price-package text-danger">
+                                                                                    ${(Math.min(
+                                                                                        ...trip.pricePackages.flatMap(pricePackage =>
+                                                                                            pricePackage.options.map(option => option.price)
+                                                                                        )
+                                                                                    ) * 0.9).toFixed(0)}
+                                                                                </span>
+                                                                            </h5>
+
+                                                                        ) : <h5 className="text-slate-900 fw-bold mb-0 text-start price">
                                                                             <span className="text-lg text-beige ">$ </span>
-                                                                            {
-                                                                                Math.min(
-                                                                                    ...trip.pricePackages.flatMap((pricePackage) =>
-                                                                                        pricePackage.options.map((option) => option.price)
-                                                                                    )
+                                                                            {Math.min(
+                                                                                ...trip.pricePackages.flatMap(pricePackage =>
+                                                                                    pricePackage.options.map(option => option.price)
                                                                                 )
-                                                                            }
-                                                                        </h5>
+                                                                            )}
+                                                                        </h5>}
+                                                                     
                                                                     </>
                                                                 )}
                                                             </div>
+
                                                         </div>
                                                     </div>
                                                 ))}
                                             </div>
+                                            <PaginationFilter
+                  totalTrips={totalTrips}
+                  currentPage={currentPage}
+                  onPageChange={handlePageChange}
+                />
                                         </div>
                                     </div>
                                 </div>

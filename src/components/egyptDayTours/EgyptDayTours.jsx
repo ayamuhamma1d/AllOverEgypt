@@ -58,10 +58,10 @@ const EgyptDayTours = () => {
           </div>
           <div className="header ">
             <div className="row align-items-center ">
-              <div className="col-md-6 mb-5">
+              <div className="col-lg-6 mb-5">
                 <Slider images={images} />
               </div>
-              <div className="col-md-6">
+              <div className="col-lg-6">
                 <h1 className="mb-4 ">Egypt Day Tours </h1>
                 <p className="text-muted egypt_tour_text mb-5">
                   Free for three, two or even one day during your visit to Egypt
@@ -124,7 +124,7 @@ const EgyptDayTours = () => {
               { name: "hurghada", img: Hurghada, title: "Hurghada  Day Tours", description: "If you’re looking for a great way to explore the beauty of Hurghada, Egypt, then one of our Hurghada Egypt Day Tours is just what you need. With adventurous activities like.. ", card: "card8", text: "Whether you want to stay in the Capital or travel to other cities, we got your back!", text: "beach BBQs and snorkeling and boat trips in crystal-clear waters, you’ll never forget your day on the Red Sea. Start your Egyptian adventure today and make unforgettable memories that last a lifetime! With our Hurghada Egypt Day tours." },
 
             ].map((item, index) => (
-              <div key={index} className="col-md-3 mb-2">
+              <div key={index} className="col-md-6 col-lg-3 mb-2">
                 <Card className='shadow h-100 '>
                   <div className="position-relative">   <Card.Img variant="top" src={item.img} className=' p-2' />
                     <div className=" text-white  card_imgLayer  text-center text-center d-flex justify-content-center align-items-center">
@@ -178,7 +178,7 @@ const EgyptDayTours = () => {
             and get ready for an unforgettable journey through this fascinating
             country.
           </p>
-          <MySwiper />
+          <MySwiper tripType='dayTours' />
         </Container>
       </section>
 

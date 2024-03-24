@@ -22,7 +22,7 @@ const WhyBook = () => {
     </p>
 
     <div className="row align-items-center g-4 mt-4 ">
-      <div className="col-md-4 ">
+      <div className="col-md-6 col-lg-4 ">
         <div className="d-flex align-items-center ">
           <div className="done__icon rounded-circle me-3 d-flex justify-content-center align-items-center text-white">
             <MdOutlineDone />
@@ -30,7 +30,7 @@ const WhyBook = () => {
           <p className="mb-0">24/7 Customer Service</p>
         </div>
       </div>
-      <div className="col-md-4 ">
+      <div className="col-md-6 col-lg-4 ">
         <div className="d-flex align-items-center ">
           <div className="done__icon rounded-circle me-3 d-flex justify-content-center align-items-center text-white">
             <MdOutlineDone />
@@ -38,7 +38,7 @@ const WhyBook = () => {
           <p className="mb-0">100% Tailor-Made Tour</p>
         </div>
       </div>
-      <div className="col-md-4 ">
+      <div className="col-md-6 col-lg-4 ">
         <div className="d-flex align-items-center  ">
           <div className="done__icon rounded-circle me-3 d-flex justify-content-center align-items-center text-white">
             <MdOutlineDone />
@@ -46,7 +46,7 @@ const WhyBook = () => {
           <p className="mb-0">Best Price Guaranteed</p>
         </div>
       </div>
-      <div className="col-md-4 ">
+      <div className="col-md-6 col-lg-4 ">
         <div className="d-flex align-items-center  ">
           <div className="done__icon rounded-circle me-3 d-flex justify-content-center align-items-center text-white">
             <MdOutlineDone />
@@ -54,7 +54,7 @@ const WhyBook = () => {
           <p className="mb-0">Local Expert</p>
         </div>
       </div>
-      <div className="col-md-4 ">
+      <div className="col-md-6 col-lg-4 ">
         <div className="d-flex align-items-center  ">
           <div className="done__icon rounded-circle me-3 d-flex justify-content-center align-items-center text-white">
             <MdOutlineDone />
@@ -62,7 +62,7 @@ const WhyBook = () => {
           <p className="mb-0">Private Guided Tours</p>
         </div>
       </div>
-      <div className="col-md-4 ">
+      <div className="col-md-6 col-lg-4 ">
         <div className="d-flex align-items-center  ">
           <div className="done__icon rounded-circle me-3 d-flex justify-content-center align-items-center text-white text-center">
             <MdOutlineDone />

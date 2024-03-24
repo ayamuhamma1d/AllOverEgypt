@@ -16,10 +16,10 @@ SwiperCore.use([Pagination, Autoplay]);
 
 const MySwiper = (props) => {
   const [tripData, setTripData] = useState([]);
-console.log(props.offer)
+  console.log(props.offer,props.tripType)
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+
     const fetchData = async () => {
       try {
         const querySnapshot = await getDocs(collection(db, "trips"));
@@ -28,38 +28,29 @@ console.log(props.offer)
           ...doc.data()
         }));
         let filteredTrips = trips;
-
-        if (props.tripType != undefined && props.tripType) {
+        if (props.tripType && props.offer) {
+          filteredTrips = filteredTrips.filter((trip) => trip.type.includes(props.tripType) && (trip.offer?.includes(props.offer)||trip.offer?.includes("dt")));
+        } else if (props.tripType) {
           filteredTrips = filteredTrips.filter((trip) => trip.type.includes(props.tripType));
-          filteredTrips = filteredTrips.sort((a, b) => parseInt(a.duration) - parseInt(b.duration));
-          setTripData(filteredTrips);
+        } else if (props.offer) {
+          filteredTrips = filteredTrips.filter((trip) => trip.offer?.includes(props.offer));
         }
-        if(props.offer != undefined &&props.offer){
-          filteredTrips = filteredTrips.filter((trip) => trip.offer);
-
-        }
-        else {
-          filteredTrips = filteredTrips.sort((a, b) => parseInt(a.duration) - parseInt(b.duration));
-          setTripData(filteredTrips);
- 
-
-        }
-
-
-
+  
+        filteredTrips = filteredTrips.sort((a, b) => parseInt(a.duration) - parseInt(b.duration));
+        setTripData(filteredTrips);
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
     };
     fetchData();
-  }, [props.tripType]);
+  }, [props.tripType, props.offer]);
 
   return (
     <div className="swiper-container">
       <Swiper
         slidesPerView={4}
         spaceBetween={5}
-     
+
         autoplay={{
           delay: 3000,
           disableOnInteraction: false,
@@ -67,18 +58,18 @@ console.log(props.offer)
         breakpoints={{
           0: {
             slidesPerView: 2.2,
-            spaceBetween:8
+            spaceBetween: 8
           },
-          500:{
+          500: {
             slidesPerView: 2.6,
-            spaceBetween:10
+            spaceBetween: 10
           },
           768: {
-            slidesPerView: 5.2,
-            spaceBetween:5
+            slidesPerView: 3.5,
+            spaceBetween: 5
           },
           1024: {
-            slidesPerView: 5.2,
+            slidesPerView: 4.2,
           },
           1300: {
             slidesPerView: 6,
@@ -103,38 +94,44 @@ console.log(props.offer)
                       {trip.tripTitle}
                     </p>
                   </Link>
-                  <p className="text-start text-muted lh-base mb-1 ">          
-                  {trip.type.includes("dayTours")?`${trip.duration} hours`:`${trip.duration} Days`}
-</p>
+                  <p className="text-start text-muted lh-base mb-1 ">
+                    {trip.type.includes("dayTours") ? `${trip.duration} hours` : `${trip.duration} Days`}
+                  </p>
                   <div className="">
-                      {trip && trip.pricePackages && trip.pricePackages.length > 0 && (
-                        <p className="  mb-0 text-start d-flex align-items-center  text-muted ">
-                           from {" "} 
-                          <span className="text-decoration-line-through price-package d-flex align-items-center mx-1">
-                     $
-                           {
-                            Math.min(
+                    {trip && trip.pricePackages && trip.pricePackages.length > 0 && (
+                      <p className="  mb-0 text-start d-flex align-items-center  text-muted ">
+                       
+                        {trip.offer ? (
+                          <>
+                           from {" "}
+                            <span className={`text-decoration-line-through price-package d-flex align-items-center mx-1  `}>
+                              ${Math.min(
+                                ...trip.pricePackages.flatMap(pricePackage =>
+                                  pricePackage.options.map(option => option.price)
+                                )
+                              )}
+                            </span>
+                            <span className="text-slate-900 fw-bolder mb-0 text-start price-package text-danger">
+                              ${(Math.min(
+                                ...trip.pricePackages.flatMap(pricePackage =>
+                                  pricePackage.options.map(option => option.price)
+                                )
+                              ) * 0.9).toFixed(2)}
+                            </span>
+                          </>
+                        ) : (
+                          <span className="text-slate-900 fw-bolder mb-0 text-start price-package text-black fs-6">
+                            ${Math.min(
                               ...trip.pricePackages.flatMap(pricePackage =>
                                 pricePackage.options.map(option => option.price)
                               )
-                            )
-                          }   
+                            ).toFixed(2)}
                           </span>
-                      
-                              <span className="text-slate-900 fw-bolder mb-0 text-start price-package text-danger">
-                          $
-                          {Math.min(
-                            ...trip.pricePackages.flatMap(pricePackage =>
-                              pricePackage.options.map(option => option.price)
-                            )
-                          ) * 0.9 } 
-                        </span>
-                      
-                        </p>
-                      )}
-         
-                    </div>
-               
+                        )}
+                      </p>
+                    )}
+                  </div>
+
                 </div>
               </div>
             </div>

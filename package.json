@@ -22,6 +22,7 @@
     "react-flag-kit": "^1.1.1",
     "react-hook-form": "^7.49.2",
     "react-icons": "^4.12.0",
+    "react-paginate": "^8.2.0",
     "react-phone-number-input": "^3.3.9",
     "react-router-dom": "^6.21.1",
     "react-select": "^5.8.0",

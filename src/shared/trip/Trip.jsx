@@ -11,10 +11,10 @@ const Trip = (props) => {
   const scrollToTop=()=>{
     window.scrollTo(0, 0);
   }
-  const[duration,setDuration] = useState(props.duration);
+  const[destination,setDestination] = useState(props.destination);
   
   useEffect(() => {
-    console.log("props",props.duration);
+    console.log("props",props.destination);
     window.scrollTo(0, 0);
     const fetchData = async () => {
       try {
@@ -29,8 +29,8 @@ const Trip = (props) => {
             filteredTrips = filteredTrips.filter((trip) => trip.type.includes(props.tripType));
             setTripData(filteredTrips);
         }
-        if(props.duration!=undefined && props.duration){
-          filteredTrips = filteredTrips.filter((trip) => trip.duration.includes(props.duration));
+        if(props.destination!=undefined && props.destination){
+          filteredTrips = filteredTrips.filter((trip) => trip.destination).slice(0,4);
           setTripData(filteredTrips);
         }
        else{
@@ -44,12 +44,12 @@ const Trip = (props) => {
       }
     };
     fetchData();
-  }, [props.duration,props.tripType]);
+  }, [props.destination,props.tripType]);
 
   return (
     <div className="row g-4 flex-wrap justify-center ">
       {tripData.map((trip) => (
-        <div key={trip.id} className="col-md-3 mb-5">
+        <div key={trip.id} className="col-md-6 col-lg-4 col-xl-3 mb-5">
           <Link to={`/trips/${trip.id}`} onClick={scrollToTop}>
             <img src={trip.image} alt={trip.tripTitle} className="w-100 trip__img" />
           </Link>

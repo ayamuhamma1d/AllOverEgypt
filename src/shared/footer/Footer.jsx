@@ -12,7 +12,7 @@ export default function Footer() {
         <section className='p-5'>
           <MDBContainer className='text-center text-md-start mt-5'>
             <MDBRow className='mt-3'>
-              <MDBCol md="3" lg="4" xl="6" className='mx-auto mb-4 '>
+              <MDBCol md="12" lg="4" xl="6" className='mx-auto mb-4 '>
                 <h4 className='text-uppercase fw-bold mb-4 secondary-color-text'>
                   <MDBIcon icon="gem" className="" />
                   Allover Egypt
@@ -22,7 +22,7 @@ export default function Footer() {
                   Welcome to our exclusive travel platform, your gateway to unforgettable adventures in the heart of Egypt.
                 </p>
               </MDBCol>
-              <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4 useful-links '>
+              <MDBCol md="12" lg="2" xl="2" className='mx-auto mb-4 useful-links '>
                 <h6 className='text-uppercase fw-bold mb-4 secondary-color-text'>Useful links</h6>
                 <p>
                   <a href='#!' className='text-reset'>
@@ -43,7 +43,7 @@ export default function Footer() {
                   </Link>
                 </p>
               </MDBCol>
-              <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-md-0 mb-4 useful-links'>
+              <MDBCol md="12" lg="3" xl="3" className='mx-auto mb-md-0 mb-4 useful-links'>
                 <h6 className='text-uppercase fw-bold mb-4 secondary-color-text'>Contact</h6>
                 <a href="mailto:Info@allover-egypt.com"
                   className='text-black text-decoration-none d-flex align-items-center mb-3 link-position'
@@ -58,7 +58,8 @@ export default function Footer() {
                 >
                   <FaWhatsapp className='me-2  secondary-color-text icon-style ' />
                   <span className='text-black  '>(+2) 01155430742</span>
-                </a>            </MDBCol>
+                </a>         
+                   </MDBCol>
             </MDBRow>
           </MDBContainer>
         </section>
@@ -69,7 +70,7 @@ export default function Footer() {
           </Link>  <span>
              , Site created by{' '}
               <a
-                href="https://github.com/ayamuhamma1d?tab=repositories"
+                href="https://github.com/ayamuhamma1d"
                 target="_blank"
                 className="text-black fw-bold text__color"
                 title="About Aya Muhammad"
