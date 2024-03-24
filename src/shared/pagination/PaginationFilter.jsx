@@ -2,9 +2,8 @@ import React from "react";
 import { Pagination } from "react-bootstrap";
 
 const PaginationFilter = ({ totalTrips, currentPage, onPageChange }) => {
-  const totalPages = Math.ceil(totalTrips / 12); // Assuming 12 items per page
+  const totalPages = Math.ceil(totalTrips / 12); 
 
-  // Render pagination only if there are more than 12 items or if there is filtered data
   if (totalTrips === 0 || totalTrips <= 12) {
     return null;
   }

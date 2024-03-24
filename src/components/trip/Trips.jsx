@@ -39,6 +39,16 @@ const Trip = () => {
             console.log("currentPosition", currentPosition);
             setIsScrollingUp(currentPosition > 896);
             setScrollPosition(currentPosition);
+            if(0<currentPosition<840){
+                setActiveTab('overview'); 
+            }
+            if(currentPosition>850){
+                setActiveTab('itinerary'); 
+            }
+            if(currentPosition>1600){
+                setActiveTab('cost'); 
+
+            }
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -64,7 +74,7 @@ const Trip = () => {
                 console.error("Error fetching data: ", error);
             }
         };
-
+   
         fetchData();
     }, [id]);
 
@@ -80,6 +90,7 @@ const Trip = () => {
     const handleTabClick = (tab) => {
         setActiveTab(tab);
         console.log(tab);
+    
     };
     return (
         <Container className="pt-4 my-5">
@@ -191,7 +202,7 @@ const Trip = () => {
                 </div>
             </div>
 
-            <section className={`tabs position-sticky  tour-package-img shadow rounded-5 trip-nav m-auto ${scrollPosition > 600 && scrollPosition < 2000 ? 'sticky ' : ''}`}>
+            <section className={`tabs position-sticky  tour-package-img shadow rounded-5 trip-nav m-auto ${scrollPosition > 600 && scrollPosition < 2500 ? 'sticky ' : ''}`}>
                 <div className="row">
                     <div className="col-md-12">
                         <div className="d-flex justify-content-around py-3 border-bottom">
