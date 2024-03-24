@@ -45,6 +45,10 @@ const Trip = () => {
             if(currentPosition>850){
                 setActiveTab('itinerary'); 
             }
+            if(currentPosition>1100&&tripData.type.includes('dayTours')){
+                setActiveTab('cost'); 
+
+            }
             if(currentPosition>1600){
                 setActiveTab('cost'); 
 
