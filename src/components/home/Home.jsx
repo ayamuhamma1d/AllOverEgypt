@@ -99,7 +99,7 @@ const Home = () => {
             </div>
           </section>
           <section className='card-slider my-5 tour-package-img px-5 py-3 shadow-inner shadow-sec-none rounded-3 ' id='cardSliderSec'>
-            <h2 className='mb-4 fw-bold  text-center  pt-4 '>Egypt Top Destinations</h2>
+            <h2 className='mb-4 fw-bold  text-center  pt-4 '>Where to go in Egypt</h2>
             <CardSlider />
           </section>
           <section id='Best-Selling' className=" Best-Selling   shadow-inner shadow-sec-none rounded-3 p-5 my-5">
