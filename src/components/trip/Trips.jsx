@@ -49,7 +49,7 @@ const Trip = () => {
                 setActiveTab('cost'); 
 
             }
-            if(currentPosition>1900){
+            if(currentPosition>1600){
                 setActiveTab('cost'); 
 
             }
